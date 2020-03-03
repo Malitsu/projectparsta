@@ -1,0 +1,2 @@
+rootProject.name='Parsta'
+include ':app'
