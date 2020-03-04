@@ -3,6 +3,7 @@ package fi.tuni.parsta;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -15,7 +16,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void click(View v) {
-        System.out.println(v.getId());
+        Intent gameIntent = new Intent(this, Game.class);
+        startActivity(gameIntent);
+
     }
 
     public void about(View v) {
