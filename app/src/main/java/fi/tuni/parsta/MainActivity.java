@@ -37,4 +37,8 @@ public class MainActivity extends AppCompatActivity {
 
         dialog.show();
     }
+
+    public void start(View v) {
+        
+    }
 }
