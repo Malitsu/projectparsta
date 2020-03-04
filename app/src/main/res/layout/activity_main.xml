@@ -34,7 +34,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Achievementit"
-            android:onClick="click"
+            android:onClick="achivClick"
             android:id="@+id/achievements"
             />
 

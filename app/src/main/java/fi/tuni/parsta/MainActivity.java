@@ -21,6 +21,12 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public void achivClick(View v) {
+        Intent achievementIntent = new Intent(this, Achievement.class);
+        startActivity(achievementIntent);
+
+    }
+
     public void about(View v) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
