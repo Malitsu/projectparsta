@@ -1,5 +1,6 @@
 package fi.tuni.parsta;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -15,5 +16,16 @@ public class MainActivity extends AppCompatActivity {
 
     public void click(View v) {
         System.out.println(v.getId());
+    }
+
+    public void about(View v) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+        builder.setMessage("Tämä on kasvojen tunnistus peli.\nHanke:\nTekijät:")
+                .setTitle("Kasvojen tunnistus peli");
+
+        AlertDialog dialog = builder.create();
+
+        dialog.show();
     }
 }
