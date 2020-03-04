@@ -20,6 +20,7 @@
         android:layout_height="wrap_content"
         android:text="Aloita"
         android:onClick="click"
+        android:id="@+id/start"
         />
 
     <Button
@@ -27,6 +28,7 @@
         android:layout_height="wrap_content"
         android:text="Achievementit"
         android:onClick="click"
+        android:id="@+id/achievements"
         />
 
     <Button
@@ -34,6 +36,7 @@
         android:layout_height="wrap_content"
         android:text="About"
         android:onClick="click"
+        android:id="@+id/about"
         />
 
 </LinearLayout>
