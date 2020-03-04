@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    public void click(View v) {
+    public void startClick(View v) {
         Intent gameIntent = new Intent(this, Game.class);
         startActivity(gameIntent);
 
@@ -38,8 +38,4 @@ public class MainActivity extends AppCompatActivity {
         dialog.show();
     }
 
-    public void start(View v) {
-        Intent intent = new Intent(this, Game.class);
-        startActivity(intent);
-    }
 }
