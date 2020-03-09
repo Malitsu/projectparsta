@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:padding="10dp"
+        android:layout_height="200dp"
+        android:background="#000000"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Settings"
+            android:textSize="20sp"
+            android:textColor="#fff"
+            android:id="@+id/heading"/>
+
+        <CheckBox
+            android:id="@+id/sound_effect_on"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Äänitehosteet päällä "
+            android:textAlignment="textStart"
+            android:layout_marginTop="80dp"
+            android:layout_gravity="start"
+            android:buttonTint="#33bbff"
+            android:textColor="#fff"
+
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="OK"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
+            android:textSize="20sp"
+            android:textColor="#33bbff"
+            android:id="@+id/action_ok"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="PERUUTA"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="20dp"
+            android:textSize="20sp"
+            android:textColor="#33bbff"
+            android:id="@+id/action_cancel"/>
+    </RelativeLayout>
+</RelativeLayout>

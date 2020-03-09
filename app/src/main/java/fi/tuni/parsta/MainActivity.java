@@ -39,14 +39,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void settings(View v) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-
-        builder.setMessage("Settings here!")
-                .setTitle("Settings");
-
-        AlertDialog dialog = builder.create();
-
-        dialog.show();
+        SettingsDialog dialog = new SettingsDialog();
+        dialog.show(getSupportFragmentManager(), "SettingsDialog");
     }
 
 }
