@@ -1,6 +1,8 @@
 package fi.tuni.parsta;
 
 import android.os.Bundle;
+import android.os.Debug;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,8 +37,9 @@ public class SettingsDialog extends DialogFragment {
         mActionOk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //save this to memory when ever that option been created
                 soundEffectsOn = soundSettings.isChecked();
-                System.out.println(soundEffectsOn);
+                Log.d("SettingsDialog","Clicked on sound effect settings and it is currently: " + soundEffectsOn);
                 getDialog().dismiss();
             }
         });
