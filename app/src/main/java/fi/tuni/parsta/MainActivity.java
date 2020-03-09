@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void achivClick(View v) {
-        Intent achievementIntent = new Intent(this, Achievement.class);
+        Intent achievementIntent = new Intent(this, AchievementActivity.class);
         startActivity(achievementIntent);
 
     }
