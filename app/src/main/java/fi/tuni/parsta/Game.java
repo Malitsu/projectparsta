@@ -5,6 +5,7 @@ import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.util.TypedValue;
+import android.widget.ImageView;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -30,6 +31,8 @@ public class Game extends AppCompatActivity {
     int totalAnswers = 0;
     private Gson gson;
     GameImage[] images;
+    int level = 1;
+    ImageView questionImg;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,37 +44,26 @@ public class Game extends AppCompatActivity {
         for(GameImage i : images) {
             Log.d("GAMEIMAGETAG",i.name);
         }
-
-//        String resourceId = "@drawable/happy_placeholder";
-//
-//        TypedValue value = new TypedValue();
-//        this.getResources().getValue(resourceId, value, true);
-
-        Field[] fields = R.drawable.class.getFields();
-        List<Integer> amountOfAllImages = new ArrayList<Integer>();
-        for (Field field : fields) {
-            // Take only those with name starting with "fr"
-            Log.d("GameClass", field.getName());
-            if (field.getName().contains("face_")) {
-                try {
-                    amountOfAllImages.add(field.getInt(null));
-                } catch (IllegalAccessException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-        Log.d("GameClass", amountOfAllImages.size() + " ");
+        gameLoop();
     }
 
     protected void gameLoop() {
-        while (totalAnswers <= 20) {
-            boolean rightanswer = getnewQuestion();
-            if(rightanswer) {
-                rightAnswers++;
-            }
-            totalAnswers++;
-        }
-        endRound();
+        Boolean rightAnswer = false;
+
+        //Get random question image (new question)
+        int rndImage = (int) (Math.random() * images.length);
+        GameImage newQuestion = images[rndImage];
+        String questionImgName = newQuestion.getName();
+
+        //Set image to image view
+        int resourceName = getStringResourceByName(questionImgName);
+        Log.d("GAMEIMAGE", resourceName + " ");
+        questionImg = (ImageView) findViewById(R.id.questionImg);
+        questionImg.setImageResource(resourceName);
+
+//        if(questionImgName.contains(****pressedButtonText****)){
+//            rightAnswer = true;
+//        }
     }
 
     public  void  convertJsonToGameImageObjects() {
@@ -87,11 +79,11 @@ public class Game extends AppCompatActivity {
 
     protected void endRound() {}
 
-    protected boolean getnewQuestion() {
-        return false;
+    private int getStringResourceByName(String aString) {
+        String packageName = getPackageName();
+        int resId = getResources().getIdentifier(aString, "drawable", packageName);
+        return resId;
     }
-
-
 
 }
 
