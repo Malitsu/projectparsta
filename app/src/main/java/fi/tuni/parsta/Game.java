@@ -6,6 +6,8 @@ import android.content.res.Resources;
 import android.os.Bundle;
 import android.util.Log;
 import android.util.TypedValue;
+import android.widget.Button;
+import android.widget.GridLayout;
 import android.widget.ImageView;
 
 import com.google.gson.Gson;
@@ -72,7 +74,13 @@ public class Game extends AppCompatActivity {
         Log.d("JEE", answerOptions.toString());
 
         //Create buttons with answer options
+        GridLayout gridLayout = findViewById(R.id.button_grid);
 
+        for (String answer : answerOptions) {
+            Button myButton = new Button(this);
+            myButton.setText(answer);
+            gridLayout.addView(myButton);
+        }
 
 
 //        if(questionImgName.contains(****pressedButtonText****)){
