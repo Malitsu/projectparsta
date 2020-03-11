@@ -6,7 +6,7 @@ public class Question {
     int id;
     String img_id;
     int numberOfOptions;
-    ArrayList<AnswerOption> answerOptions;
+    ArrayList<String> answerOptions;
 
     public Question(){
 
@@ -42,11 +42,11 @@ public class Question {
         this.numberOfOptions = numberOfOptions;
     }
 
-    public ArrayList<AnswerOption> getAnswerOptions() {
+    public ArrayList<String> getAnswerOptions() {
         return answerOptions;
     }
 
-    public void setAnswerOptions(ArrayList<AnswerOption> answerOptions) {
+    public void setAnswerOptions(ArrayList<String> answerOptions) {
         this.answerOptions = answerOptions;
     }
 }
