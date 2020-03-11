@@ -5,7 +5,6 @@
     "shortDesc": "This is a placeholder text",
     "longDesc": "This is a placeholder text for long text",
     "type": "CLICKS",
-    "unlocked": false,
     "unlockedIcon": "unlocked"
   },
   {
@@ -13,8 +12,7 @@
     "requiredValue": 20,
     "shortDesc": "This is a placeholder text",
     "longDesc": "This is a placeholder text for long text",
-    "type": "CLICKS",
-    "unlocked": false,
+    "type": "WINS",
     "unlockedIcon": "unlocked"
   },
   {
@@ -23,7 +21,6 @@
     "shortDesc": "This is a placeholder text",
     "longDesc": "This is a placeholder text for long text",
     "type": "CLICKS",
-    "unlocked": false,
     "unlockedIcon": "unlocked"
   }
 ]
