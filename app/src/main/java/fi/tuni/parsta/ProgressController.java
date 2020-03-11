@@ -58,11 +58,9 @@ public class ProgressController {
         List<Achievement> achievements = getAchievements();
         List<Achievement> achievementsReached = new ArrayList<>();
         for (Achievement achievement : achievements) {
-            if (!achievement.isUnlocked()) {
-                if (clicks > achievement.getClicksRequired()) {
-                    achievement.unlock();
-                    achievementsReached.add(achievement);
-                }
+            if (achievement.checkIfCompleted(clicks, wins)) {
+                achievement.unlock();
+                achievementsReached.add(achievement);
             }
         }
         return achievementsReached;
@@ -79,15 +77,29 @@ class Achievement {
     private boolean unlocked = false;
     private String longDesc;
     private String shortDesc = "This is a placeholder text: ";
-    private int clicksRequired;
+    private int requiredValue;
     private int lockedIcon;
     private int unlockedIcon;
+    private Type type;
+    private enum Type {
+        CLICKS, WINS, LEVEL
+    }
 
-    public Achievement(int clicksRequired) {
-        this.clicksRequired = clicksRequired;
-        this.shortDesc = this.getShortDesc() + clicksRequired;
+    public Achievement(int requiredValue) {
+        this.requiredValue = requiredValue;
+        this.shortDesc = this.getShortDesc() + requiredValue;
         this.lockedIcon = R.drawable.question;
         this.unlockedIcon = R.drawable.star;
+        this.type = Type.CLICKS;
+    }
+
+    public boolean checkIfCompleted(int clicks, int wins) {
+        if (unlocked) return false;
+        switch(type) {
+            case CLICKS: if (clicks > requiredValue) return true;
+            case WINS: if (wins > requiredValue) return true;
+            default: return false;
+        }
     }
 
     public String getShortDesc() {
@@ -102,8 +114,8 @@ class Achievement {
         unlocked = true;
     }
 
-    public int getClicksRequired() {
-        return clicksRequired;
+    public int getRequiredValue() {
+        return requiredValue;
     }
 
     public int getLockedIcon() {
@@ -132,7 +144,7 @@ class Achievement {
                 "unlocked=" + unlocked +
                 ", longDesc='" + longDesc + '\'' +
                 ", shortDesc='" + shortDesc + '\'' +
-                ", clicksRequired=" + clicksRequired +
+                ", clicksRequired=" + requiredValue +
                 '}';
     }
 }
