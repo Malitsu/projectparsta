@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void achivClick(View v) {
-        Intent achievementIntent = new Intent(this, Achievement.class);
+        Intent achievementIntent = new Intent(this, AchievementActivity.class);
         startActivity(achievementIntent);
 
     }
@@ -36,6 +37,9 @@ public class MainActivity extends AppCompatActivity {
         AlertDialog dialog = builder.create();
 
         dialog.show();
+
+        Toast toast = ProgressController.registerAClick(true, this);
+        if (toast != null) toast.show();
     }
 
     public void settings(View v) {
