@@ -2,15 +2,20 @@ package fi.tuni.parsta;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.util.Log;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 import static android.content.Context.MODE_PRIVATE;
 
 public class ProgressController {
-    private static List<Achievement> achievements;
+    private static Achievement[] achievements;
     private static int clicks;
     private static int wins;
 
@@ -29,7 +34,7 @@ public class ProgressController {
         editor.putInt("clicks", clicks);
         editor.putInt("wins", wins);
         editor.apply();
-        List<Achievement> achievementsReached = checkAchievements();
+        List<Achievement> achievementsReached = checkAchievements(context);
         if (achievementsReached.size() != 0) {
             return generateAchievementToast(achievementsReached, context);
         } else {
@@ -37,10 +42,15 @@ public class ProgressController {
         }
     }
 
-    private static void initAchievements() {
-        achievements = new ArrayList<>();
-        for(int n = 0; n < 20; n++) {
-            achievements.add(new Achievement(n*10));
+    private static void initAchievements(Context context) {
+        try {
+            GsonBuilder gsonBuilder = new GsonBuilder();
+            Gson gson = gsonBuilder.create();
+            String data = Util.readFile("achievements.json", context);
+            Log.d("GAMEHELLO", data);
+            achievements = gson.fromJson(data, Achievement[].class);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
@@ -50,12 +60,11 @@ public class ProgressController {
         Achievement achievement = achievementsReached.get(0);
         CharSequence text = achievement.getShortDesc();
         int duration = Toast.LENGTH_LONG;
-
         return Toast.makeText(context, text, duration);
     }
 
-    private static List<Achievement> checkAchievements() {
-        List<Achievement> achievements = getAchievements();
+    private static List<Achievement> checkAchievements(Context context) {
+        Achievement[] achievements = getAchievements(context);
         List<Achievement> achievementsReached = new ArrayList<>();
         for (Achievement achievement : achievements) {
             if (achievement.checkIfCompleted(clicks, wins)) {
@@ -66,9 +75,8 @@ public class ProgressController {
         return achievementsReached;
     }
 
-    public static List<Achievement> getAchievements() {
-        if (achievements == null) initAchievements();
-
+    public static Achievement[] getAchievements(Context context) {
+        if (achievements == null) initAchievements(context);
         return achievements;
     }
 }

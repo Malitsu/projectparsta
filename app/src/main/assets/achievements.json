@@ -1,0 +1,29 @@
+[
+  {
+    "lockedIcon": "locked",
+    "requiredValue": 10,
+    "shortDesc": "This is a placeholder text",
+    "longDesc": "This is a placeholder text for long text",
+    "type": "CLICKS",
+    "unlocked": false,
+    "unlockedIcon": "unlocked"
+  },
+  {
+    "lockedIcon": "locked",
+    "requiredValue": 20,
+    "shortDesc": "This is a placeholder text",
+    "longDesc": "This is a placeholder text for long text",
+    "type": "CLICKS",
+    "unlocked": false,
+    "unlockedIcon": "unlocked"
+  },
+  {
+    "lockedIcon": "locked",
+    "requiredValue": 100,
+    "shortDesc": "This is a placeholder text",
+    "longDesc": "This is a placeholder text for long text",
+    "type": "CLICKS",
+    "unlocked": false,
+    "unlockedIcon": "unlocked"
+  }
+]
