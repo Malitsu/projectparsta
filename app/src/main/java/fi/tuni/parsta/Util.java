@@ -33,7 +33,7 @@ public class Util {
 
     public static boolean stringArrayContains(String[] arr, String targetValue) {
         for(String s: arr){
-            if(s.equals(targetValue))
+            if(targetValue.equals(s))
                 return true;
         }
         return false;

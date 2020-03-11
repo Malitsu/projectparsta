@@ -9,7 +9,7 @@
     <string name="yllättynyt">Yllättynyt</string>
     <string name="neutraali">Neutraali</string>
 
-    <string-array name="gacial_expressions_array">
+    <string-array name="facial_expressions_array">
         <item>Iloinen</item>
         <item>Surullinen</item>
         <item>Pelokas</item>
