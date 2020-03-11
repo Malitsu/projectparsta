@@ -29,9 +29,9 @@ public class ProgressController {
         editor.putInt("clicks", clicks);
         editor.putInt("wins", wins);
         editor.apply();
-        Achievement achievement = checkAchievements();
-        if (achievement != null) {
-            return generateAchievementToast(new Achievement(), context);
+        List<Achievement> achievementsReached = checkAchievements();
+        if (achievementsReached.size() != 0) {
+            return generateAchievementToast(achievementsReached, context);
         } else {
             return null;
         }
@@ -39,36 +39,46 @@ public class ProgressController {
 
     private static void initAchievements() {
         achievements = new ArrayList<>();
-        achievements.add(new Achievement());
+        for(int n = 0; n < 20; n++) {
+            achievements.add(new Achievement(n));
+        }
     }
 
     // TODO: Allow possibility of displaying multiple achievements at once?
-    private static Toast generateAchievementToast(Achievement achievement, Context context) {
+    private static Toast generateAchievementToast(List<Achievement> achievementsReached,
+                                                  Context context) {
+        Achievement achievement = achievementsReached.get(0);
         CharSequence text = achievement.getShortDesc();
         int duration = Toast.LENGTH_LONG;
 
         return Toast.makeText(context, text, duration);
     }
 
-    private static Achievement checkAchievements() {
+    private static List<Achievement> checkAchievements() {
+        List<Achievement> achievementsReached = new ArrayList<>();
         if (achievements == null) initAchievements();
         for (Achievement achievement : achievements) {
-            if (!achievement.isUnlocked()) {
+            if (achievement.isUnlocked()) {
                 if (clicks > achievement.getClicksRequired()) {
                     achievement.lock();
-                    return achievement;
+                    achievementsReached.add(achievement);
                 }
             }
         }
-        return null;
+        return achievementsReached;
     }
 }
 
 class Achievement {
-    private boolean unlocked;
+    private boolean unlocked = true;
     private String longDesc;
-    private String shortDesc = "This is a placeholder text";
-    private int clicksRequired = 10;
+    private String shortDesc = "This is a placeholder text: ";
+    private int clicksRequired;
+
+    public Achievement(int clicksRequired) {
+        this.clicksRequired = clicksRequired;
+        this.shortDesc = this.getShortDesc() + clicksRequired;
+    }
 
     public String getShortDesc() {
         return shortDesc;
@@ -84,5 +94,15 @@ class Achievement {
 
     public int getClicksRequired() {
         return clicksRequired;
+    }
+
+    @Override
+    public String toString() {
+        return "Achievement{" +
+                "unlocked=" + unlocked +
+                ", longDesc='" + longDesc + '\'' +
+                ", shortDesc='" + shortDesc + '\'' +
+                ", clicksRequired=" + clicksRequired +
+                '}';
     }
 }
