@@ -58,7 +58,7 @@ public class Game extends AppCompatActivity {
         Log.d("GAMEIMAGE", rightAnswerString);
 
         //Set image to image view
-        int resourceName = getStringResourceByName(questionImgName);
+        int resourceName = Util.getStringResourceByName(questionImgName, this);
 
         questionImg = (ImageView) findViewById(R.id.questionImg);
         questionImg.setImageResource(resourceName);
@@ -80,12 +80,6 @@ public class Game extends AppCompatActivity {
     }
 
     protected void endRound() {}
-
-    private int getStringResourceByName(String aString) {
-        String packageName = getPackageName();
-        int resId = getResources().getIdentifier(aString, "drawable", packageName);
-        return resId;
-    }
 
     public ArrayList<String> getAnswerOptions(){
         return new ArrayList<>();
