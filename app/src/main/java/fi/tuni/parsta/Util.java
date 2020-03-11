@@ -26,4 +26,8 @@ public class Util {
         int resId = context.getResources().getIdentifier(aString, "drawable", packageName);
         return resId;
     }
+
+    public static int random(int min, int max) {
+        return (int)(Math.random() * (max + 1 - min)) + min;
+    }
 }
