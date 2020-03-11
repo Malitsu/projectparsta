@@ -30,4 +30,12 @@ public class Util {
     public static int random(int min, int max) {
         return (int)(Math.random() * (max + 1 - min)) + min;
     }
+
+    public static boolean stringArrayContains(String[] arr, String targetValue) {
+        for(String s: arr){
+            if(s.equals(targetValue))
+                return true;
+        }
+        return false;
+    }
 }
