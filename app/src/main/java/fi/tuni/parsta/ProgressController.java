@@ -2,7 +2,14 @@ package fi.tuni.parsta;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.util.LayoutDirection;
 import android.util.Log;
+import android.view.Gravity;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
@@ -47,7 +54,6 @@ public class ProgressController {
             GsonBuilder gsonBuilder = new GsonBuilder();
             Gson gson = gsonBuilder.create();
             String data = Util.readFile("achievements.json", context);
-            Log.d("GAMEHELLO", data);
             achievements = gson.fromJson(data, Achievement[].class);
         } catch (IOException e) {
             e.printStackTrace();
@@ -58,9 +64,25 @@ public class ProgressController {
     private static Toast generateAchievementToast(List<Achievement> achievementsReached,
                                                   Context context) {
         Achievement achievement = achievementsReached.get(0);
-        CharSequence text = achievement.getShortDesc();
-        int duration = Toast.LENGTH_LONG;
-        return Toast.makeText(context, text, duration);
+
+        LayoutInflater inflater = LayoutInflater.from(context);
+
+        View view = new View(context);
+        view = view.findViewById(R.id.achievement_toast_container);
+        View layout = inflater.inflate(R.layout.achievement_toast, (ViewGroup) view);
+
+        TextView text = layout.findViewById(R.id.ach_toast_text);
+        text.setText(achievement.getShortDesc());
+
+        ImageView imageView = layout.findViewById(R.id.ach_toast_image);
+        imageView.setImageResource(Util.getStringResourceByName(achievement.getIcon(), context));
+
+        Toast toast = new Toast(context);
+        toast.setGravity(Gravity.TOP, 0, 40);
+        toast.setDuration(Toast.LENGTH_LONG);
+        toast.setView(layout);
+
+        return toast;
     }
 
     private static List<Achievement> checkAchievements(Context context) {
