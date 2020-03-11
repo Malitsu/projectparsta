@@ -1,0 +1,8 @@
+[
+  {"id": 1, "name": "face_happy_1_1", "level": 1, "infoImg": "face_happy_1_1_info"},
+  {"id": 2, "name": "face_happy_1_2", "level": 1, "infoImg": "face_happy_1_2_info"},
+  {"id": 3, "name": "face_happy_1_3", "level": 1, "infoImg": "face_happy_1_3_info"},
+  {"id": 4, "name": "face_neutral_1_1", "level": 1, "infoImg": "face_neutral_1_1_info"},
+  {"id": 5, "name": "face_sad_1_1", "level": 1, "infoImg": "face_sad_1_1_info"},
+  {"id": 6, "name": "face_sad_1_2", "level": 1, "infoImg": "face_sad_1_2_info"}
+]
