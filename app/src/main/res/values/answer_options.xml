@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="iloinen">Iloinen</string>
+    <string name="surullinen">Surullinen</string>
+    <string name="pelokas">Pelokas</string>
+    <string name="vihainen">Vihainen</string>
+    <string name="inhoava">Inhoava</string>
+    <string name="halveksuva">Halveksuva</string>
+    <string name="yllättynyt">Yllättynyt</string>
+
+    <string-array name="gacial_expressions_array">
+        <item>Iloinen</item>
+        <item>Surullinen</item>
+        <item>Pelokas</item>
+        <item>Vihainen</item>
+        <item>Inhoava</item>
+        <item>Halveksuva</item>
+        <item>Yllättynyt</item>
+    </string-array>
+</resources>

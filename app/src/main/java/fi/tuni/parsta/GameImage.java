@@ -3,14 +3,17 @@ package fi.tuni.parsta;
 public class GameImage {
     int id;
     String name;
-    AnswerOption correctAnswer;
+    int level;
     String infoImg;
 
-    public GameImage(int id, String name, AnswerOption correctAnswer, String infoImg) {
-        setId(id);
-        setName(name);
-        setCorrectAnswer(correctAnswer);
-        setInfoImg(infoImg);
+    public GameImage() {
+    }
+
+    public GameImage(int id, String name, int level, String infoImg) {
+        this.id = id;
+        this.name = name;
+        this.level = level;
+        this.infoImg = infoImg;
     }
 
     public int getId() {
@@ -29,12 +32,12 @@ public class GameImage {
         this.name = name;
     }
 
-    public AnswerOption getCorrectAnswer() {
-        return correctAnswer;
+    public int getLevel() {
+        return level;
     }
 
-    public void setCorrectAnswer(AnswerOption correctAnswer) {
-        this.correctAnswer = correctAnswer;
+    public void setLevel(int level) {
+        this.level = level;
     }
 
     public String getInfoImg() {
