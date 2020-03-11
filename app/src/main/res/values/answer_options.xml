@@ -7,6 +7,7 @@
     <string name="inhoava">Inhoava</string>
     <string name="halveksuva">Halveksuva</string>
     <string name="yllättynyt">Yllättynyt</string>
+    <string name="neutraali">Neutraali</string>
 
     <string-array name="gacial_expressions_array">
         <item>Iloinen</item>
@@ -16,5 +17,7 @@
         <item>Inhoava</item>
         <item>Halveksuva</item>
         <item>Yllättynyt</item>
+        <item>Neutraali</item>
+
     </string-array>
 </resources>

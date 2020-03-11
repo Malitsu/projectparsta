@@ -54,10 +54,12 @@ public class Game extends AppCompatActivity {
         int rndImage = (int) (Math.random() * images.length);
         GameImage newQuestion = images[rndImage];
         String questionImgName = newQuestion.getName();
+        String rightAnswerString = questionImgName.substring(4);
+        Log.d("GAMEIMAGE", rightAnswerString);
 
         //Set image to image view
         int resourceName = getStringResourceByName(questionImgName);
-        Log.d("GAMEIMAGE", resourceName + " ");
+
         questionImg = (ImageView) findViewById(R.id.questionImg);
         questionImg.setImageResource(resourceName);
 
@@ -83,6 +85,10 @@ public class Game extends AppCompatActivity {
         String packageName = getPackageName();
         int resId = getResources().getIdentifier(aString, "drawable", packageName);
         return resId;
+    }
+
+    public ArrayList<String> getAnswerOptions(){
+        return new ArrayList<>();
     }
 
 }
