@@ -12,7 +12,7 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/happy_placeholder" />
+        android:src="@drawable/face_happy_1_3" />
 
     <Button
         android:layout_width="match_parent"
