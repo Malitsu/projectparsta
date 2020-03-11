@@ -40,7 +40,7 @@ public class ProgressController {
     private static void initAchievements() {
         achievements = new ArrayList<>();
         for(int n = 0; n < 20; n++) {
-            achievements.add(new Achievement(n));
+            achievements.add(new Achievement(n*10));
         }
     }
 
@@ -55,29 +55,39 @@ public class ProgressController {
     }
 
     private static List<Achievement> checkAchievements() {
+        List<Achievement> achievements = getAchievements();
         List<Achievement> achievementsReached = new ArrayList<>();
-        if (achievements == null) initAchievements();
         for (Achievement achievement : achievements) {
-            if (achievement.isUnlocked()) {
+            if (!achievement.isUnlocked()) {
                 if (clicks > achievement.getClicksRequired()) {
-                    achievement.lock();
+                    achievement.unlock();
                     achievementsReached.add(achievement);
                 }
             }
         }
         return achievementsReached;
     }
+
+    public static List<Achievement> getAchievements() {
+        if (achievements == null) initAchievements();
+
+        return achievements;
+    }
 }
 
 class Achievement {
-    private boolean unlocked = true;
+    private boolean unlocked = false;
     private String longDesc;
     private String shortDesc = "This is a placeholder text: ";
     private int clicksRequired;
+    private int lockedIcon;
+    private int unlockedIcon;
 
     public Achievement(int clicksRequired) {
         this.clicksRequired = clicksRequired;
         this.shortDesc = this.getShortDesc() + clicksRequired;
+        this.lockedIcon = R.drawable.question;
+        this.unlockedIcon = R.drawable.star;
     }
 
     public String getShortDesc() {
@@ -88,12 +98,32 @@ class Achievement {
         return unlocked;
     }
 
-    public void lock() {
-        unlocked = false;
+    public void unlock() {
+        unlocked = true;
     }
 
     public int getClicksRequired() {
         return clicksRequired;
+    }
+
+    public int getLockedIcon() {
+        return lockedIcon;
+    }
+
+    public int getUnlockedIcon() {
+        return unlockedIcon;
+    }
+
+    public String getLongDesc() {
+        return longDesc;
+    }
+
+    public int getIcon() {
+        if (isUnlocked()) {
+            return unlockedIcon;
+        } else {
+            return lockedIcon;
+        }
     }
 
     @Override
