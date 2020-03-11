@@ -6,6 +6,7 @@ import android.content.res.Resources;
 import android.os.Bundle;
 import android.util.Log;
 import android.util.TypedValue;
+import android.view.View;
 import android.widget.Button;
 import android.widget.GridLayout;
 import android.widget.ImageView;
@@ -39,6 +40,10 @@ public class Game extends AppCompatActivity {
     GameImage[] images;
     int level = 1;
     ImageView questionImg;
+    GridLayout gridLayout;
+    //Temporary
+    Boolean firstRound = true;
+    ArrayList<Button> buttonList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,12 +79,16 @@ public class Game extends AppCompatActivity {
         Log.d("JEE", answerOptions.toString());
 
         //Create buttons with answer options
-        GridLayout gridLayout = findViewById(R.id.button_grid);
+        gridLayout = findViewById(R.id.button_grid);
 
-        for (String answer : answerOptions) {
-            Button myButton = new Button(this);
-            myButton.setText(answer);
-            gridLayout.addView(myButton);
+        //Temporary
+        if(firstRound){
+            createButtonGrid(answerOptions);
+            firstRound = false;
+        }else{
+            for(int i=0; i<answerOptions.size();i++){
+                buttonList.get(i).setText(answerOptions.get(i));
+            }
         }
 
 
@@ -139,6 +148,21 @@ public class Game extends AppCompatActivity {
 
     public int getAnswerOptionsAmount(int level){
         return 3 + level - 1;
+    }
+
+    public void createButtonGrid(ArrayList<String> answerOptions){
+        for (int i = 0; i<answerOptions.size(); i++) {
+            Button myButton = new Button(this);
+            myButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    gameLoop();
+                }
+            });
+            myButton.setText(answerOptions.get(i));
+            buttonList.add(myButton);
+            gridLayout.addView(myButton);
+        }
     }
 
 }
