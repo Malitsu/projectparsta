@@ -23,8 +23,6 @@ import static android.content.Context.MODE_PRIVATE;
 
 public class ProgressController {
     private static Achievement[] achievements;
-    private static int clicks;
-    private static int wins;
 
     public static Toast registerAClick(boolean beatLevel, int levelID, boolean win, Context context) {
         // TODO: Do something with the level info
@@ -34,14 +32,14 @@ public class ProgressController {
     public static Toast registerAClick(boolean win, Context context) {
         SharedPreferences sharedPreferences = context.getSharedPreferences("progress", MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        clicks = sharedPreferences.getInt("clicks", 0);
-        wins = sharedPreferences.getInt("wins", 0);
+        int clicks = sharedPreferences.getInt("clicks", 0);
+        int wins = sharedPreferences.getInt("wins", 0);
         clicks++;
         if (win) wins++;
         editor.putInt("clicks", clicks);
         editor.putInt("wins", wins);
         editor.apply();
-        List<Achievement> achievementsReached = checkAchievements(context);
+        List<Achievement> achievementsReached = checkAchievements(context, clicks, wins);
         if (achievementsReached.size() != 0) {
             return generateAchievementToast(achievementsReached, context);
         } else {
@@ -85,7 +83,7 @@ public class ProgressController {
         return toast;
     }
 
-    private static List<Achievement> checkAchievements(Context context) {
+    private static List<Achievement> checkAchievements(Context context, int clicks, int wins) {
         Achievement[] achievements = getAchievements(context);
         List<Achievement> achievementsReached = new ArrayList<>();
         for (Achievement achievement : achievements) {
