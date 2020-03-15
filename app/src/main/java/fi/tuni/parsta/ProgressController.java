@@ -1,5 +1,6 @@
 package fi.tuni.parsta;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.util.LayoutDirection;
@@ -36,6 +37,7 @@ public class ProgressController {
         int wins = sharedPreferences.getInt("wins", 0);
         clicks++;
         if (win) wins++;
+        System.out.println(clicks);
         editor.putInt("clicks", clicks);
         editor.putInt("wins", wins);
         editor.apply();
@@ -56,6 +58,21 @@ public class ProgressController {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        SharedPreferences sharedPreferences = context.getSharedPreferences("achievement", MODE_PRIVATE);
+        for (Achievement achievement : achievements) {
+            @SuppressLint("DefaultLocale")
+            String key = "ACH_" + String.format("%03d", achievement.getId());
+            achievement.setUnlocked(sharedPreferences.getBoolean(key, false));
+        }
+    }
+
+    private static void updateProgress(Context context, int id) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences("achievement", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        @SuppressLint("DefaultLocale")
+        String key = "ACH_" + String.format("%03d", id);
+        editor.putBoolean(key, true);
+        editor.apply();
     }
 
     // TODO: Allow possibility of displaying multiple achievements at once?
@@ -89,6 +106,7 @@ public class ProgressController {
         for (Achievement achievement : achievements) {
             if (achievement.checkIfCompleted(clicks, wins)) {
                 achievement.unlock();
+                updateProgress(context, achievement.getId());
                 achievementsReached.add(achievement);
             }
         }
