@@ -2,9 +2,9 @@ package fi.tuni.parsta;
 
 class Achievement {
     private int id;
-    private boolean unlocked = false;
-    private String longDesc = "This is a placeholder text for long text";
-    private String shortDesc = "This is a placeholder text for short text";
+    private boolean unlocked;
+    private String longDesc;
+    private String shortDesc;
     private int requiredValue;
     private Type type;
     private enum Type {
