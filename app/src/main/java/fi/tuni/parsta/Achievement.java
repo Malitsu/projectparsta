@@ -45,6 +45,7 @@ class Achievement {
         return longDesc;
     }
 
+    //TODO Implement locked+id and unlocked+id returns and add corresponding images to the project.
     public String getIcon() {
         if (isUnlocked()) {
             return "unlocked";
