@@ -1,6 +1,8 @@
 package fi.tuni.parsta;
 
 import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.AssetManager;
 import android.content.res.Resources;
 import android.os.Bundle;
@@ -10,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.GridLayout;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -41,9 +44,14 @@ public class Game extends AppCompatActivity {
     int level = 1;
     ImageView questionImg;
     GridLayout gridLayout;
+    TextView currentWins;
     //Temporary
     Boolean firstRound = true;
     ArrayList<Button> buttonList = new ArrayList<>();
+    int rightAnswersInt = 0;
+    int clicks = 0;
+    String rightAnswerString;
+    SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,7 +63,15 @@ public class Game extends AppCompatActivity {
         for(GameImage i : images) {
             Log.d("GAMEIMAGETAG",i.name);
         }
+
+        currentWins = (TextView) findViewById(R.id.currentWins);
+        sharedPreferences = getSharedPreferences("progress", MODE_PRIVATE);
+        clicks = sharedPreferences.getInt("clicks", 0);
+        rightAnswersInt = sharedPreferences.getInt("wins", 0);
+        currentWins.setText("Oikein: " + rightAnswersInt);
         gameLoop();
+
+
     }
 
     protected void gameLoop() {
@@ -65,7 +81,14 @@ public class Game extends AppCompatActivity {
         int rndImage = Util.random(0, (images.length - 1));
         GameImage newQuestion = images[rndImage];
         String questionImgName = newQuestion.getName();
-        String rightAnswerString = questionImgName.substring(4);
+
+        //Edit questionImgName string (for answer button)
+        rightAnswerString = questionImgName.substring(5);
+        int firstUnderscorePosition = rightAnswerString.indexOf('_');
+        rightAnswerString = rightAnswerString.substring(0, firstUnderscorePosition);
+        Log.d("GAMEIMAGE", String.valueOf(firstUnderscorePosition));
+
+
         Log.d("GAMEIMAGE", rightAnswerString);
 
         //Set image to image view
@@ -152,11 +175,31 @@ public class Game extends AppCompatActivity {
 
     public void createButtonGrid(ArrayList<String> answerOptions){
         for (int i = 0; i<answerOptions.size(); i++) {
-            Button myButton = new Button(this);
+            final Button myButton = new Button(this);
+            myButton.setWidth(900);
             myButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    gameLoop();
+//                    gameLoop();
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    if(rightAnswerString.contains(myButton.getText().toString())) {
+                        rightAnswersInt++;
+                        clicks++;
+                        editor.putInt("clicks", clicks);
+                        editor.putInt("wins", rightAnswersInt);
+                        editor.apply();
+                        currentWins.setText("Oikein: " + rightAnswersInt);
+                        Intent gameIntent = new Intent(getApplication(), AnswerResultActivity.class);
+                        gameIntent.putExtra("wasAnswerRight",true);
+                        startActivity(gameIntent);
+                    } else {
+                        clicks++;
+                        editor.putInt("clicks", clicks);
+                        editor.apply();
+                        Intent gameIntent = new Intent(getApplication(), AnswerResultActivity.class);
+                        gameIntent.putExtra("wasAnswerRight",false);
+                        startActivity(gameIntent);
+                    }
                 }
             });
             myButton.setText(answerOptions.get(i));
