@@ -81,7 +81,14 @@ public class Game extends AppCompatActivity {
         int rndImage = Util.random(0, (images.length - 1));
         GameImage newQuestion = images[rndImage];
         String questionImgName = newQuestion.getName();
-        rightAnswerString = questionImgName.substring(4);
+
+        //Edit questionImgName string (for answer button)
+        rightAnswerString = questionImgName.substring(5);
+        int firstUnderscorePosition = rightAnswerString.indexOf('_');
+        rightAnswerString = rightAnswerString.substring(0, firstUnderscorePosition);
+        Log.d("GAMEIMAGE", String.valueOf(firstUnderscorePosition));
+
+
         Log.d("GAMEIMAGE", rightAnswerString);
 
         //Set image to image view
@@ -169,6 +176,7 @@ public class Game extends AppCompatActivity {
     public void createButtonGrid(ArrayList<String> answerOptions){
         for (int i = 0; i<answerOptions.size(); i++) {
             final Button myButton = new Button(this);
+            myButton.setWidth(900);
             myButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
