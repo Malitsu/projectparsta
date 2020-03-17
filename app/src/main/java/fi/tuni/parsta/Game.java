@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.GridLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
@@ -176,7 +177,8 @@ public class Game extends AppCompatActivity {
     public void createButtonGrid(ArrayList<String> answerOptions){
         for (int i = 0; i<answerOptions.size(); i++) {
             final Button myButton = new Button(this);
-            myButton.setWidth(900);
+            myButton.setWidth(1000);
+
             myButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
