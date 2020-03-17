@@ -1,6 +1,7 @@
 package fi.tuni.parsta;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.AssetManager;
 import android.content.res.Resources;
 import android.os.Bundle;
@@ -156,7 +157,9 @@ public class Game extends AppCompatActivity {
             myButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    gameLoop();
+//                    gameLoop();
+                    Intent gameIntent = new Intent(getApplication(), AnswerResultActivity.class);
+                    startActivity(gameIntent);
                 }
             });
             myButton.setText(answerOptions.get(i));
