@@ -1,12 +1,11 @@
 package fi.tuni.parsta;
 
 class Achievement {
-    private boolean unlocked = false;
-    private String longDesc = "This is a placeholder text for long text";
-    private String shortDesc = "This is a placeholder text for short text";
+    private int id;
+    private boolean unlocked;
+    private String longDesc;
+    private String shortDesc;
     private int requiredValue;
-    private String lockedIcon;
-    private String unlockedIcon;
     private Type type;
     private enum Type {
         CLICKS, WINS, LEVEL
@@ -46,11 +45,12 @@ class Achievement {
         return longDesc;
     }
 
+    //TODO Implement locked+id and unlocked+id returns and add corresponding images to the project.
     public String getIcon() {
         if (isUnlocked()) {
-            return unlockedIcon;
+            return "unlocked";
         } else {
-            return lockedIcon;
+            return "locked";
         }
     }
 
@@ -70,28 +70,20 @@ class Achievement {
         this.requiredValue = requiredValue;
     }
 
-    public String getLockedIcon() {
-        return lockedIcon;
-    }
-
-    public void setLockedIcon(String lockedIcon) {
-        this.lockedIcon = lockedIcon;
-    }
-
-    public String getUnlockedIcon() {
-        return unlockedIcon;
-    }
-
-    public void setUnlockedIcon(String unlockedIcon) {
-        this.unlockedIcon = unlockedIcon;
-    }
-
     public Type getType() {
         return type;
     }
 
     public void setType(Type type) {
         this.type = type;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     @Override
