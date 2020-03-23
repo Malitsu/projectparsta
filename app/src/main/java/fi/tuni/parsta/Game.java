@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.content.res.AssetManager;
 import android.content.res.Resources;
 import android.graphics.Color;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.text.Layout;
 import android.util.Log;
@@ -77,6 +78,7 @@ public class Game extends AppCompatActivity {
         gameLoop();
 
     }
+
 
     protected void gameLoop() {
         Boolean rightAnswer = false;
@@ -192,6 +194,7 @@ public class Game extends AppCompatActivity {
                         clicks++;
                         editor.putInt("clicks", clicks);
                         editor.putInt("wins", rightAnswersInt);
+                        Util.playSound(getApplication(), R.raw.right);
                         editor.apply();
                         currentWins.setText("Oikein: " + rightAnswersInt);
                         Intent gameIntent = new Intent(getApplication(), AnswerResultActivity.class);
@@ -203,6 +206,7 @@ public class Game extends AppCompatActivity {
                         clicks++;
                         editor.putInt("clicks", clicks);
                         editor.apply();
+                        Util.playSound(getApplication(), R.raw.wrong);
                         Intent gameIntent = new Intent(getApplication(), AnswerResultActivity.class);
                         gameIntent.putExtra("wasAnswerRight",false);
                         gameIntent.putExtra("questionImgName", questionImgName);

@@ -1,12 +1,17 @@
 package fi.tuni.parsta;
 
 import android.content.Context;
+import android.content.SharedPreferences;
+import android.media.MediaPlayer;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+import static android.content.Context.MODE_PRIVATE;
+
 public class Util {
+
     public static String readFile(String fileName, Context context) throws IOException {
         BufferedReader reader = null;
         reader = new BufferedReader(new InputStreamReader(context.getAssets().open(fileName), "UTF-8"));
@@ -37,6 +42,24 @@ public class Util {
                 return true;
         }
         return false;
+    }
+
+    public static void playSound(Context context, int audioId) {
+        MediaPlayer mp;
+        SharedPreferences sharedPreferences = context.getSharedPreferences("settings", MODE_PRIVATE);
+        boolean playSound = sharedPreferences.getBoolean("sound", true);
+        if(playSound) {
+            mp = MediaPlayer.create(context, audioId);
+            mp.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                @Override
+                public void onCompletion(MediaPlayer mp) {
+                    mp.reset();
+                    mp.release();
+                    mp=null;
+                }
+            });
+            mp.start();
+        }
     }
 
 }
