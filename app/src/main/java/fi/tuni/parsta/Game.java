@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.AssetManager;
 import android.content.res.Resources;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.util.TypedValue;
@@ -175,6 +176,8 @@ public class Game extends AppCompatActivity {
     public void createButtonGrid(ArrayList<String> answerOptions){
         for (int i = 0; i<answerOptions.size(); i++) {
             final Button myButton = new Button(this);
+            myButton.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+
             myButton.setWidth(1000);
 
             myButton.setOnClickListener(new View.OnClickListener() {

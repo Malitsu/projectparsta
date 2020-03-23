@@ -26,6 +26,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Aloita"
+            android:background="@color/colorPrimary"
+            android:layout_marginBottom="15dp"
             android:onClick="startClick"
             android:id="@+id/start"
             />
@@ -34,6 +36,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Achievementit"
+            android:background="@color/colorPrimary"
+            android:layout_marginBottom="15dp"
             android:onClick="achivClick"
             android:id="@+id/achievements"
             />
@@ -42,6 +46,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="About"
+            android:background="@color/colorPrimary"
+            android:layout_marginBottom="15dp"
             android:onClick="about"
             android:id="@+id/about"
             />
@@ -50,6 +56,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Settings"
+            android:background="@color/colorPrimary"
             android:onClick="settings"
             android:id="@+id/settings"
             />
