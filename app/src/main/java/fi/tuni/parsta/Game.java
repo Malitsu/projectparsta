@@ -7,6 +7,7 @@ import android.content.res.AssetManager;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.text.Layout;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
@@ -46,7 +47,7 @@ public class Game extends AppCompatActivity {
     GameImage[] images;
     int level = 1;
     ImageView questionImg;
-    GridLayout gridLayout;
+    LinearLayout buttonLayout;
     TextView currentWins;
     //Temporary
     Boolean firstRound = true;
@@ -103,7 +104,7 @@ public class Game extends AppCompatActivity {
         Log.d("JEE", answerOptions.toString());
 
         //Create buttons with answer options
-        gridLayout = findViewById(R.id.button_grid);
+        buttonLayout = findViewById(R.id.button_grid);
 
         //Temporary
         if(firstRound){
@@ -212,8 +213,14 @@ public class Game extends AppCompatActivity {
             });
             myButton.setText(answerOptions.get(i));
             buttonList.add(myButton);
-            gridLayout.addView(myButton);
+            buttonLayout.addView(myButton);
 
+            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.WRAP_CONTENT,
+                    LinearLayout.LayoutParams.WRAP_CONTENT
+            );
+            params.setMargins(0, 0, 0, 15);
+            myButton.setLayoutParams(params);
         }
     }
 
