@@ -87,9 +87,7 @@ public class Game extends AppCompatActivity {
         rightAnswerString = questionImgName.substring(5);
         int firstUnderscorePosition = rightAnswerString.indexOf('_');
         rightAnswerString = rightAnswerString.substring(0, firstUnderscorePosition);
-        Log.d("GAMEIMAGE", String.valueOf(firstUnderscorePosition));
-
-
+        rightAnswerString = rightAnswerString.toLowerCase();
         Log.d("GAMEIMAGE", rightAnswerString);
 
         //Set image to image view
@@ -123,9 +121,9 @@ public class Game extends AppCompatActivity {
 
     public  void  convertJsonToGameImageObjects() {
         try {
-            String hellou = Util.readFile("faces.json",this);
-            Log.d("GAMEHELLO",hellou);
-            images = gson.fromJson(hellou, GameImage[].class);
+            String jsonFileContent = Util.readFile("faces.json",this);
+            Log.d("GAMEHELLO", jsonFileContent);
+            images = gson.fromJson(jsonFileContent, GameImage[].class);
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -152,7 +150,7 @@ public class Game extends AppCompatActivity {
             if(array[i] == null){
                 Boolean ok = false;
                 while(!ok){
-                    String potetialAnswerOption = getRandomAnswerOption();
+                    String potetialAnswerOption = getRandomAnswerOption().toLowerCase();
                     if(!Util.stringArrayContains(array, potetialAnswerOption)){
                         array[i] = potetialAnswerOption;
                         ok = true;
