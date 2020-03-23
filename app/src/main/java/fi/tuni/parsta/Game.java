@@ -235,5 +235,10 @@ public class Game extends AppCompatActivity {
         finish();
     }
 
+    public void quitGame(View v){
+        Intent mainIntent = new Intent(getApplication(), MainActivity.class);
+        startActivity(mainIntent);
+    }
+
 }
 

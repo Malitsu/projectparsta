@@ -4,11 +4,27 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary">
     <TextView
-        android:layout_width="match_parent"
+        android:paddingTop="10dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="20sp"
+        android:layout_alignParentLeft="true"
         android:text="Mitä tunnetta ilme kuvastaa?"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:background="@drawable/quit_button"
+            android:onClick="quitGame"
+            android:layout_alignParentRight="true"
+            android:text="Lopeta peli"/>
+    </RelativeLayout>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

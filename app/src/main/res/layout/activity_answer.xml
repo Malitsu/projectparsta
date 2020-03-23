@@ -4,6 +4,21 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:background="@drawable/quit_button"
+            android:onClick="quitGame"
+            android:layout_alignParentRight="true"
+            android:text="Lopeta peli"/>
+    </RelativeLayout>
+
     <ImageView
         android:id="@+id/answerImg"
         android:layout_width="match_parent"
@@ -26,6 +41,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Seuraava"
+        android:background="@color/colorPrimary"
         android:onClick="nextClick"
         android:id="@+id/start"
         />
