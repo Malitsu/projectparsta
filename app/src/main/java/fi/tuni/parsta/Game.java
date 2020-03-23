@@ -228,5 +228,12 @@ public class Game extends AppCompatActivity {
         }
     }
 
+    @Override
+    public void onBackPressed() {
+        Intent i= new Intent(Game.this,MainActivity.class);
+        startActivity(i);
+        finish();
+    }
+
 }
 

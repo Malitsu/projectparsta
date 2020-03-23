@@ -47,13 +47,17 @@ public class AnswerResultActivity extends AppCompatActivity {
                         "Yläpuolen kuvasta näet tietoa mihin keskittyä ilmeen tunnistamisessa.");
             }
         }
-
-
-
     }
 
     public void nextClick(View view) {
         Intent gameIntent = new Intent(this, Game.class);
         startActivity(gameIntent);
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent i= new Intent(AnswerResultActivity.this,MainActivity.class);
+        startActivity(i);
+        finish();
     }
 }
