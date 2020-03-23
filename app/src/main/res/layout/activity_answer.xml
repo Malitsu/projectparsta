@@ -3,10 +3,24 @@
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/answerImg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/face_iloinen_1_3" />
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/answerText"/>
+        android:id="@+id/answerText"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:id="@+id/currentWins"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp" />
 
     <Button
         android:layout_width="match_parent"

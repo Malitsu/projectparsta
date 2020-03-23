@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.GridLayout;
 import android.widget.ImageView;
@@ -53,6 +54,7 @@ public class Game extends AppCompatActivity {
     int clicks = 0;
     String rightAnswerString;
     SharedPreferences sharedPreferences;
+    String questionImgName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,7 +74,6 @@ public class Game extends AppCompatActivity {
         currentWins.setText("Oikein: " + rightAnswersInt);
         gameLoop();
 
-
     }
 
     protected void gameLoop() {
@@ -81,7 +82,7 @@ public class Game extends AppCompatActivity {
         //Get random question image (new question)
         int rndImage = Util.random(0, (images.length - 1));
         GameImage newQuestion = images[rndImage];
-        String questionImgName = newQuestion.getName();
+        questionImgName = newQuestion.getName();
 
         //Edit questionImgName string (for answer button)
         rightAnswerString = questionImgName.substring(5);
@@ -191,6 +192,8 @@ public class Game extends AppCompatActivity {
                         currentWins.setText("Oikein: " + rightAnswersInt);
                         Intent gameIntent = new Intent(getApplication(), AnswerResultActivity.class);
                         gameIntent.putExtra("wasAnswerRight",true);
+                        gameIntent.putExtra("questionImgName", questionImgName);
+                        gameIntent.putExtra("rightAnswerNumber", rightAnswersInt);
                         startActivity(gameIntent);
                     } else {
                         clicks++;
@@ -198,6 +201,8 @@ public class Game extends AppCompatActivity {
                         editor.apply();
                         Intent gameIntent = new Intent(getApplication(), AnswerResultActivity.class);
                         gameIntent.putExtra("wasAnswerRight",false);
+                        gameIntent.putExtra("questionImgName", questionImgName);
+                        gameIntent.putExtra("rightAnswerNumber", rightAnswersInt);
                         startActivity(gameIntent);
                     }
                 }
@@ -205,6 +210,7 @@ public class Game extends AppCompatActivity {
             myButton.setText(answerOptions.get(i));
             buttonList.add(myButton);
             gridLayout.addView(myButton);
+
         }
     }
 
