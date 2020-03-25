@@ -30,6 +30,7 @@
             android:layout_marginBottom="15dp"
             android:onClick="startClick"
             android:id="@+id/start"
+            android:drawableLeft="@drawable/ic_aloita_peli_1"
             />
 
         <Button
@@ -40,6 +41,7 @@
             android:layout_marginBottom="15dp"
             android:onClick="achivClick"
             android:id="@+id/achievements"
+            android:drawableLeft="@drawable/ic_saavutukset"
             />
 
         <Button
@@ -50,6 +52,7 @@
             android:layout_marginBottom="15dp"
             android:onClick="about"
             android:id="@+id/about"
+            android:drawableLeft="@drawable/ic_tasot_1"
             />
 
         <Button
@@ -59,6 +62,7 @@
             android:background="@color/colorPrimary"
             android:onClick="settings"
             android:id="@+id/settings"
+            android:drawableLeft="@drawable/ic_asetukset_1"
             />
     </LinearLayout>
 </RelativeLayout>
