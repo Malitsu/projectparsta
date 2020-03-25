@@ -36,7 +36,7 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Achievementit"
+            android:text="Saavutukset"
             android:background="@color/colorPrimary"
             android:layout_marginBottom="15dp"
             android:onClick="achivClick"
@@ -47,7 +47,7 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="About"
+            android:text="Tietoa"
             android:background="@color/colorPrimary"
             android:layout_marginBottom="15dp"
             android:onClick="about"
@@ -58,7 +58,7 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Settings"
+            android:text="Asetukset"
             android:background="@color/colorPrimary"
             android:onClick="settings"
             android:id="@+id/settings"
