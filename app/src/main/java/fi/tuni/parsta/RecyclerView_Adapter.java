@@ -2,6 +2,7 @@ package fi.tuni.parsta;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,29 +38,27 @@ public class RecyclerView_Adapter extends RecyclerView.Adapter<RecyclerView_Adap
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, final int position) {
-//
-//        cardBackground = mData.get(position).getNoteBackground();
-//        int resID = mContext.getResources().getIdentifier(cardBackground , "drawable", mContext.getPackageName());
-//        holder.cardView.setBackgroundResource(resID);
 
-        String imgString = mData.get(position).getUnlockedIcon();
-        int resID = mContext.getResources().getIdentifier(imgString , "drawable", mContext.getPackageName());
-        holder.item_thumbnail.setImageResource(resID);
+        if(mData.get(position).isUnlocked()){
+            String locked2 = " " + mData.get(position).isUnlocked();
+            String imgString = mData.get(position).getUnlockedIcon();
+            int resID = mContext.getResources().getIdentifier(imgString , "drawable", mContext.getPackageName());
+            holder.item_thumbnail.setImageResource(resID);
 
-        //on click listener
-        holder.cardView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+            //on click listener
+            holder.cardView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
 
-                Intent newIntent = new Intent(mContext, CardItemContentsActivity.class);
-                newIntent.putExtra("fi.tuni.parsta.achievementIcon", mData.get(position).getUnlockedIcon());
-                newIntent.putExtra("fi.tuni.parsta.achievementDesc", mData.get(position).getLongDesc());
+                    Intent newIntent = new Intent(mContext, CardItemContentsActivity.class);
+                    newIntent.putExtra("fi.tuni.parsta.achievementIcon", mData.get(position).getUnlockedIcon());
+                    newIntent.putExtra("fi.tuni.parsta.achievementDesc", mData.get(position).getLongDesc());
 
-                mContext.startActivity(newIntent);
-
-            }
-        });
-
+                    mContext.startActivity(newIntent);
+                }
+            });
+        }else{
+        }
     }
 
     @Override

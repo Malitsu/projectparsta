@@ -9,8 +9,6 @@
     xmlns:cardview="http://schemas.android.com/apk/res-auto"
     cardview:cardElevation="0dp"
     android:layout_marginTop="25dp"
-    android:layout_marginLeft="12dp"
-    cardview:layout_goneMarginRight="12dp"
     cardview:cardCornerRadius="4dp">
 
     <LinearLayout
