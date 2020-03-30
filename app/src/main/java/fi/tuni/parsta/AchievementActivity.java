@@ -1,6 +1,8 @@
 package fi.tuni.parsta;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.GridLayout;
 import android.widget.ImageView;
 
@@ -39,5 +41,17 @@ public class AchievementActivity extends AppCompatActivity {
         final RecyclerView_Adapter myAdapter = new RecyclerView_Adapter(this, achievementsList);
         myRv.setLayoutManager(new GridLayoutManager(this, 4));
         myRv.setAdapter(myAdapter);
+    }
+
+    public void quitAchievements(View v){
+        Intent i= new Intent(this, MainActivity.class);
+        startActivity(i);
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent i= new Intent(this, MainActivity.class);
+        startActivity(i);
+        finish();
     }
 }

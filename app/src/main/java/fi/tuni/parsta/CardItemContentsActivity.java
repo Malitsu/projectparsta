@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -27,6 +28,7 @@ public class CardItemContentsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_card_item_contents);
         tvDesc = (TextView) findViewById(R.id.txtdesc);
         img = (ImageView) findViewById(R.id.itemthumbnail);
@@ -46,5 +48,17 @@ public class CardItemContentsActivity extends AppCompatActivity {
             int resID = this.getResources().getIdentifier(imgString , "drawable", this.getPackageName());
             img.setImageResource(resID);
         }
+    }
+
+    public void quitGameCard(View v){
+        Intent i= new Intent(this, AchievementActivity.class);
+        startActivity(i);
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent i= new Intent(this, AchievementActivity.class);
+        startActivity(i);
+        finish();
     }
 }

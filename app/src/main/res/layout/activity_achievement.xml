@@ -24,12 +24,14 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="5dp"
             android:layout_marginBottom="25dp"
             android:background="@drawable/quit_button"
             android:layout_alignParentRight="true"
-            android:text="Lopeta peli"/>
+            android:onClick="quitAchievements"
+            android:text="Takaisin"
+            android:textSize="12sp"/>
     </RelativeLayout>
 
     <androidx.recyclerview.widget.RecyclerView

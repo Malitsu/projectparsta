@@ -19,7 +19,8 @@
         <activity android:name=".AchievementActivity"/>
         <activity android:name=".Game"/>
         <activity android:name=".AnswerResultActivity"/>
-        <activity android:name=".CardItemContentsActivity"/>
+        <activity android:name=".CardItemContentsActivity"
+            android:theme="@style/DialogTheme" />
     </application>
 
 </manifest>

@@ -2,14 +2,16 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
     tools:context=".CardItemContentsActivity">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
+        android:layout_gravity="center"
         android:padding="10dp">
 
         <LinearLayout
@@ -21,10 +23,6 @@
             <ImageView
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginLeft="50dp"
-                android:layout_marginRight="50dp"
-                android:background="#2d2d2d"
                 android:id="@+id/itemthumbnail"
                 android:scaleType="centerCrop"/>
 
@@ -45,9 +43,14 @@
                 android:text="Kuvaus"/>
 
             <Button
-                android:layout_width="match_parent"
+                android:layout_marginTop="30dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/quit_button"
                 android:id="@+id/delete"
+                android:onClick="quitGameCard"
                 android:text="Palaa takaisin" />
 
         </LinearLayout>
