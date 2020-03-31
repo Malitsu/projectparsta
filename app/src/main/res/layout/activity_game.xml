@@ -6,15 +6,38 @@
 
     <RelativeLayout
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="100dp"
         android:background="@color/colorPrimary">
-    <TextView
-        android:paddingTop="10dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:layout_alignParentLeft="true"
-        android:text="Mitä tunnetta ilme kuvastaa?"/>
+
+        <TextView
+            android:id="@+id/levelDisplayGame"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:paddingTop="10dp"
+            android:text="Taso 1"
+            android:textSize="20sp"/>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:background="@color/colorPrimary"
+        android:layout_marginTop="50dp">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerview_gameLoop"
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginBottom="20dp">
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+    </RelativeLayout>
+
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -23,7 +46,8 @@
             android:background="@drawable/quit_button"
             android:onClick="quitGame"
             android:layout_alignParentRight="true"
-            android:text="Lopeta peli"/>
+            android:text="Lopeta peli"
+            />
     </RelativeLayout>
     <TextView
         android:layout_width="match_parent"

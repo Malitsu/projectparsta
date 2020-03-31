@@ -27,6 +27,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -58,11 +60,15 @@ public class Game extends AppCompatActivity {
     String rightAnswerString;
     SharedPreferences sharedPreferences;
     String questionImgName;
+    List<Dots> listDots;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
+        listDots = new ArrayList<>();
+        addDots();
+
         GsonBuilder gsonBuilder = new GsonBuilder();
         gson = gsonBuilder.create();
         convertJsonToGameImageObjects();
@@ -77,6 +83,24 @@ public class Game extends AppCompatActivity {
         currentWins.setText("Oikein: " + rightAnswersInt);
         gameLoop();
 
+    }
+
+    public void addDots() {
+        listDots.add(new Dots(R.drawable.ic_dot_green));
+        listDots.add(new Dots(R.drawable.ic_dot_red));
+        listDots.add(new Dots(R.drawable.ic_dot_green));
+        listDots.add(new Dots(R.drawable.ic_dot_current));
+        listDots.add(new Dots(R.drawable.ic_dot_white));
+        listDots.add(new Dots(R.drawable.ic_dot_white));
+        listDots.add(new Dots(R.drawable.ic_dot_white));
+        listDots.add(new Dots(R.drawable.ic_dot_white));
+        listDots.add(new Dots(R.drawable.ic_dot_white));
+        listDots.add(new Dots(R.drawable.ic_dot_white));
+
+        RecyclerView myrv = (RecyclerView) findViewById(R.id.recyclerview_gameLoop);
+        DotRecyclerView_Adapter myAdapter = new DotRecyclerView_Adapter(this, listDots);
+        myrv.setLayoutManager(new GridLayoutManager(this,10));
+        myrv.setAdapter(myAdapter);
     }
 
 
