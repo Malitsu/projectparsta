@@ -43,6 +43,16 @@
             android:id="@+id/achievements"
             android:drawableLeft="@drawable/ic_saavutukset"
             />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tasot"
+            android:background="@color/colorPrimary"
+            android:layout_marginBottom="15dp"
+            android:onClick="levels"
+            android:id="@+id/levels"
+            android:drawableLeft="@drawable/ic_tasot_1"
+            />
 
         <Button
             android:layout_width="match_parent"

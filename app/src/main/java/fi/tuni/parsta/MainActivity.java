@@ -28,6 +28,12 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public void levels(View v) {
+        Intent levelIntent = new Intent(this, LevelsActivity.class);
+        startActivity(levelIntent);
+
+    }
+
     public void about(View v) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 

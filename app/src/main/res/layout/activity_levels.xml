@@ -38,6 +38,8 @@
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/levelList"/>
+        android:id="@+id/levelList"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="10.0sp"/>
 
 </LinearLayout>
