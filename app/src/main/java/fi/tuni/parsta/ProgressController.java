@@ -26,6 +26,7 @@ import static android.content.Context.MODE_PRIVATE;
 
 public class ProgressController {
     private static ArrayList<Achievement> achievements;
+    private final static String PROGRESSPREF = "progress";
 
     public static Toast registerAClick(boolean beatLevel, int levelID, boolean win, Context context) {
         // TODO: Do something with the level info
@@ -127,6 +128,6 @@ public class ProgressController {
     }
 
     private static SharedPreferences getSharedPreferences(Context context) {
-        return context.getSharedPreferences("progress", MODE_PRIVATE);
+        return context.getSharedPreferences(PROGRESSPREF, MODE_PRIVATE);
     }
 }
