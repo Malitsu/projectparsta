@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -22,7 +23,7 @@ import java.util.List;
 import static android.content.Context.MODE_PRIVATE;
 
 public class ProgressController {
-    private static Achievement[] achievements;
+    private static ArrayList<Achievement> achievements;
 
     public static Toast registerAClick(boolean beatLevel, int levelID, boolean win, Context context) {
         // TODO: Do something with the level info
@@ -52,7 +53,7 @@ public class ProgressController {
             GsonBuilder gsonBuilder = new GsonBuilder();
             Gson gson = gsonBuilder.create();
             String data = Util.readFile("achievements.json", context);
-            achievements = gson.fromJson(data, Achievement[].class);
+            achievements = gson.fromJson(data, new TypeToken<ArrayList<Achievement>>(){}.getType());
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -84,7 +85,7 @@ public class ProgressController {
     }
 
     private static List<Achievement> checkAchievements(Context context, int clicks, int wins) {
-        Achievement[] achievements = getAchievements(context);
+        List<Achievement> achievements = getAchievements(context);
         List<Achievement> achievementsReached = new ArrayList<>();
         for (Achievement achievement : achievements) {
             if (achievement.checkIfCompleted(clicks, wins)) {
@@ -95,7 +96,7 @@ public class ProgressController {
         return achievementsReached;
     }
 
-    public static Achievement[] getAchievements(Context context) {
+    public static ArrayList<Achievement> getAchievements(Context context) {
         if (achievements == null) initAchievements(context);
         return achievements;
     }
