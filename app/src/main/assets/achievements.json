@@ -84,8 +84,8 @@
     "id": 302,
     "lockedIcon": "locked",
     "requiredValue": 2,
-    "shortDesc": "Taso 1 suoritettu",
-    "longDesc": "Taso 1 läpäisty",
+    "shortDesc": "Taso 2 suoritettu",
+    "longDesc": "Taso 2 läpäisty",
     "type": "LEVEL",
     "unlockedIcon": "unlocked"
   },
@@ -93,8 +93,8 @@
     "id": 303,
     "lockedIcon": "locked",
     "requiredValue": 3,
-    "shortDesc": "Taso 1 suoritettu",
-    "longDesc": "Taso 1 läpäisty",
+    "shortDesc": "Taso 3 suoritettu",
+    "longDesc": "Taso 3 läpäisty",
     "type": "LEVEL",
     "unlockedIcon": "unlocked"
   },
@@ -102,8 +102,8 @@
     "id": 304,
     "lockedIcon": "locked",
     "requiredValue": 4,
-    "shortDesc": "Taso 1 suoritettu",
-    "longDesc": "Taso 1 läpäisty",
+    "shortDesc": "Taso 4 suoritettu",
+    "longDesc": "Taso 4 läpäisty",
     "type": "LEVEL",
     "unlockedIcon": "unlocked"
   }
