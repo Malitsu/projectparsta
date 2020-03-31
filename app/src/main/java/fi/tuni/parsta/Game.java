@@ -97,6 +97,24 @@ public class Game extends AppCompatActivity {
     }
 
     public void addDots() {
+        /*
+            //Make levelprogress static move it all to level class?
+            boolean[] answers = LevelProgress.getAreAnswersCorrect();
+            int currentClicks = LevelProgress.getCurrentClicks();
+            for(int i = 0; i < answers.length; i++) {
+                if( i < currentClicks) {
+                    if(answers[i] == true) {
+                         listDots.add(new Dots(R.drawable.ic_dot_green));
+                    } else {
+                        listDots.add(new Dots(R.drawable.ic_dot_red));
+                    }
+                } else if( i == currentClicks) {
+                    listDots.add(new Dots(R.drawable.ic_dot_current));
+                } else {
+                    listDots.add(new Dots(R.drawable.ic_dot_white));
+                }
+            }
+         */
         listDots.add(new Dots(R.drawable.ic_dot_green));
         listDots.add(new Dots(R.drawable.ic_dot_red));
         listDots.add(new Dots(R.drawable.ic_dot_green));
