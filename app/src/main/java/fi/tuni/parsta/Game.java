@@ -18,6 +18,7 @@ import android.widget.GridLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -78,8 +79,9 @@ public class Game extends AppCompatActivity {
 
         currentWins = (TextView) findViewById(R.id.currentWins);
         sharedPreferences = getSharedPreferences("progress", MODE_PRIVATE);
-        clicks = sharedPreferences.getInt("clicks", 0);
-        rightAnswersInt = sharedPreferences.getInt("wins", 0);
+        clicks = ProgressController.getClicks(this);
+
+        rightAnswersInt = ProgressController.getWins(this);
         currentWins.setText("Oikein: " + rightAnswersInt);
         gameLoop();
 
@@ -212,14 +214,12 @@ public class Game extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
 //                    gameLoop();
-                    SharedPreferences.Editor editor = sharedPreferences.edit();
                     if(rightAnswerString.contains(myButton.getText().toString())) {
                         rightAnswersInt++;
                         clicks++;
-                        editor.putInt("clicks", clicks);
-                        editor.putInt("wins", rightAnswersInt);
+                        Toast toast =ProgressController.registerAClick(true, getApplicationContext());
+                        if (toast != null) toast.show();
                         Util.playSound(getApplication(), R.raw.right);
-                        editor.apply();
                         currentWins.setText("Oikein: " + rightAnswersInt);
                         Intent gameIntent = new Intent(getApplication(), AnswerResultActivity.class);
                         gameIntent.putExtra("wasAnswerRight",true);
@@ -228,8 +228,8 @@ public class Game extends AppCompatActivity {
                         startActivity(gameIntent);
                     } else {
                         clicks++;
-                        editor.putInt("clicks", clicks);
-                        editor.apply();
+                        Toast toast = ProgressController.registerAClick(false, getApplicationContext());
+                        if (toast != null) toast.show();
                         Util.playSound(getApplication(), R.raw.wrong);
                         Intent gameIntent = new Intent(getApplication(), AnswerResultActivity.class);
                         gameIntent.putExtra("wasAnswerRight",false);

@@ -118,4 +118,14 @@ public class ProgressController {
         if (achievements == null) initAchievements(context);
         return achievements;
     }
+
+    public static int getWins(Context context) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences("progress", MODE_PRIVATE);
+        return sharedPreferences.getInt("wins", 0);
+    }
+
+    public static int getClicks(Context context) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences("progress", MODE_PRIVATE);
+        return sharedPreferences.getInt("clicks", 0);
+    }
 }
