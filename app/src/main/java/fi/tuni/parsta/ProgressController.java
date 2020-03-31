@@ -33,7 +33,7 @@ public class ProgressController {
     }
 
     public static Toast registerAClick(boolean win, Context context) {
-        SharedPreferences sharedPreferences = context.getSharedPreferences("progress", MODE_PRIVATE);
+        SharedPreferences sharedPreferences = getSharedPreferences(context);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         int clicks = sharedPreferences.getInt("clicks", 0);
         int wins = sharedPreferences.getInt("wins", 0);
@@ -63,7 +63,7 @@ public class ProgressController {
     }
 
     private static void readAchievementStatus(Context context) {
-        SharedPreferences sharedPreferences = context.getSharedPreferences("progress", MODE_PRIVATE);
+        SharedPreferences sharedPreferences = getSharedPreferences(context);
         for (Achievement a : achievements) {
             a.setUnlocked(sharedPreferences.getBoolean(a.getIdKey(), false));
             a.setDateOfAchievement(sharedPreferences.getString(a.getADateKey(), "-"));
@@ -101,8 +101,7 @@ public class ProgressController {
         for (Achievement a : achievements) {
             if (a.checkIfCompleted(clicks, wins)) {
                 a.unlock();
-                SharedPreferences sharedPreferences = context.getSharedPreferences("progress", MODE_PRIVATE);
-                SharedPreferences.Editor editor = sharedPreferences.edit();
+                SharedPreferences.Editor editor = getSharedPreferences(context).edit();
                 editor.putBoolean(a.getIdKey(), true);
                 Date c = Calendar.getInstance().getTime();
                 SimpleDateFormat df = new SimpleDateFormat("dd.M.yyyy");
@@ -120,12 +119,14 @@ public class ProgressController {
     }
 
     public static int getWins(Context context) {
-        SharedPreferences sharedPreferences = context.getSharedPreferences("progress", MODE_PRIVATE);
-        return sharedPreferences.getInt("wins", 0);
+        return getSharedPreferences(context).getInt("wins", 0);
     }
 
     public static int getClicks(Context context) {
-        SharedPreferences sharedPreferences = context.getSharedPreferences("progress", MODE_PRIVATE);
-        return sharedPreferences.getInt("clicks", 0);
+        return getSharedPreferences(context).getInt("clicks", 0);
+    }
+
+    private static SharedPreferences getSharedPreferences(Context context) {
+        return context.getSharedPreferences("progress", MODE_PRIVATE);
     }
 }
