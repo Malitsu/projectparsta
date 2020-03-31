@@ -1,6 +1,6 @@
 [
   {
-    "id": 1,
+    "id": 101,
     "lockedIcon": "locked",
     "requiredValue": 10,
     "shortDesc": "10 painallusta",
@@ -9,7 +9,7 @@
     "unlockedIcon": "unlocked"
   },
   {
-    "id": 2,
+    "id": 102,
     "lockedIcon": "locked",
     "requiredValue": 100,
     "shortDesc": "100 painallusta",
@@ -18,7 +18,7 @@
     "unlockedIcon": "unlocked"
   },
   {
-    "id": 3,
+    "id": 103,
     "lockedIcon": "locked",
     "requiredValue": 1000,
     "shortDesc": "1000 painallusta",
@@ -27,7 +27,7 @@
     "unlockedIcon": "unlocked"
   },
   {
-    "id": 4,
+    "id": 104,
     "lockedIcon": "locked",
     "requiredValue": 10000,
     "shortDesc": "10000 painallusta",
@@ -36,7 +36,7 @@
     "unlockedIcon": "unlocked"
   },
   {
-    "id": 5,
+    "id": 201,
     "lockedIcon": "locked",
     "requiredValue": 10,
     "shortDesc": "10 oikein tunnistusta",
@@ -45,7 +45,7 @@
     "unlockedIcon": "unlocked"
   },
   {
-    "id": 6,
+    "id": 202,
     "lockedIcon": "locked",
     "requiredValue": 100,
     "shortDesc": "100 oikein tunnistusta",
@@ -54,7 +54,7 @@
     "unlockedIcon": "unlocked"
   },
   {
-    "id": 7,
+    "id": 203,
     "lockedIcon": "locked",
     "requiredValue": 1000,
     "shortDesc": "1000 oikein tunnistusta",
@@ -63,12 +63,48 @@
     "unlockedIcon": "unlocked"
   },
   {
-    "id": 8,
+    "id": 204,
     "lockedIcon": "locked",
     "requiredValue": 10000,
     "shortDesc": "10000 oikein tunnistusta",
     "longDesc": "10000 oikeata ilmeen tunnistusta pelissä",
     "type": "WINS",
+    "unlockedIcon": "unlocked"
+  },
+  {
+    "id": 301,
+    "lockedIcon": "locked",
+    "requiredValue": 1,
+    "shortDesc": "Taso 1 suoritettu",
+    "longDesc": "Taso 1 läpäisty",
+    "type": "LEVEL",
+    "unlockedIcon": "unlocked"
+  },
+  {
+    "id": 302,
+    "lockedIcon": "locked",
+    "requiredValue": 2,
+    "shortDesc": "Taso 1 suoritettu",
+    "longDesc": "Taso 1 läpäisty",
+    "type": "LEVEL",
+    "unlockedIcon": "unlocked"
+  },
+  {
+    "id": 303,
+    "lockedIcon": "locked",
+    "requiredValue": 3,
+    "shortDesc": "Taso 1 suoritettu",
+    "longDesc": "Taso 1 läpäisty",
+    "type": "LEVEL",
+    "unlockedIcon": "unlocked"
+  },
+  {
+    "id": 304,
+    "lockedIcon": "locked",
+    "requiredValue": 4,
+    "shortDesc": "Taso 1 suoritettu",
+    "longDesc": "Taso 1 läpäisty",
+    "type": "LEVEL",
     "unlockedIcon": "unlocked"
   }
 ]
