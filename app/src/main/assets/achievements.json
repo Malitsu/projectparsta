@@ -1,26 +1,74 @@
 [
   {
+    "id": 1,
     "lockedIcon": "locked",
     "requiredValue": 10,
-    "shortDesc": "This is a placeholder text",
-    "longDesc": "This is a placeholder text for long text",
+    "shortDesc": "10 painallusta",
+    "longDesc": "10 painallusta pelissä",
     "type": "CLICKS",
     "unlockedIcon": "unlocked"
   },
   {
+    "id": 2,
     "lockedIcon": "locked",
-    "requiredValue": 20,
-    "shortDesc": "This is a placeholder text",
-    "longDesc": "This is a placeholder text for long text",
+    "requiredValue": 100,
+    "shortDesc": "100 painallusta",
+    "longDesc": "100 painallusta pelissä",
+    "type": "CLICKS",
+    "unlockedIcon": "unlocked"
+  },
+  {
+    "id": 3,
+    "lockedIcon": "locked",
+    "requiredValue": 1000,
+    "shortDesc": "1000 painallusta",
+    "longDesc": "1000 painallusta pelissä",
+    "type": "CLICKS",
+    "unlockedIcon": "unlocked"
+  },
+  {
+    "id": 4,
+    "lockedIcon": "locked",
+    "requiredValue": 10000,
+    "shortDesc": "10000 painallusta",
+    "longDesc": "10000 painallusta pelissä",
+    "type": "CLICKS",
+    "unlockedIcon": "unlocked"
+  },
+  {
+    "id": 5,
+    "lockedIcon": "locked",
+    "requiredValue": 10,
+    "shortDesc": "10 oikein tunnistusta",
+    "longDesc": "10 oikeata ilmeen tunnistusta pelissä",
     "type": "WINS",
     "unlockedIcon": "unlocked"
   },
   {
+    "id": 6,
     "lockedIcon": "locked",
     "requiredValue": 100,
-    "shortDesc": "This is a placeholder text",
-    "longDesc": "This is a placeholder text for long text",
-    "type": "CLICKS",
+    "shortDesc": "100 oikein tunnistusta",
+    "longDesc": "100 oikeata ilmeen tunnistusta pelissä",
+    "type": "WINS",
+    "unlockedIcon": "unlocked"
+  },
+  {
+    "id": 7,
+    "lockedIcon": "locked",
+    "requiredValue": 1000,
+    "shortDesc": "1000 oikein tunnistusta",
+    "longDesc": "1000 oikeata ilmeen tunnistusta pelissä",
+    "type": "WINS",
+    "unlockedIcon": "unlocked"
+  },
+  {
+    "id": 8,
+    "lockedIcon": "locked",
+    "requiredValue": 10000,
+    "shortDesc": "10000 oikein tunnistusta",
+    "longDesc": "10000 oikeata ilmeen tunnistusta pelissä",
+    "type": "WINS",
     "unlockedIcon": "unlocked"
   }
 ]

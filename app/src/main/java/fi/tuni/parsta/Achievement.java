@@ -1,6 +1,7 @@
 package fi.tuni.parsta;
 
 class Achievement {
+    private int id;
     private boolean unlocked = false;
     private String longDesc = "This is a placeholder text for long text";
     private String shortDesc = "This is a placeholder text for short text";
@@ -12,9 +13,7 @@ class Achievement {
         CLICKS, WINS, LEVEL
     }
 
-    public Achievement(int requiredValue) {
-        this.requiredValue = requiredValue;
-        this.type = Type.CLICKS;
+    public Achievement() {
     }
 
     public boolean checkIfCompleted(int clicks, int wins) {
@@ -94,13 +93,25 @@ class Achievement {
         this.type = type;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     @Override
     public String toString() {
         return "Achievement{" +
-                "unlocked=" + unlocked +
+                "id=" + id +
+                ", unlocked=" + unlocked +
                 ", longDesc='" + longDesc + '\'' +
                 ", shortDesc='" + shortDesc + '\'' +
-                ", clicksRequired=" + requiredValue +
+                ", requiredValue=" + requiredValue +
+                ", lockedIcon='" + lockedIcon + '\'' +
+                ", unlockedIcon='" + unlockedIcon + '\'' +
+                ", type=" + type +
                 '}';
     }
 }
