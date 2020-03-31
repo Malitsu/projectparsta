@@ -62,8 +62,7 @@ public class ProgressController {
     private static void reacAchievementStatus(Context context) {
         SharedPreferences sharedPreferences = context.getSharedPreferences("progress", MODE_PRIVATE);
         for (Achievement a : achievements) {
-            String key = "ach_" + String.format(Locale.getDefault(), "%03d", a.getId());
-            a.setUnlocked(sharedPreferences.getBoolean(key, false));
+            a.setUnlocked(sharedPreferences.getBoolean(a.getIdKey(), false));
         }
     }
 
@@ -95,15 +94,14 @@ public class ProgressController {
     private static List<Achievement> checkAchievements(Context context, int clicks, int wins) {
         List<Achievement> achievements = getAchievements(context);
         List<Achievement> achievementsReached = new ArrayList<>();
-        for (Achievement achievement : achievements) {
-            if (achievement.checkIfCompleted(clicks, wins)) {
-                achievement.unlock();
+        for (Achievement a : achievements) {
+            if (a.checkIfCompleted(clicks, wins)) {
+                a.unlock();
                 SharedPreferences sharedPreferences = context.getSharedPreferences("progress", MODE_PRIVATE);
                 SharedPreferences.Editor editor = sharedPreferences.edit();
-                String key = "ach_" + String.format(Locale.getDefault(), "%03d", achievement.getId());
-                editor.putBoolean(key, true);
+                editor.putBoolean(a.getIdKey(), true);
                 editor.apply();
-                achievementsReached.add(achievement);
+                achievementsReached.add(a);
             }
         }
         return achievementsReached;

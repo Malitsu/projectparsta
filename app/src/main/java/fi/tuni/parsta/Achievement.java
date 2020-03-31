@@ -1,5 +1,7 @@
 package fi.tuni.parsta;
 
+import java.util.Locale;
+
 class Achievement {
     private int id;
     private boolean unlocked = false;
@@ -99,6 +101,10 @@ class Achievement {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getIdKey() {
+        return "ach_" + String.format(Locale.getDefault(), "%03d", getId());
     }
 
     @Override
