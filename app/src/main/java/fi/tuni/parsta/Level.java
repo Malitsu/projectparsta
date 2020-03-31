@@ -11,6 +11,11 @@ public class Level {
 
     boolean[] areAnswersCorrect;
 
+    public Level(int level, int score) {
+        this.level = level;
+        this.score = score;
+    }
+
     public Level(int level, int score, int amountOfPictures, int currentLevelClicks) {
         this.level = level;
         this.score = score;
@@ -25,18 +30,49 @@ public class Level {
         }
     }
 
-    public void updateAnswers(int currentPicturePositionInALevel, boolean wasAnswerCorrect) {
-        boolean updated = setNewCorrectAnswer(currentPicturePositionInALevel, wasAnswerCorrect);
-        Log.d("LEVELINFOS", " answer was updated in the booleanArray " + updated );
-    }
-
-    private boolean setNewCorrectAnswer(int position, boolean answer) {
-        if(position == getCurrentLevelClicks()) {
-            areAnswersCorrect[position] = answer;
+    public boolean updateLevelInfo(int currentPictureNumberInALevel, boolean wasAnswerCorrect, int newScore, int newCurrentClicks) {
+        boolean array = updateAnswerArray(currentPictureNumberInALevel,wasAnswerCorrect);
+        boolean score = updateScore(newScore);
+        boolean clicks = updateCurrentClicks(newCurrentClicks);
+        if(array && score && clicks) {
+            return true;
         } else {
             return false;
         }
+    }
+
+    private boolean updateAnswerArray(int position, boolean answer) {
+        boolean updated;
+        if(position == getCurrentLevelClicks()) {
+            updated = areAnswersCorrect[position] = answer;
+        } else {
+            return false;
+        }
+        Log.d("LEVELINFOS", " answer was updated in the booleanArray " + updated  + " at position" + position);
         return true;
+    }
+
+    private boolean updateScore(int newScore) {
+        if(newScore > getScore()) {
+            setScore(newScore);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    private boolean updateCurrentClicks(int newCurrentClicks) {
+        if(newCurrentClicks > getCurrentLevelClicks()) {
+            setCurrentLevelClicks(newCurrentClicks);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public void resetCurrentClicksAndScore() {
+        setCurrentLevelClicks(0);
+        setScore(0);
     }
 
     public boolean[] getAreAnswersCorrect() {
