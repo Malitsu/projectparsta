@@ -66,7 +66,7 @@ public class ProgressController {
         SharedPreferences sharedPreferences = context.getSharedPreferences("progress", MODE_PRIVATE);
         for (Achievement a : achievements) {
             a.setUnlocked(sharedPreferences.getBoolean(a.getIdKey(), false));
-            a.setDateOfAchievement(sharedPreferences.getString(a.getADateKey(), ""));
+            a.setDateOfAchievement(sharedPreferences.getString(a.getADateKey(), "-"));
         }
     }
 

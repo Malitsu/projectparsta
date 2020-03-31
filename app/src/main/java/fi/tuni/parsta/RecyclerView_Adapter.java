@@ -38,28 +38,19 @@ public class RecyclerView_Adapter extends RecyclerView.Adapter<RecyclerView_Adap
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, final int position) {
-
-        if(mData.get(position).isUnlocked()){
-            String locked2 = " " + mData.get(position).isUnlocked();
-            String imgString = mData.get(position).getUnlockedIcon();
-            int resID = mContext.getResources().getIdentifier(imgString , "drawable", mContext.getPackageName());
-            holder.item_thumbnail.setImageResource(resID);
-
-            //on click listener
-            holder.cardView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-
-                    Intent newIntent = new Intent(mContext, CardItemContentsActivity.class);
-                    newIntent.putExtra("fi.tuni.parsta.achievementIcon", mData.get(position).getUnlockedIcon());
-                    newIntent.putExtra("fi.tuni.parsta.achievementDate", mData.get(position).getDateOfAchievement());
-                    newIntent.putExtra("fi.tuni.parsta.achievementDesc", mData.get(position).getLongDesc());
-
-                    mContext.startActivity(newIntent);
-                }
-            });
-        }else{
-        }
+        String imgString = mData.get(position).getIcon();
+        int resID = mContext.getResources().getIdentifier(imgString , "drawable", mContext.getPackageName());
+        holder.item_thumbnail.setImageResource(resID);
+        holder.cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent newIntent = new Intent(mContext, CardItemContentsActivity.class);
+                newIntent.putExtra("fi.tuni.parsta.achievementIcon", mData.get(position).getIcon());
+                newIntent.putExtra("fi.tuni.parsta.achievementDate", mData.get(position).getDateOfAchievement());
+                newIntent.putExtra("fi.tuni.parsta.achievementDesc", mData.get(position).getLongDesc());
+                mContext.startActivity(newIntent);
+            }
+        });
     }
 
     @Override
