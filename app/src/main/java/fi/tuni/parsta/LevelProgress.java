@@ -3,15 +3,15 @@ package fi.tuni.parsta;
 import android.util.Log;
 
 public class LevelProgress {
-    int level;
-    int score;
+    int currentLevel;
+    int currentScore;
     int currentLevelClicks;
 
     boolean[] areAnswersCorrect;
 
-    public LevelProgress(int level, int score, int amountOfPictures, int currentLevelClicks) {
-        this.level = level;
-        this.score = score;
+    public LevelProgress(int currentLevel, int currentScore, int amountOfPictures, int currentLevelClicks) {
+        this.currentLevel = currentLevel;
+        this.currentScore = currentScore;
         this.currentLevelClicks = currentLevelClicks;
         areAnswersCorrect = new boolean[amountOfPictures];
         preSetAnswerToFalse();
@@ -46,8 +46,8 @@ public class LevelProgress {
     }
 
     private boolean updateScore(int newScore) {
-        if(newScore > getScore()) {
-            setScore(newScore);
+        if(newScore > getCurrentScore()) {
+            setCurrentScore(newScore);
             return true;
         } else {
             return false;
@@ -65,7 +65,7 @@ public class LevelProgress {
 
     public void resetCurrentClicksAndScore() {
         setCurrentLevelClicks(0);
-        setScore(0);
+        setCurrentScore(0);
     }
 
     public boolean[] getAreAnswersCorrect() {
@@ -84,20 +84,20 @@ public class LevelProgress {
         this.currentLevelClicks = currentLevelClicks;
     }
 
-    public int getLevel() {
-        return level;
+    public int getCurrentLevel() {
+        return currentLevel;
     }
 
-    public void setLevel(int level) {
-        this.level = level;
+    public void setCurrentLevel(int currentLevel) {
+        this.currentLevel = currentLevel;
     }
 
-    public int getScore() {
-        return score;
+    public int getCurrentScore() {
+        return currentScore;
     }
 
-    public void setScore(int score) {
-        this.score = score;
+    public void setCurrentScore(int currentScore) {
+        this.currentScore = currentScore;
     }
 
 }
