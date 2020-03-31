@@ -53,6 +53,7 @@ public class Game extends AppCompatActivity {
     ImageView questionImg;
     LinearLayout buttonLayout;
     TextView currentWins;
+    TextView levelDisplayGame;
     //Temporary
     Boolean firstRound = true;
     ArrayList<Button> buttonList = new ArrayList<>();
@@ -78,10 +79,18 @@ public class Game extends AppCompatActivity {
         }
 
         currentWins = (TextView) findViewById(R.id.currentWins);
+        levelDisplayGame = (TextView) findViewById(R.id.levelDisplayGame);
         sharedPreferences = getSharedPreferences("progress", MODE_PRIVATE);
         clicks = ProgressController.getClicks(this);
 
         rightAnswersInt = ProgressController.getWins(this);
+
+        Bundle extras = getIntent().getExtras();
+
+        if (extras != null) {
+            level = extras.getInt("currentLevel",1);
+        }
+        levelDisplayGame.setText("Taso: " + level);
         currentWins.setText("Oikein: " + rightAnswersInt);
         gameLoop();
 
@@ -215,26 +224,33 @@ public class Game extends AppCompatActivity {
                 public void onClick(View view) {
 //                    gameLoop();
                     if(rightAnswerString.contains(myButton.getText().toString())) {
+                        Intent gameIntent = new Intent(getApplication(), AnswerResultActivity.class);
                         rightAnswersInt++;
                         clicks++;
                         Toast toast =ProgressController.registerAClick(true, getApplicationContext());
                         if (toast != null) toast.show();
                         Util.playSound(getApplication(), R.raw.right);
-                        currentWins.setText("Oikein: " + rightAnswersInt);
-                        Intent gameIntent = new Intent(getApplication(), AnswerResultActivity.class);
+                        currentWins.setText("Oikein: " + rightAnswersInt + " Total clicks: " + clicks);
+
                         gameIntent.putExtra("wasAnswerRight",true);
                         gameIntent.putExtra("questionImgName", questionImgName);
                         gameIntent.putExtra("rightAnswerNumber", rightAnswersInt);
+                        gameIntent.putExtra("clicksNumber", clicks);
+
+                        gameIntent.putExtra("currentLevel", level);
                         startActivity(gameIntent);
                     } else {
+                        Intent gameIntent = new Intent(getApplication(), AnswerResultActivity.class);
                         clicks++;
                         Toast toast = ProgressController.registerAClick(false, getApplicationContext());
                         if (toast != null) toast.show();
                         Util.playSound(getApplication(), R.raw.wrong);
-                        Intent gameIntent = new Intent(getApplication(), AnswerResultActivity.class);
+                        currentWins.setText("Oikein: " + rightAnswersInt + " Total clicks: " + clicks);
                         gameIntent.putExtra("wasAnswerRight",false);
                         gameIntent.putExtra("questionImgName", questionImgName);
                         gameIntent.putExtra("rightAnswerNumber", rightAnswersInt);
+                        gameIntent.putExtra("clicksNumber", clicks);
+                        gameIntent.putExtra("currentLevel", level);
                         startActivity(gameIntent);
                     }
                 }

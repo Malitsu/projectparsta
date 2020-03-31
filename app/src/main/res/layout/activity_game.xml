@@ -16,7 +16,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
             android:paddingTop="10dp"
-            android:text="Taso 1"
+            android:text="Taso: "
             android:textSize="20sp"/>
 
     <RelativeLayout

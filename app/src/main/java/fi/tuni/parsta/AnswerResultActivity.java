@@ -18,6 +18,8 @@ public class AnswerResultActivity extends AppCompatActivity {
     String questionImgName;
     String infoQuestionImgName;
     int rightAnswers;
+    int clicksNumber;
+    int currentLevel;
 
     ImageView infoImg;
 
@@ -34,6 +36,8 @@ public class AnswerResultActivity extends AppCompatActivity {
              wasAnswerRight = extras.getBoolean("wasAnswerRight");
              questionImgName = extras.getString("questionImgName");
              rightAnswers = extras.getInt("rightAnswerNumber");
+             clicksNumber = extras.getInt("clicksNumber");
+             currentLevel = extras.getInt("currentLevel");
              infoQuestionImgName = questionImgName + "_info";
              int resourceName = Util.getStringResourceByName(infoQuestionImgName, this);
              infoImg.setImageResource(resourceName);
@@ -50,8 +54,18 @@ public class AnswerResultActivity extends AppCompatActivity {
     }
 
     public void nextClick(View view) {
-        Intent gameIntent = new Intent(this, Game.class);
-        startActivity(gameIntent);
+        if(clicksNumber % 10 == 0) {
+            Intent gameIntent = new Intent(this, LevelDebriefActivity.class);
+            gameIntent.putExtra("clicksNumber", clicksNumber);
+            gameIntent.putExtra("currentLevel", currentLevel);
+            startActivity(gameIntent);
+        } else {
+            Intent gameIntent = new Intent(this, Game.class);
+            gameIntent.putExtra("clicksNumber", clicksNumber);
+            gameIntent.putExtra("currentLevel", currentLevel);
+            startActivity(gameIntent);
+        }
+
     }
 
     @Override
