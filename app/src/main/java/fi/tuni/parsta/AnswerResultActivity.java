@@ -58,6 +58,7 @@ public class AnswerResultActivity extends AppCompatActivity {
             Intent gameIntent = new Intent(this, LevelDebriefActivity.class);
             gameIntent.putExtra("clicksNumber", clicksNumber);
             gameIntent.putExtra("currentLevel", currentLevel);
+            gameIntent.putExtra("levelScore", rightAnswers);
             startActivity(gameIntent);
         } else {
             Intent gameIntent = new Intent(this, Game.class);
