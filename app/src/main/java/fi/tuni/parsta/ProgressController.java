@@ -2,6 +2,7 @@ package fi.tuni.parsta;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,9 +16,11 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 
 import static android.content.Context.MODE_PRIVATE;
 
@@ -56,13 +59,14 @@ public class ProgressController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        reacAchievementStatus(context);
+        readAchievementStatus(context);
     }
 
-    private static void reacAchievementStatus(Context context) {
+    private static void readAchievementStatus(Context context) {
         SharedPreferences sharedPreferences = context.getSharedPreferences("progress", MODE_PRIVATE);
         for (Achievement a : achievements) {
             a.setUnlocked(sharedPreferences.getBoolean(a.getIdKey(), false));
+            a.setDateOfAchievement(sharedPreferences.getString(a.getADateKey(), ""));
         }
     }
 
@@ -100,6 +104,9 @@ public class ProgressController {
                 SharedPreferences sharedPreferences = context.getSharedPreferences("progress", MODE_PRIVATE);
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 editor.putBoolean(a.getIdKey(), true);
+                Date c = Calendar.getInstance().getTime();
+                SimpleDateFormat df = new SimpleDateFormat("dd.M.yyyy");
+                editor.putString(a.getADateKey(), df.format(c));
                 editor.apply();
                 achievementsReached.add(a);
             }

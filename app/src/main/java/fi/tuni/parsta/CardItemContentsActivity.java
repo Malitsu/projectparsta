@@ -21,9 +21,11 @@ import androidx.appcompat.app.AppCompatActivity;
 public class CardItemContentsActivity extends AppCompatActivity {
 
     private TextView tvDesc;
+    private TextView tvDate;
     private ImageView img;
-    String description;
+    private String description;
     private Intent intent;
+    private String date;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,10 +34,13 @@ public class CardItemContentsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_card_item_contents);
         tvDesc = (TextView) findViewById(R.id.txtdesc);
         img = (ImageView) findViewById(R.id.itemthumbnail);
+        tvDate = (TextView) findViewById(R.id.txtdate);
 
         intent = getIntent();
         description = intent.getExtras().getString("fi.tuni.parsta.achievementDesc");
+        date = intent.getExtras().getString("fi.tuni.parsta.achievementDate");
 
+        tvDate.setText(date);
         tvDesc.setText(description);
     }
 

@@ -5,6 +5,7 @@ import java.util.Locale;
 class Achievement {
     private int id;
     private boolean unlocked = false;
+    private String dateOfAchievement;
     private String longDesc = "This is a placeholder text for long text";
     private String shortDesc = "This is a placeholder text for short text";
     private int requiredValue;
@@ -103,8 +104,20 @@ class Achievement {
         this.id = id;
     }
 
+    public String getDateOfAchievement() {
+        return dateOfAchievement;
+    }
+
+    public void setDateOfAchievement(String dateOfAchievement) {
+        this.dateOfAchievement = dateOfAchievement;
+    }
+
     public String getIdKey() {
         return "ach_" + String.format(Locale.getDefault(), "%03d", getId());
+    }
+
+    public String getADateKey() {
+        return "achDate_" + String.format(Locale.getDefault(), "%03d", getId());
     }
 
     @Override
