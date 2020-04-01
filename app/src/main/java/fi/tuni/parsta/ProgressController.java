@@ -27,6 +27,14 @@ import static android.content.Context.MODE_PRIVATE;
 public class ProgressController {
     private static ArrayList<Achievement> achievements;
     private final static String PROGRESSPREF = "progress";
+    private final static String LEVEL = "level_";
+    private final static String MAXSCORE = "_maxscore";
+    private final static String CURRENTCLICKS = "_currentclicks";
+    private final static String CURRENTSCORE = "_currentclicks";
+    private final static String RIGHTANSWERAMOUNT = "_rightansweramount";
+    private final static String RIGHT = "_right";
+    private final static String PICKNRO = "_picknro";
+    private final static String CURRENTLEVELINPROGRESS = "currentlevelinprogress";
 
     public static Toast registerAClick(boolean beatLevel, int levelID, boolean win, Context context) {
         // TODO: Do something with the level info
@@ -49,6 +57,50 @@ public class ProgressController {
         } else {
             return null;
         }
+    }
+
+    public static void updateLevelProgress(Context context, int level, int newScore, int newCurrentLevelClicks, boolean wasAnswerCorrect) {
+        SharedPreferences sharedPreferences = getSharedPreferences(context);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean(LEVEL + level + PICKNRO + newCurrentLevelClicks + RIGHT, wasAnswerCorrect);
+        editor.putInt(LEVEL + level + CURRENTSCORE, newScore);
+        editor.putInt(LEVEL + level + CURRENTCLICKS, newCurrentLevelClicks);
+        editor.apply();
+    }
+
+    public static int getLevelMaxScore(Context context, int level) {
+        SharedPreferences sharedPreferences = getSharedPreferences(context);
+        int levelMaxScore =  sharedPreferences.getInt(LEVEL + level + MAXSCORE,0);
+        return levelMaxScore;
+    }
+
+    public static int getLevelCurrentScore(Context context, int level) {
+        SharedPreferences sharedPreferences = getSharedPreferences(context);
+        int levelCurrentScore =  sharedPreferences.getInt(LEVEL + level + CURRENTSCORE,0);
+        return levelCurrentScore;
+    }
+
+    public static boolean[] getLevelRightAnswerProgress(Context context, int level){
+        SharedPreferences sharedPreferences = getSharedPreferences(context);
+        boolean[] rightAnswerArray = new boolean[10];
+
+        for(int i = 1; i < 11; i++) {
+            rightAnswerArray[i] = sharedPreferences.getBoolean(LEVEL + level + i + RIGHT, false);
+        }
+        return rightAnswerArray;
+    }
+
+    public static int getCurrentLevel(Context context) {
+        SharedPreferences sharedPreferences = getSharedPreferences(context);
+        int curLevel = sharedPreferences.getInt(LEVEL + CURRENTLEVELINPROGRESS,0);
+        return curLevel;
+    }
+
+    public static void setCurrentLevelInProgress(Context context, int level) {
+        SharedPreferences sharedPreferences = getSharedPreferences(context);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putInt(LEVEL + CURRENTLEVELINPROGRESS, level);
+        editor.apply();
     }
 
     private static void initAchievements(Context context) {
