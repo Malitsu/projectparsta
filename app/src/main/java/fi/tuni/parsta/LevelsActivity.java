@@ -8,8 +8,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -37,7 +39,10 @@ public class LevelsActivity extends AppCompatActivity {
         levelList.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-                view = getLayoutInflater().inflate(R.layout.listview_item_levels2, null);
+                RelativeLayout rl_listViewItem = (RelativeLayout)view.findViewById(R.id.rl_listViewItem);
+
+                View child = getLayoutInflater().inflate(R.layout.listview_item_levels2, null);
+                rl_listViewItem.addView(child);
             }
         });
 
