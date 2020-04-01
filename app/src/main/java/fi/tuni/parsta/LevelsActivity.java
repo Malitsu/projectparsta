@@ -1,6 +1,5 @@
 package fi.tuni.parsta;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -9,12 +8,13 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,6 +22,7 @@ import java.util.List;
 public class LevelsActivity extends AppCompatActivity {
 
     List<LevelProgress> levelsList;
+    ArrayList<Dots> starList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,16 +40,65 @@ public class LevelsActivity extends AppCompatActivity {
         levelList.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-                RelativeLayout rl_listViewItem = (RelativeLayout)view.findViewById(R.id.rl_listViewItem);
+                final RelativeLayout rl_listViewItem = (RelativeLayout)view.findViewById(R.id.rl_listViewItem);
 
                 View child = getLayoutInflater().inflate(R.layout.listview_item_levels2, null);
                 rl_listViewItem.addView(child);
+
+                starList = new ArrayList<Dots>();
+                starList.add(new Dots(R.drawable.unlocked));
+                starList.add(new Dots(R.drawable.unlocked));
+                starList.add(new Dots(R.drawable.unlocked));
+                starList.add(new Dots(R.drawable.unlocked));
+                starList.add(new Dots(R.drawable.unlocked));
+                starList.add(new Dots(R.drawable.star_grey));
+                starList.add(new Dots(R.drawable.star_grey));
+                starList.add(new Dots(R.drawable.star_grey));
+                starList.add(new Dots(R.drawable.star_grey));
+                starList.add(new Dots(R.drawable.star_grey));
+
+                RecyclerView myrv = (RecyclerView) findViewById(R.id.recyclerview_level);
+                DotRecyclerView_Adapter myAdapter = new DotRecyclerView_Adapter(getApplicationContext(), starList);
+                myrv.setLayoutManager(new GridLayoutManager(getApplicationContext(),10));
+                myrv.setAdapter(myAdapter);
+
+                TextView levelInfo = (TextView) findViewById(R.id.levelText2);
+                levelInfo.setText("Level " + levelsList.get(position).getCurrentLevel());
+
+                TextView scoreText = (TextView) findViewById(R.id.scoreText);
+                scoreText.setText(levelsList.get(position).getMaxScore() + "/10");
+
+                Button closeItemBtn = (Button) child.findViewById(R.id.closeItemBtn);
+                closeItemBtn.setOnClickListener(new View.OnClickListener() {
+
+                    @Override
+                    public void onClick(View v) {
+                        if(rl_listViewItem.getChildAt(0)!= null){
+                            rl_listViewItem.removeAllViews();
+                        }
+                    }
+                });
+
+                Button startLevelBtn = (Button) child.findViewById(R.id.startLevelBtn);
+                startLevelBtn.setOnClickListener(new View.OnClickListener() {
+
+                    @Override
+                    public void onClick(View v) {
+                        Log.d("INFLATERI", "JOOJEE");
+                    }
+                });
             }
         });
 
         ListViewAdapter adapter = new ListViewAdapter();
 
         levelList.setAdapter(adapter);
+
+    }
+
+    public void quitLevels(View v){
+        Intent i= new Intent(this, MainActivity.class);
+        startActivity(i);
     }
 
     class ListViewAdapter extends BaseAdapter {

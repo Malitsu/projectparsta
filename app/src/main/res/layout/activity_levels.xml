@@ -30,7 +30,7 @@
             android:layout_marginBottom="25dp"
             android:background="@drawable/quit_button"
             android:layout_alignParentRight="true"
-            android:onClick="quitAchievements"
+            android:onClick="quitLevels"
             android:text="Takaisin"
             android:textSize="12sp"/>
     </RelativeLayout>

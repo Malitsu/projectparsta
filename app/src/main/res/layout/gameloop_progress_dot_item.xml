@@ -16,7 +16,7 @@
     <LinearLayout
         android:id="@+id/gameloopDotItem"
         android:orientation="vertical"
-        android:background="@color/colorPrimary"
+        android:background="@android:color/transparent"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
