@@ -5,6 +5,8 @@ import android.util.Log;
 public class LevelProgress {
     int currentLevel;
     int currentScore;
+    //highest score that player has achieved on current level
+    int maxScore;
     int currentLevelClicks;
 
     boolean[] areAnswersCorrect;
@@ -15,6 +17,11 @@ public class LevelProgress {
         this.currentLevelClicks = currentLevelClicks;
         areAnswersCorrect = new boolean[amountOfPictures];
         preSetAnswerToFalse();
+    }
+
+    public LevelProgress(int currentLevel, int maxScore) {
+        this.currentLevel = currentLevel;
+        this.maxScore = maxScore;
     }
 
     private void preSetAnswerToFalse() {
@@ -100,4 +107,11 @@ public class LevelProgress {
         this.currentScore = currentScore;
     }
 
+    public int getMaxScore() {
+        return maxScore;
+    }
+
+    public void setMaxScore(int maxScore) {
+        this.maxScore = maxScore;
+    }
 }

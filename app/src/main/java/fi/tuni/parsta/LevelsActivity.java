@@ -19,18 +19,18 @@ import java.util.List;
 
 public class LevelsActivity extends AppCompatActivity {
 
-    List<Level> levelsList;
+    List<LevelProgress> levelsList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_levels);
-        levelsList = new ArrayList<Level>();
+        levelsList = new ArrayList<LevelProgress>();
 
-        levelsList.add(new Level(1, 0));
-        levelsList.add(new Level(2, 0));
-        levelsList.add(new Level(3, 0));
-        levelsList.add(new Level(4, 0));
+        levelsList.add(new LevelProgress(1, 0));
+        levelsList.add(new LevelProgress(2, 0));
+        levelsList.add(new LevelProgress(3, 0));
+        levelsList.add(new LevelProgress(4, 0));
 
         ListView levelList = (ListView) findViewById(R.id.levelList);
 
@@ -68,7 +68,7 @@ public class LevelsActivity extends AppCompatActivity {
             view = getLayoutInflater().inflate(R.layout.listview_item_levels, null);
 
             TextView levelText = (TextView) view.findViewById(R.id.levelText);
-            levelText.setText("Level " + levelsList.get(i).getLevel());
+            levelText.setText("Level " + levelsList.get(i).getCurrentLevel());
 
             return view;
         }
