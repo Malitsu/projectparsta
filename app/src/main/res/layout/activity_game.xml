@@ -49,11 +49,11 @@
             android:text="Lopeta peli"
             />
     </RelativeLayout>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:id="@+id/currentWins"/>
+<!--    <TextView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:textSize="20sp"-->
+<!--        android:id="@+id/currentWins"/>-->
 
     <ImageView
         android:id="@+id/questionImg"

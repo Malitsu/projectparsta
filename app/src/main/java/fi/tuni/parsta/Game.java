@@ -52,7 +52,7 @@ public class Game extends AppCompatActivity {
     int level = 1;
     ImageView questionImg;
     LinearLayout buttonLayout;
-    TextView currentWins;
+//    TextView currentWins;
     TextView levelDisplayGame;
     //Temporary
     Boolean firstRound = true;
@@ -78,7 +78,7 @@ public class Game extends AppCompatActivity {
             Log.d("GAMEIMAGETAG",i.name);
         }
 
-        currentWins = (TextView) findViewById(R.id.currentWins);
+//        currentWins = (TextView) findViewById(R.id.currentWins);
         levelDisplayGame = (TextView) findViewById(R.id.levelDisplayGame);
         sharedPreferences = getSharedPreferences("progress", MODE_PRIVATE);
         clicks = ProgressController.getClicks(this);
@@ -91,7 +91,7 @@ public class Game extends AppCompatActivity {
             level = extras.getInt("currentLevel",1);
         }
         levelDisplayGame.setText("Taso: " + level);
-        currentWins.setText("Oikein: " + rightAnswersInt);
+//        currentWins.setText("Oikein: " + rightAnswersInt);
         gameLoop();
 
     }
@@ -248,7 +248,7 @@ public class Game extends AppCompatActivity {
                         Toast toast =ProgressController.registerAClick(true, getApplicationContext());
                         if (toast != null) toast.show();
                         Util.playSound(getApplication(), R.raw.right);
-                        currentWins.setText("Oikein: " + rightAnswersInt + " Total clicks: " + clicks);
+//                        currentWins.setText("Oikein: " + rightAnswersInt + " Total clicks: " + clicks);
 
                         gameIntent.putExtra("wasAnswerRight",true);
                         gameIntent.putExtra("questionImgName", questionImgName);
@@ -263,7 +263,7 @@ public class Game extends AppCompatActivity {
                         Toast toast = ProgressController.registerAClick(false, getApplicationContext());
                         if (toast != null) toast.show();
                         Util.playSound(getApplication(), R.raw.wrong);
-                        currentWins.setText("Oikein: " + rightAnswersInt + " Total clicks: " + clicks);
+//                        currentWins.setText("Oikein: " + rightAnswersInt + " Total clicks: " + clicks);
                         gameIntent.putExtra("wasAnswerRight",false);
                         gameIntent.putExtra("questionImgName", questionImgName);
                         gameIntent.putExtra("rightAnswerNumber", rightAnswersInt);

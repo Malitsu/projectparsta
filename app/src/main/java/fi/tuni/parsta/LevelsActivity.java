@@ -37,7 +37,7 @@ public class LevelsActivity extends AppCompatActivity {
         levelList.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-                Log.d("LEVEL!", "level");
+                view = getLayoutInflater().inflate(R.layout.listview_item_levels2, null);
             }
         });
 
