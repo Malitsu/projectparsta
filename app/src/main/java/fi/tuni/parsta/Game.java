@@ -64,11 +64,25 @@ public class Game extends AppCompatActivity {
     String questionImgName;
     List<Dots> listDots;
 
+    LevelProgress levelProgress;
+    int amountOfPicturesInALevel;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
+
+        setAmountOfPicturesInALevel(10);
+
+        level = ProgressController.getCurrentLevel(this);
+        //Creates a new level progress object based on the currentLevel saved in the progress controller
+        //and the amountOfPictures that the level should have (at the moment always 10)
+        levelProgress = new LevelProgress(this, level, getAmountOfPicturesInALevel());
+        clicks = levelProgress.getCurrentLevelClicks();
+
         listDots = new ArrayList<>();
+
+        //Update the dots in the progress bar at the start of the game
         addDots();
 
         GsonBuilder gsonBuilder = new GsonBuilder();
@@ -81,9 +95,9 @@ public class Game extends AppCompatActivity {
 //        currentWins = (TextView) findViewById(R.id.currentWins);
         levelDisplayGame = (TextView) findViewById(R.id.levelDisplayGame);
         sharedPreferences = getSharedPreferences("progress", MODE_PRIVATE);
-        clicks = ProgressController.getClicks(this);
+        clicks = levelProgress.getCurrentLevelClicks();
 
-        rightAnswersInt = ProgressController.getWins(this);
+        rightAnswersInt = levelProgress.getCurrentScore();
 
         Bundle extras = getIntent().getExtras();
 
@@ -97,11 +111,11 @@ public class Game extends AppCompatActivity {
     }
 
     public void addDots() {
-        /*
-            //Make levelprogress static move it all to level class?
-            boolean[] answers = LevelProgress.getAreAnswersCorrect();
-            int currentClicks = LevelProgress.getCurrentClicks();
+            //Update dots in the progress bar based on current level progress
+            boolean[] answers = levelProgress.getAreAnswersCorrect();
+            int currentClicks = levelProgress.getCurrentLevelClicks();
             for(int i = 0; i < answers.length; i++) {
+//                Log.d("LEVELPROGRESS", answers[i] + " was found at " + i);
                 if( i < currentClicks) {
                     if(answers[i] == true) {
                          listDots.add(new Dots(R.drawable.ic_dot_green));
@@ -114,17 +128,7 @@ public class Game extends AppCompatActivity {
                     listDots.add(new Dots(R.drawable.ic_dot_white));
                 }
             }
-         */
-        listDots.add(new Dots(R.drawable.ic_dot_green));
-        listDots.add(new Dots(R.drawable.ic_dot_red));
-        listDots.add(new Dots(R.drawable.ic_dot_green));
-        listDots.add(new Dots(R.drawable.ic_dot_current));
-        listDots.add(new Dots(R.drawable.ic_dot_white));
-        listDots.add(new Dots(R.drawable.ic_dot_white));
-        listDots.add(new Dots(R.drawable.ic_dot_white));
-        listDots.add(new Dots(R.drawable.ic_dot_white));
-        listDots.add(new Dots(R.drawable.ic_dot_white));
-        listDots.add(new Dots(R.drawable.ic_dot_white));
+
 
         RecyclerView myrv = (RecyclerView) findViewById(R.id.recyclerview_gameLoop);
         DotRecyclerView_Adapter myAdapter = new DotRecyclerView_Adapter(this, listDots);
@@ -248,6 +252,7 @@ public class Game extends AppCompatActivity {
                         Toast toast =ProgressController.registerAClick(true, getApplicationContext());
                         if (toast != null) toast.show();
                         Util.playSound(getApplication(), R.raw.right);
+                        levelProgress.updateLevelInfo(true, rightAnswersInt, clicks);
 //                        currentWins.setText("Oikein: " + rightAnswersInt + " Total clicks: " + clicks);
 
                         gameIntent.putExtra("wasAnswerRight",true);
@@ -263,6 +268,7 @@ public class Game extends AppCompatActivity {
                         Toast toast = ProgressController.registerAClick(false, getApplicationContext());
                         if (toast != null) toast.show();
                         Util.playSound(getApplication(), R.raw.wrong);
+                        levelProgress.updateLevelInfo(false, rightAnswersInt, clicks);
 //                        currentWins.setText("Oikein: " + rightAnswersInt + " Total clicks: " + clicks);
                         gameIntent.putExtra("wasAnswerRight",false);
                         gameIntent.putExtra("questionImgName", questionImgName);
@@ -297,6 +303,15 @@ public class Game extends AppCompatActivity {
         Intent mainIntent = new Intent(getApplication(), MainActivity.class);
         startActivity(mainIntent);
     }
+
+    public int getAmountOfPicturesInALevel() {
+        return amountOfPicturesInALevel;
+    }
+
+    public void setAmountOfPicturesInALevel(int amountOfPicturesInALevel) {
+        this.amountOfPicturesInALevel = amountOfPicturesInALevel;
+    }
+
 
 }
 
