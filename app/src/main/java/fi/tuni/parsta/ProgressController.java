@@ -84,7 +84,7 @@ public class ProgressController {
 
     public static int getMaxProgressLevel(Context context) {
         SharedPreferences sharedPreferences = getSharedPreferences(context);
-        int maxProgressLevel = sharedPreferences.getInt(MAXPROGRESSLEVEL,0);
+        int maxProgressLevel = sharedPreferences.getInt(MAXPROGRESSLEVEL,1);
         return maxProgressLevel;
     }
 
