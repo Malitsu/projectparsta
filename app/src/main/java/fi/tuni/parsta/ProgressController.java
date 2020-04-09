@@ -26,6 +26,9 @@ import static android.content.Context.MODE_PRIVATE;
 
 public class ProgressController {
     private static ArrayList<Achievement> achievements;
+    private final static String ACHIEVEMENTFILE = "achievements.json";
+    private final static String CLICKS = "clicks";
+    private final static String WINS = "wins";
     private final static String PROGRESSPREF = "progress";
     private final static String LEVEL = "level_";
     private final static String MAXSCORE = "_maxscore";
@@ -45,12 +48,12 @@ public class ProgressController {
     public static Toast registerAClick(boolean win, Context context) {
         SharedPreferences sharedPreferences = getSharedPreferences(context);
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        int clicks = sharedPreferences.getInt("clicks", 0);
-        int wins = sharedPreferences.getInt("wins", 0);
+        int clicks = sharedPreferences.getInt(CLICKS, 0);
+        int wins = sharedPreferences.getInt(WINS, 0);
         clicks++;
         if (win) wins++;
-        editor.putInt("clicks", clicks);
-        editor.putInt("wins", wins);
+        editor.putInt(CLICKS, clicks);
+        editor.putInt(WINS, wins);
         editor.apply();
         List<Achievement> achievementsReached = checkAchievements(context, clicks, wins);
         if (achievementsReached.size() != 0) {
@@ -159,7 +162,7 @@ public class ProgressController {
         try {
             GsonBuilder gsonBuilder = new GsonBuilder();
             Gson gson = gsonBuilder.create();
-            String data = Util.readFile("achievements.json", context);
+            String data = Util.readFile(ACHIEVEMENTFILE, context);
             achievements = gson.fromJson(data, new TypeToken<ArrayList<Achievement>>(){}.getType());
         } catch (IOException e) {
             e.printStackTrace();
@@ -224,11 +227,11 @@ public class ProgressController {
     }
 
     public static int getWins(Context context) {
-        return getSharedPreferences(context).getInt("wins", 0);
+        return getSharedPreferences(context).getInt(WINS, 0);
     }
 
     public static int getClicks(Context context) {
-        return getSharedPreferences(context).getInt("clicks", 0);
+        return getSharedPreferences(context).getInt(CLICKS, 0);
     }
 
     private static SharedPreferences getSharedPreferences(Context context) {
