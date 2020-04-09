@@ -30,10 +30,10 @@ public class LevelsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_levels);
         levelsList = new ArrayList<LevelProgress>();
 
-        levelsList.add(new LevelProgress(1, 0));
-        levelsList.add(new LevelProgress(2, 0));
-        levelsList.add(new LevelProgress(3, 0));
-        levelsList.add(new LevelProgress(4, 0));
+        levelsList.add(new LevelProgress(this, 1));
+        levelsList.add(new LevelProgress(this, 2));
+        levelsList.add(new LevelProgress(this, 3));
+        levelsList.add(new LevelProgress(this, 4));
 
         ListView levelList = (ListView) findViewById(R.id.levelList);
 

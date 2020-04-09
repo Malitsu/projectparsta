@@ -30,7 +30,7 @@ public class ProgressController {
     private final static String LEVEL = "level_";
     private final static String MAXSCORE = "_maxscore";
     private final static String CURRENTCLICKS = "_currentclicks";
-    private final static String CURRENTSCORE = "_currentclicks";
+    private final static String CURRENTSCORE = "_currentscore";
     private final static String RIGHTANSWERAMOUNT = "_rightansweramount";
     private final static String RIGHT = "_right";
     private final static String PICKNRO = "_picknro_";
@@ -66,6 +66,7 @@ public class ProgressController {
         editor.putInt(LEVEL + level + CURRENTSCORE, newScore);
         editor.putInt(LEVEL + level + CURRENTCLICKS, newCurrentLevelClicks);
         editor.apply();
+        setLevelMaxScore(context, level, newScore);
     }
 
     public static int getLevelMaxScore(Context context, int level) {
@@ -82,10 +83,7 @@ public class ProgressController {
         if(prevMax < newMax) {
             editor.putInt(LEVEL + level + MAXSCORE,currentMaxScore);
             editor.apply();
-        } else {
-            Log.d("PROGRESSCONTROLLER", " SOMETHING WENT WRONG WITH MAX SCORE, NEW ONE WAS TOO SMALL");
         }
-
     }
 
     public static int getLevelCurrentScore(Context context, int level) {

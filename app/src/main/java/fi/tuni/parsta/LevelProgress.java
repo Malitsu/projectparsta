@@ -4,11 +4,14 @@ import android.content.Context;
 import android.util.Log;
 
 public class LevelProgress {
-    int currentLevel;
-    int currentScore;
+    int currentLevel = 1;
+    int maxProgressLevel = 1;
+    int wantedLevel = 1;
+
+    int currentScore = 0;
     //highest score that player has achieved on current level
-    int maxScore;
-    int currentLevelClicks;
+    int maxScore = 0;
+    int currentLevelClicks = 0;
 
     boolean[] areAnswersCorrect;
     Context context;
@@ -23,47 +26,36 @@ public class LevelProgress {
 
         setCurrentLevel(currentLevel);
         areAnswersCorrect = UpdateAllLevelAnswers();
-
     }
 
-    public LevelProgress(int currentLevel, int maxScore) {
-        this.currentLevel = currentLevel;
-        this.maxScore = maxScore;
+    public int getWantedLevel() {
+        return wantedLevel;
+    }
+
+    public void setWantedLevel(int wantedLevel) {
+        this.wantedLevel = wantedLevel;
+    }
+
+    public LevelProgress(Context context, int wantedLevel) {
+        this.context = context;
+        setWantedLevel(wantedLevel);
     }
 
     private boolean[] UpdateAllLevelAnswers() {
-        Log.d("LEVELPROGRESS", " current level in update answers" + getCurrentLevel());
         return ProgressController.getLevelRightAnswerProgress(context, getCurrentLevel());
     }
 
-    public boolean updateLevelInfo(boolean wasAnswerCorrect, int newScore, int newCurrentClicks) {
-        boolean array = updateAnswerArray(newCurrentClicks - 1, wasAnswerCorrect);
-        boolean score = updateScore(newScore);
-        boolean clicks = updateCurrentClicks(newCurrentClicks);
-        if(array && score && clicks) {
-            return true;
-        } else {
-            return false;
-        }
+    public void updateLevelInfo(boolean wasAnswerCorrect, int newScore, int newCurrentClicks) {
+        ProgressController.updateLevelProgress(context, currentLevel, newScore, newCurrentClicks, wasAnswerCorrect);
+        updateAnswerArray(newCurrentClicks - 1, wasAnswerCorrect);
     }
 
     private boolean updateAnswerArray(int position, boolean answer) {
-        Log.d("LEVELPROGRESS",position + " UPDATEANSWERARRAY POSITION");
         areAnswersCorrect[position] = answer;
         ProgressController.setLevelRightAnswerProgress(context, getCurrentLevel(), position, answer);
-        Log.d("LEVELPROGRESS",  getCurrentLevel() + " answer " + answer + "answer was updated in the booleanArray " + " at position " + (position));
         return true;
     }
 
-    private boolean updateScore(int newScore) {
-        setCurrentScore(newScore);
-        return true;
-    }
-
-    private boolean updateCurrentClicks(int newCurrentClicks) {
-        setCurrentLevelClicks(newCurrentClicks);
-        return true;
-    }
 
     public void resetCurrentClicksAndScore() {
         setCurrentLevelClicks(0);
@@ -103,7 +95,10 @@ public class LevelProgress {
     }
 
     public int getCurrentScore() {
-        return currentScore;
+        if(this.currentScore != ProgressController.getLevelCurrentScore(context,currentLevel)) {
+            this.currentScore = ProgressController.getLevelCurrentScore(context,currentLevel);
+        }
+        return this.currentScore;
     }
 
     public void setCurrentScore(int currentScore) {
@@ -112,11 +107,6 @@ public class LevelProgress {
     }
 
     public int getMaxScore() {
-        return maxScore;
-    }
-
-    public void setMaxScore(int maxScore) {
-        this.maxScore = maxScore;
-        ProgressController.setLevelMaxScore(context, getCurrentLevel(), getMaxScore());
+        return ProgressController.getLevelMaxScore(context, wantedLevel);
     }
 }

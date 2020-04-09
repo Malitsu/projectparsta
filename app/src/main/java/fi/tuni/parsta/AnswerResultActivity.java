@@ -56,17 +56,20 @@ public class AnswerResultActivity extends AppCompatActivity {
     public void nextClick(View view) {
         if(clicksNumber % 10 == 0) {
             Intent gameIntent = new Intent(this, LevelDebriefActivity.class);
-            gameIntent.putExtra("clicksNumber", clicksNumber);
             gameIntent.putExtra("currentLevel", currentLevel);
             gameIntent.putExtra("levelScore", rightAnswers);
             startActivity(gameIntent);
         } else {
             Intent gameIntent = new Intent(this, Game.class);
-            gameIntent.putExtra("clicksNumber", clicksNumber);
             gameIntent.putExtra("currentLevel", currentLevel);
             startActivity(gameIntent);
         }
 
+    }
+
+    public void quitGame(View v){
+        Intent mainIntent = new Intent(this, MainActivity.class);
+        startActivity(mainIntent);
     }
 
     @Override
