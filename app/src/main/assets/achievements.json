@@ -1,93 +1,93 @@
 [
   {
     "id": 101,
-    "lockedIcon": "locked",
+    "lockedIcon": "ach_001",
     "requiredValue": 10,
     "shortDesc": "10 painallusta",
     "longDesc": "10 painallusta pelissä",
     "type": "CLICKS",
-    "unlockedIcon": "unlocked"
+    "unlockedIcon": "ach_001"
   },
   {
     "id": 102,
-    "lockedIcon": "locked",
+    "lockedIcon": "ach_002",
     "requiredValue": 100,
     "shortDesc": "100 painallusta",
     "longDesc": "100 painallusta pelissä",
     "type": "CLICKS",
-    "unlockedIcon": "unlocked"
+    "unlockedIcon": "ach_002"
   },
   {
     "id": 103,
-    "lockedIcon": "locked",
+    "lockedIcon": "ach_003",
     "requiredValue": 1000,
     "shortDesc": "1000 painallusta",
     "longDesc": "1000 painallusta pelissä",
     "type": "CLICKS",
-    "unlockedIcon": "unlocked"
+    "unlockedIcon": "ach_003"
   },
   {
     "id": 104,
-    "lockedIcon": "locked",
+    "lockedIcon": "ach_004",
     "requiredValue": 10000,
     "shortDesc": "10000 painallusta",
     "longDesc": "10000 painallusta pelissä",
     "type": "CLICKS",
-    "unlockedIcon": "unlocked"
+    "unlockedIcon": "ach_004"
   },
   {
     "id": 201,
-    "lockedIcon": "locked",
+    "lockedIcon": "ach_005",
     "requiredValue": 10,
     "shortDesc": "10 oikein tunnistusta",
     "longDesc": "10 oikeata ilmeen tunnistusta pelissä",
     "type": "WINS",
-    "unlockedIcon": "unlocked"
+    "unlockedIcon": "ach_005"
   },
   {
     "id": 202,
-    "lockedIcon": "locked",
+    "lockedIcon": "ach_101",
     "requiredValue": 100,
     "shortDesc": "100 oikein tunnistusta",
     "longDesc": "100 oikeata ilmeen tunnistusta pelissä",
     "type": "WINS",
-    "unlockedIcon": "unlocked"
+    "unlockedIcon": "ach_101"
   },
   {
     "id": 203,
-    "lockedIcon": "locked",
+    "lockedIcon": "ach_102",
     "requiredValue": 1000,
     "shortDesc": "1000 oikein tunnistusta",
     "longDesc": "1000 oikeata ilmeen tunnistusta pelissä",
     "type": "WINS",
-    "unlockedIcon": "unlocked"
+    "unlockedIcon": "ach_102"
   },
   {
     "id": 204,
-    "lockedIcon": "locked",
+    "lockedIcon": "ach_103",
     "requiredValue": 10000,
     "shortDesc": "10000 oikein tunnistusta",
     "longDesc": "10000 oikeata ilmeen tunnistusta pelissä",
     "type": "WINS",
-    "unlockedIcon": "unlocked"
+    "unlockedIcon": "ach_103"
   },
   {
     "id": 301,
-    "lockedIcon": "locked",
+    "lockedIcon": "ach_104",
     "requiredValue": 1,
     "shortDesc": "Taso 1 suoritettu",
     "longDesc": "Taso 1 läpäisty",
     "type": "LEVEL",
-    "unlockedIcon": "unlocked"
+    "unlockedIcon": "ach_104"
   },
   {
     "id": 302,
-    "lockedIcon": "locked",
+    "lockedIcon": "ach_105",
     "requiredValue": 2,
     "shortDesc": "Taso 2 suoritettu",
     "longDesc": "Taso 2 läpäisty",
     "type": "LEVEL",
-    "unlockedIcon": "unlocked"
+    "unlockedIcon": "ach_105"
   },
   {
     "id": 303,

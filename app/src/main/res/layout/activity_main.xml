@@ -62,7 +62,7 @@
             android:layout_marginBottom="15dp"
             android:onClick="about"
             android:id="@+id/about"
-            android:drawableLeft="@drawable/ic_tasot_1"
+            android:drawableLeft="@drawable/ic_info_2"
             />
 
         <Button
