@@ -20,8 +20,8 @@ class Achievement {
     public boolean checkIfCompleted(int clicks, int wins) {
         if (unlocked) return false;
         switch(type) {
-            case CLICKS: if (clicks > requiredValue) return true;
-            case WINS: if (wins > requiredValue) return true;
+            case CLICKS: if (clicks >= requiredValue) return true;
+            case WINS: if (wins >= requiredValue) return true;
             default: return false;
         }
     }
