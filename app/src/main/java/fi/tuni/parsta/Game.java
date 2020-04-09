@@ -251,8 +251,7 @@ public class Game extends AppCompatActivity {
                     } else {
                         Util.playSound(getApplication(), R.raw.wrong);
                     }
-                    Toast toast =ProgressController.registerAClick(wasAnswerRight, getApplicationContext());
-                    if (toast != null) toast.show();
+                    ProgressController.registerAClick(wasAnswerRight, getApplicationContext());
                     levelProgress.updateLevelInfo( wasAnswerRight, rightAnswersInt, clicks);
                     gameIntent.putExtra("wasAnswerRight",wasAnswerRight);
                     gameIntent.putExtra("questionImgName", questionImgName);

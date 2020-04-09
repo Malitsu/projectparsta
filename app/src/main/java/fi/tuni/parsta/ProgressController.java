@@ -39,12 +39,7 @@ public class ProgressController {
     private final static String CURRENTLEVELINPROGRESS = "currentlevelinprogress";
     private final static String MAXPROGRESSLEVEL = "maxprogresslevel";
 
-    public static Toast registerAClick(boolean beatLevel, int levelID, boolean win, Context context) {
-        // TODO: Do something with the level info
-        return registerAClick(win, context);
-    }
-
-    public static Toast registerAClick(boolean win, Context context) {
+    public static void registerAClick(boolean win, Context context) {
         SharedPreferences sharedPreferences = getSharedPreferences(context);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         int clicks = sharedPreferences.getInt(CLICKS, 0);
@@ -56,9 +51,8 @@ public class ProgressController {
         editor.apply();
         List<Achievement> achievementsReached = checkAchievements(context, clicks, wins);
         if (achievementsReached.size() != 0) {
-            return generateAchievementToast(achievementsReached, context);
-        } else {
-            return null;
+            Toast toast = generateAchievementToast(achievementsReached, context);
+            toast.show();
         }
     }
 

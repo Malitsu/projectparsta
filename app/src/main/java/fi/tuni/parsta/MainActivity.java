@@ -44,8 +44,7 @@ public class MainActivity extends AppCompatActivity {
 
         dialog.show();
 
-        Toast toast = ProgressController.registerAClick(true, this);
-        if (toast != null) toast.show();
+        ProgressController.registerAClick(true, this);
     }
 
     public void settings(View v) {
