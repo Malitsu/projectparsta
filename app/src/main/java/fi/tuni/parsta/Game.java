@@ -29,6 +29,7 @@ public class Game extends AppCompatActivity {
     int rightAnswers = 0;
     int totalAnswers = 0;
     boolean wasAnswerRight;
+    int maxLevelsInGame = 10;
     private Gson gson;
     GameImage[] images;
     int level = 1;
@@ -48,6 +49,7 @@ public class Game extends AppCompatActivity {
 
     LevelProgress levelProgress;
     int amountOfPicturesInALevel;
+    boolean finishedGame = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,9 +62,21 @@ public class Game extends AppCompatActivity {
         if(level == 0) {
             level = 1;
         }
+
+        //JUST UNTIL WE KNOW WHAT HAPPENS WHEN YOU FINISH THE GAME AND PRESS THE PLAY BUTTON AGAIN
+        if(level > maxLevelsInGame) {
+            level = 10;
+            finishedGame = true;
+        }
         //Creates a new level progress object based on the currentLevel saved in the progress controller
         //and the amountOfPictures that the level should have (at the moment always 10)
         levelProgress = new LevelProgress(this, level, getAmountOfPicturesInALevel());
+
+        //Not permanent solution, just for testing and resetting the last level after the game has been completed.
+        if(finishedGame){
+            levelProgress.resetCurrentClicksAndScore();
+            levelProgress.resetCurrentLevelProgressArray(level);
+        }
         clicks = levelProgress.getCurrentLevelClicks();
 
         listDots = new ArrayList<>();
@@ -77,7 +91,6 @@ public class Game extends AppCompatActivity {
             Log.d("GAMEIMAGETAG",i.name);
         }
 
-//        currentWins = (TextView) findViewById(R.id.currentWins);
         levelDisplayGame = (TextView) findViewById(R.id.levelDisplayGame);
         sharedPreferences = getSharedPreferences("progress", MODE_PRIVATE);
         clicks = levelProgress.getCurrentLevelClicks();
@@ -90,7 +103,6 @@ public class Game extends AppCompatActivity {
             level = extras.getInt("currentLevel",1);
         }
         levelDisplayGame.setText(getResources().getString(R.string.game_text_level) + level);
-//        currentWins.setText("Oikein: " + rightAnswersInt);
         gameLoop();
 
     }
@@ -100,7 +112,6 @@ public class Game extends AppCompatActivity {
             boolean[] answers = levelProgress.getAreAnswersCorrect();
             int currentClicks = levelProgress.getCurrentLevelClicks();
             for(int i = 0; i < answers.length; i++) {
-//                Log.d("LEVELPROGRESS", answers[i] + " was found at " + i);
                 if( i < currentClicks) {
                     if(answers[i] == true) {
                          listDots.add(new Dots(R.drawable.ic_dot_green));
@@ -159,11 +170,6 @@ public class Game extends AppCompatActivity {
                 buttonList.get(i).setText(answerOptions.get(i));
             }
         }
-
-
-//        if(questionImgName.contains(****pressedButtonText****)){
-//            rightAnswer = true;
-//        }
     }
 
     public  void  convertJsonToGameImageObjects() {
@@ -176,8 +182,6 @@ public class Game extends AppCompatActivity {
             e.printStackTrace();
         }
     }
-
-    protected void endRound() {}
 
     public ArrayList<String> getAnswerOptions(int answerOptionsAmount, String rightAnswer){
         String[] answerOptions = new String[answerOptionsAmount];
@@ -216,7 +220,11 @@ public class Game extends AppCompatActivity {
     }
 
     public int getAnswerOptionsAmount(int level){
-        return 3 + level - 1;
+        int amount = 3;
+        if(level > 5) {
+            return amount +1;
+        }
+        return amount;
     }
 
     public void createButtonGrid(ArrayList<String> answerOptions){
@@ -235,15 +243,12 @@ public class Game extends AppCompatActivity {
                     wasAnswerRight = rightAnswerString.contains(myButton.getText().toString());
                     if(wasAnswerRight) {
                         rightAnswersInt++;
-                        Toast toast =ProgressController.registerAClick(true, getApplicationContext());
-                        if (toast != null) toast.show();
                         Util.playSound(getApplication(), R.raw.right);
                     } else {
-                        Toast toast = ProgressController.registerAClick(false, getApplicationContext());
-                        if (toast != null) toast.show();
                         Util.playSound(getApplication(), R.raw.wrong);
                     }
-
+                    Toast toast =ProgressController.registerAClick(wasAnswerRight, getApplicationContext());
+                    if (toast != null) toast.show();
                     levelProgress.updateLevelInfo( wasAnswerRight, rightAnswersInt, clicks);
                     gameIntent.putExtra("wasAnswerRight",wasAnswerRight);
                     gameIntent.putExtra("questionImgName", questionImgName);

@@ -35,6 +35,7 @@ public class ProgressController {
     private final static String RIGHT = "_right";
     private final static String PICKNRO = "_picknro_";
     private final static String CURRENTLEVELINPROGRESS = "currentlevelinprogress";
+    private final static String MAXPROGRESSLEVEL = "maxprogresslevel";
 
     public static Toast registerAClick(boolean beatLevel, int levelID, boolean win, Context context) {
         // TODO: Do something with the level info
@@ -102,7 +103,6 @@ public class ProgressController {
     public static void setLevelCurrentClicks(Context context, int level, int currentClicks) {
         SharedPreferences sharedPreferences = getSharedPreferences(context);
         SharedPreferences.Editor editor = sharedPreferences.edit();
-//        Log.d("LEVELPROGRESS", " PROGRESSCONTROLLER CURRENT CLICKS ON UPDATE" + currentClicks);
         editor.putInt(LEVEL + level + CURRENTCLICKS, currentClicks);
         editor.apply();
     }
@@ -130,6 +130,18 @@ public class ProgressController {
         editor.apply();
     }
 
+    public static boolean[] resetLevelRightAnswerProgress(Context context, int level) {
+        SharedPreferences sharedPreferences = getSharedPreferences(context);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        boolean[] rightAnswerArray = new boolean[10];
+
+        for(int i = 0; i < 10; i++) {
+            editor.putBoolean(LEVEL + level + PICKNRO + (i+1) + RIGHT, false);
+            editor.apply();
+        }
+        return rightAnswerArray;
+    }
+
     public static int getCurrentLevel(Context context) {
         SharedPreferences sharedPreferences = getSharedPreferences(context);
         int curLevel = sharedPreferences.getInt(LEVEL + CURRENTLEVELINPROGRESS,1);
@@ -137,7 +149,6 @@ public class ProgressController {
     }
 
     public static void setCurrentLevelInProgress(Context context, int level) {
-        Log.d("LEVELPROGRESS", " UPDATED CURRENT LEVEL TO IN PROGRESS CONTROLLER: " + level);
         SharedPreferences sharedPreferences = getSharedPreferences(context);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putInt(LEVEL + CURRENTLEVELINPROGRESS, level);

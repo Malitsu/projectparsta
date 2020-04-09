@@ -62,6 +62,10 @@ public class LevelProgress {
         setCurrentScore(0);
     }
 
+    public void resetCurrentLevelProgressArray(int level) {
+        areAnswersCorrect = ProgressController.resetLevelRightAnswerProgress(context, level);
+    }
+
     public boolean[] getAreAnswersCorrect() {
         return areAnswersCorrect;
     }
