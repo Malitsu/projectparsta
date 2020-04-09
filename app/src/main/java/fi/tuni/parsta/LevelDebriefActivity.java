@@ -26,6 +26,7 @@ public class LevelDebriefActivity extends AppCompatActivity {
             levelScore = extras.getInt("levelScore",0);
             String feedback = "";
             if(levelScore <= 4){
+                // TODO: Create new button to take the player back to the start of the level is score low enough
                 feedback = getResources().getString(R.string.levelDebrief_text_levelPassed_lowerScore);
             }else if(levelScore <= 8){
                 feedback = getResources().getString(R.string.levelDebrief_text_levelPassed_middleScore);
