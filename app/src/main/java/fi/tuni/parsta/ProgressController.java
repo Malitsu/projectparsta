@@ -189,7 +189,6 @@ public class ProgressController {
 
     private static int delay = 3500;
 
-    // TODO: Allow possibility of displaying multiple achievements at once?
     private static void generateAchievementToast(List<Achievement> achievementsReached,
                                                   Context context) {
         for (Achievement achievement : achievementsReached) {
