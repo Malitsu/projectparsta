@@ -37,8 +37,8 @@ public class MainActivity extends AppCompatActivity {
     public void about(View v) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
-        builder.setMessage("Tämä on kasvojen tunnistus peli.\nHanke:\nTekijät:")
-                .setTitle("Kasvojen tunnistus peli");
+        builder.setMessage(getResources().getString(R.string.main_dialog_info1))
+                .setTitle(getResources().getString(R.string.main_dialog_info2));
 
         AlertDialog dialog = builder.create();
 

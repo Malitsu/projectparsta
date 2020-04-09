@@ -89,7 +89,7 @@ public class Game extends AppCompatActivity {
         if (extras != null) {
             level = extras.getInt("currentLevel",1);
         }
-        levelDisplayGame.setText("Taso: " + level);
+        levelDisplayGame.setText(getResources().getString(R.string.game_text_level) + level);
 //        currentWins.setText("Oikein: " + rightAnswersInt);
         gameLoop();
 

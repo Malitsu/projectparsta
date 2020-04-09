@@ -27,7 +27,7 @@ public class LevelDebriefActivity extends AppCompatActivity {
         if (extras != null) {
             currentLevel = extras.getInt("currentLevel",0);
             levelScore = extras.getInt("levelScore",0);
-            congratulations.setText("Congratulations \n You have passed " + currentLevel + " successfully!" + "\n\n" + "Your score from the level was: " + levelScore);
+            congratulations.setText(getResources().getString(R.string.levelDebrief_text_levelPassed1) + currentLevel + getResources().getString(R.string.levelDebrief_text_levelPassed2) + levelScore);
         }
         currentLevel++;
         ProgressController.setCurrentLevelInProgress(getApplicationContext(), currentLevel);

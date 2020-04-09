@@ -1,3 +1,21 @@
 <resources>
     <string name="app_name">Facingo</string>
+    <string name="main_btn_start">Aloita</string>
+    <string name="main_btn_achievements">Saavutukset</string>
+    <string name="main_btn_levels">Tasot</string>
+    <string name="main_btn_info">Tietoa</string>
+    <string name="main_btn_settings">Asetukset</string>
+    <string name="main_dialog_info1">Tämä on kasvojen tunnistus peli.\nHanke:\nTekijät:</string>
+    <string name="main_dialog_info2">Kasvojen tunnistus peli</string>
+
+    <string name="game_text_level">Taso: </string>
+
+    <string name="answerResult_text_correct">Oikein: </string>
+    <string name="answerResult_text_pepTalk_correct">Vastasit oikein kysymykseen! \nYläpuolen kuvasta näet tietoa mihin keskittyä ilmeen tunnistamisessa.</string>
+    <string name="answerResult_text_pepTalk_false">Parempi onni ensi kerralla. \nYläpuolen kuvasta näet tietoa mihin keskittyä ilmeen tunnistamisessa.</string>
+
+    <string name="levelDebrief_text_levelPassed1">Congratulations\nYou have passed </string>
+    <string name="levelDebrief_text_levelPassed2"> successfully! \n\n Your score from the level was: </string>
+
+    <string name="levelsActivity_text_level">Taso </string>
 </resources>

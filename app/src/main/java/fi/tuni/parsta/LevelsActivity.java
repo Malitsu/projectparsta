@@ -62,7 +62,7 @@ public class LevelsActivity extends AppCompatActivity {
                 myrv.setAdapter(myAdapter);
 
                 TextView levelInfo = (TextView) child.findViewById(R.id.levelText2);
-//                levelInfo.setText("Level " + levelsList.get(position).getCurrentLevel());
+                levelInfo.setText(getResources().getString(R.string.levelsActivity_text_level) + levelsList.get(position).getWantedLevel());
 
                 TextView scoreText = (TextView) child.findViewById(R.id.scoreText);
                 scoreText.setText(levelsList.get(position).getMaxScore() + "/10");
@@ -124,7 +124,7 @@ public class LevelsActivity extends AppCompatActivity {
             view = getLayoutInflater().inflate(R.layout.listview_item_levels, null);
 
             TextView levelText = (TextView) view.findViewById(R.id.levelText);
-//            levelText.setText("Level " + levelsList.get(i).getCurrentLevel());
+            levelText.setText(getResources().getString(R.string.levelsActivity_text_level) + levelsList.get(i).getWantedLevel());
 
             return view;
         }

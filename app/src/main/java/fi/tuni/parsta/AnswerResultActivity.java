@@ -41,14 +41,12 @@ public class AnswerResultActivity extends AppCompatActivity {
              infoQuestionImgName = questionImgName + "_info";
              int resourceName = Util.getStringResourceByName(infoQuestionImgName, this);
              infoImg.setImageResource(resourceName);
-             currentWins.setText("Oikein: " + rightAnswers);
+             currentWins.setText(getResources().getString(R.string.answerResult_text_correct) + rightAnswers);
 
             if(wasAnswerRight) {
-                pepTalk.setText("Vastasit oikein kysymykseen! \n" +
-                        "Yläpuolen kuvasta näet tietoa mihin keskittyä ilmeen tunnistamisessa.");
+                pepTalk.setText(getResources().getString(R.string.answerResult_text_pepTalk_correct));
             } else {
-                pepTalk.setText("Parempi onni ensi kerralla. \n" +
-                        "Yläpuolen kuvasta näet tietoa mihin keskittyä ilmeen tunnistamisessa.");
+                pepTalk.setText(getResources().getString(R.string.answerResult_text_pepTalk_false));
             }
         }
     }
