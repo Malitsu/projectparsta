@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.logging.Handler;
 
 import static android.content.Context.MODE_PRIVATE;
 
@@ -51,8 +52,7 @@ public class ProgressController {
         editor.apply();
         List<Achievement> achievementsReached = checkAchievements(context, clicks, wins);
         if (achievementsReached.size() != 0) {
-            Toast toast = generateAchievementToast(achievementsReached, context);
-            toast.show();
+            generateAchievementToast(achievementsReached, context);
         }
     }
 
@@ -187,29 +187,42 @@ public class ProgressController {
         }
     }
 
+    private static int delay = 3500;
+
     // TODO: Allow possibility of displaying multiple achievements at once?
-    private static Toast generateAchievementToast(List<Achievement> achievementsReached,
+    private static void generateAchievementToast(List<Achievement> achievementsReached,
                                                   Context context) {
-        Achievement achievement = achievementsReached.get(0);
+        for (Achievement achievement : achievementsReached) {
+            LayoutInflater inflater = LayoutInflater.from(context);
 
-        LayoutInflater inflater = LayoutInflater.from(context);
+            View view = new View(context);
+            view = view.findViewById(R.id.achievement_toast_container);
+            View layout = inflater.inflate(R.layout.achievement_toast, (ViewGroup) view);
 
-        View view = new View(context);
-        view = view.findViewById(R.id.achievement_toast_container);
-        View layout = inflater.inflate(R.layout.achievement_toast, (ViewGroup) view);
+            TextView text = layout.findViewById(R.id.ach_toast_text);
+            text.setText(achievement.getShortDesc());
 
-        TextView text = layout.findViewById(R.id.ach_toast_text);
-        text.setText(achievement.getShortDesc());
+            ImageView imageView = layout.findViewById(R.id.ach_toast_image);
+            imageView.setImageResource(Util.getStringResourceByName(achievement.getIcon(), context));
 
-        ImageView imageView = layout.findViewById(R.id.ach_toast_image);
-        imageView.setImageResource(Util.getStringResourceByName(achievement.getIcon(), context));
-
-        Toast toast = new Toast(context);
-        toast.setGravity(Gravity.TOP, 0, 40);
-        toast.setDuration(Toast.LENGTH_LONG);
-        toast.setView(layout);
-
-        return toast;
+            final Toast toast = new Toast(context);
+            toast.setGravity(Gravity.TOP, 0, 40);
+            toast.setDuration(Toast.LENGTH_LONG);
+            toast.setView(layout);
+            new Thread() {
+                @Override
+                public void run() {
+                    try {
+                        sleep(delay);
+                        toast.show();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }.start();
+            delay = delay + 3500;
+        }
+        delay = 3500;
     }
 
     private static List<Achievement> checkAchievements(Context context, int clicks, int wins) {
