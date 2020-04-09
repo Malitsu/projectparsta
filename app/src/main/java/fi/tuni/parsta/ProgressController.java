@@ -31,7 +31,6 @@ public class ProgressController {
     private final static String MAXSCORE = "_maxscore";
     private final static String CURRENTCLICKS = "_currentclicks";
     private final static String CURRENTSCORE = "_currentscore";
-    private final static String RIGHTANSWERAMOUNT = "_rightansweramount";
     private final static String RIGHT = "_right";
     private final static String PICKNRO = "_picknro_";
     private final static String CURRENTLEVELINPROGRESS = "currentlevelinprogress";
@@ -68,11 +67,27 @@ public class ProgressController {
         editor.putInt(LEVEL + level + CURRENTCLICKS, newCurrentLevelClicks);
         editor.apply();
         setLevelMaxScore(context, level, newScore);
+        setMaxProgressLevel(context, level);
+    }
+
+    public static void setMaxProgressLevel(Context context, int maxProgressLevelCurrently) {
+        SharedPreferences sharedPreferences = getSharedPreferences(context);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        if(getMaxProgressLevel(context) < maxProgressLevelCurrently) {
+            editor.putInt(MAXPROGRESSLEVEL, maxProgressLevelCurrently);
+        }
+        editor.apply();
+    }
+
+    public static int getMaxProgressLevel(Context context) {
+        SharedPreferences sharedPreferences = getSharedPreferences(context);
+        int maxProgressLevel = sharedPreferences.getInt(MAXPROGRESSLEVEL,0);
+        return maxProgressLevel;
     }
 
     public static int getLevelMaxScore(Context context, int level) {
         SharedPreferences sharedPreferences = getSharedPreferences(context);
-        int levelMaxScore =  sharedPreferences.getInt(LEVEL + level + MAXSCORE,0);
+        int levelMaxScore = sharedPreferences.getInt(LEVEL + level + MAXSCORE,0);
         return levelMaxScore;
     }
 

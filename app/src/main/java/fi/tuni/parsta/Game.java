@@ -58,6 +58,7 @@ public class Game extends AppCompatActivity {
 
         setAmountOfPicturesInALevel(10);
 
+        //TODO: change depending on if the player clicks "play" or from the levels menu
         level = ProgressController.getCurrentLevel(this);
         Log.d("LEVELPROGRESS", level  + " LEVELEEELELELELELE");
         if(level == 0) {

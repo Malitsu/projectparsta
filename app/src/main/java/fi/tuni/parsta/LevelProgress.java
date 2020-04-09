@@ -5,6 +5,7 @@ import android.util.Log;
 
 public class LevelProgress {
     int currentLevel = 1;
+    //checked when user clicks the "play" button no main menu and updated always on level progress
     int maxProgressLevel = 1;
     int wantedLevel = 1;
 
@@ -55,7 +56,6 @@ public class LevelProgress {
         ProgressController.setLevelRightAnswerProgress(context, getCurrentLevel(), position, answer);
         return true;
     }
-
 
     public void resetCurrentClicksAndScore() {
         setCurrentLevelClicks(0);
