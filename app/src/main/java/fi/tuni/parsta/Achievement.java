@@ -9,8 +9,6 @@ class Achievement {
     private String longDesc = "This is a placeholder text for long text";
     private String shortDesc = "This is a placeholder text for short text";
     private int requiredValue;
-    private String lockedIcon;
-    private String unlockedIcon;
     private Type type;
     private enum Type {
         CLICKS, WINS, LEVEL
@@ -50,9 +48,9 @@ class Achievement {
 
     public String getIcon() {
         if (isUnlocked()) {
-            return unlockedIcon;
+            return getIdKey() + "_unlocked";
         } else {
-            return lockedIcon;
+            return getIdKey() + "_unlocked";
         }
     }
 
@@ -70,22 +68,6 @@ class Achievement {
 
     public void setRequiredValue(int requiredValue) {
         this.requiredValue = requiredValue;
-    }
-
-    public String getLockedIcon() {
-        return lockedIcon;
-    }
-
-    public void setLockedIcon(String lockedIcon) {
-        this.lockedIcon = lockedIcon;
-    }
-
-    public String getUnlockedIcon() {
-        return unlockedIcon;
-    }
-
-    public void setUnlockedIcon(String unlockedIcon) {
-        this.unlockedIcon = unlockedIcon;
     }
 
     public Type getType() {
@@ -128,8 +110,6 @@ class Achievement {
                 ", longDesc='" + longDesc + '\'' +
                 ", shortDesc='" + shortDesc + '\'' +
                 ", requiredValue=" + requiredValue +
-                ", lockedIcon='" + lockedIcon + '\'' +
-                ", unlockedIcon='" + unlockedIcon + '\'' +
                 ", type=" + type +
                 '}';
     }
