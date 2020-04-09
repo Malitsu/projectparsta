@@ -17,11 +17,12 @@ class Achievement {
     public Achievement() {
     }
 
-    public boolean checkIfCompleted(int clicks, int wins) {
+    public boolean checkIfCompleted(int clicks, int wins, int level) {
         if (unlocked) return false;
         switch(type) {
             case CLICKS: if (clicks >= requiredValue) return true;
             case WINS: if (wins >= requiredValue) return true;
+            case LEVEL: if (level == requiredValue) return true;
             default: return false;
         }
     }

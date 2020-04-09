@@ -96,5 +96,47 @@
     "shortDesc": "Taso 4 suoritettu",
     "longDesc": "Taso 4 läpäisty",
     "type": "LEVEL"
+  },
+  {
+    "id": 305,
+    "requiredValue": 5,
+    "shortDesc": "Taso 5 suoritettu",
+    "longDesc": "Taso 5 läpäisty",
+    "type": "LEVEL"
+  },
+  {
+    "id": 306,
+    "requiredValue": 6,
+    "shortDesc": "Taso 6 suoritettu",
+    "longDesc": "Taso 6 läpäisty",
+    "type": "LEVEL"
+  },
+  {
+    "id": 307,
+    "requiredValue": 7,
+    "shortDesc": "Taso 7 suoritettu",
+    "longDesc": "Taso 7 läpäisty",
+    "type": "LEVEL"
+  },
+  {
+    "id": 308,
+    "requiredValue": 8,
+    "shortDesc": "Taso 8 suoritettu",
+    "longDesc": "Taso 8 läpäisty",
+    "type": "LEVEL"
+  },
+  {
+    "id": 309,
+    "requiredValue": 9,
+    "shortDesc": "Taso 9 suoritettu",
+    "longDesc": "Taso 9 läpäisty",
+    "type": "LEVEL"
+  },
+  {
+    "id": 310,
+    "requiredValue": 10,
+    "shortDesc": "Taso 10 suoritettu",
+    "longDesc": "Taso 10 läpäisty",
+    "type": "LEVEL"
   }
 ]

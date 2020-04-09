@@ -50,10 +50,7 @@ public class ProgressController {
         editor.putInt(CLICKS, clicks);
         editor.putInt(WINS, wins);
         editor.apply();
-        List<Achievement> achievementsReached = checkAchievements(context, clicks, wins);
-        if (achievementsReached.size() != 0) {
-            generateAchievementToast(achievementsReached, context);
-        }
+        checkAchievements(context, clicks, wins, -1);
     }
 
     public static void updateLevelProgress(Context context, int level, int newScore, int newCurrentLevelClicks, boolean wasAnswerCorrect) {
@@ -65,6 +62,13 @@ public class ProgressController {
         editor.apply();
         setLevelMaxScore(context, level, newScore);
         setMaxProgressLevel(context, level);
+        if (newScore == 10) {
+            Log.d("TAG", "updateLevelProgress: " + level);
+            Log.d("TAG", "updateLevelProgress: " + newScore);
+            Log.d("TAG", "updateLevelProgress: " + newCurrentLevelClicks);
+            Log.d("TAG", "updateLevelProgress: " + wasAnswerCorrect);
+            checkAchievements(context, -1, -1, level);
+        }
     }
 
     public static void setMaxProgressLevel(Context context, int maxProgressLevelCurrently) {
@@ -224,11 +228,11 @@ public class ProgressController {
         delay = 3500;
     }
 
-    private static List<Achievement> checkAchievements(Context context, int clicks, int wins) {
+    private static void checkAchievements(Context context, int clicks, int wins, int level) {
         List<Achievement> achievements = getAchievements(context);
         List<Achievement> achievementsReached = new ArrayList<>();
         for (Achievement a : achievements) {
-            if (a.checkIfCompleted(clicks, wins)) {
+            if (a.checkIfCompleted(clicks, wins, level)) {
                 a.unlock();
                 SharedPreferences.Editor editor = getSharedPreferences(context).edit();
                 editor.putBoolean(a.getIdKey(), true);
@@ -239,7 +243,7 @@ public class ProgressController {
                 achievementsReached.add(a);
             }
         }
-        return achievementsReached;
+        generateAchievementToast(achievementsReached, context);
     }
 
     public static ArrayList<Achievement> getAchievements(Context context) {
