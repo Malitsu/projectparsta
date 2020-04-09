@@ -107,7 +107,7 @@ public class LevelProgress {
 
     public void setCurrentScore(int currentScore) {
         this.currentScore = currentScore;
-        ProgressController.setLevelCurrentScore(context, getCurrentLevel(), getCurrentScore());
+        ProgressController.setLevelCurrentScore(context, getCurrentLevel(), currentScore);
     }
 
     public int getMaxScore() {

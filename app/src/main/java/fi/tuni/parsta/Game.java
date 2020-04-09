@@ -59,6 +59,7 @@ public class Game extends AppCompatActivity {
         setAmountOfPicturesInALevel(10);
 
         level = ProgressController.getCurrentLevel(this);
+        Log.d("LEVELPROGRESS", level  + " LEVELEEELELELELELE");
         if(level == 0) {
             level = 1;
         }
@@ -67,17 +68,21 @@ public class Game extends AppCompatActivity {
         if(level > maxLevelsInGame) {
             level = 10;
             finishedGame = true;
+            Log.d("LEVELPROGRESS", level  + " RESET SHOULD HAPPEN" + clicks + " CLICKS " + rightAnswersInt + " SCORE");
         }
         //Creates a new level progress object based on the currentLevel saved in the progress controller
         //and the amountOfPictures that the level should have (at the moment always 10)
         levelProgress = new LevelProgress(this, level, getAmountOfPicturesInALevel());
 
+        Log.d("LEVELPROGRESS", level  + " ELFELOELSF" + clicks + " CLICKS " + rightAnswersInt + " SCORE");
         //Not permanent solution, just for testing and resetting the last level after the game has been completed.
         if(finishedGame){
             levelProgress.resetCurrentClicksAndScore();
             levelProgress.resetCurrentLevelProgressArray(level);
         }
         clicks = levelProgress.getCurrentLevelClicks();
+        rightAnswersInt = levelProgress.getCurrentScore();
+        Log.d("LEVELPROGRESS", level  + " ELFELOELSF" + clicks + " CLICKS " + rightAnswersInt + " SCORE");
 
         listDots = new ArrayList<>();
 
@@ -93,9 +98,7 @@ public class Game extends AppCompatActivity {
 
         levelDisplayGame = (TextView) findViewById(R.id.levelDisplayGame);
         sharedPreferences = getSharedPreferences("progress", MODE_PRIVATE);
-        clicks = levelProgress.getCurrentLevelClicks();
 
-        rightAnswersInt = levelProgress.getCurrentScore();
 
         Bundle extras = getIntent().getExtras();
 
