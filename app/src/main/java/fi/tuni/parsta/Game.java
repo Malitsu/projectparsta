@@ -1,20 +1,12 @@
 package fi.tuni.parsta;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.res.AssetManager;
 import android.content.res.Resources;
-import android.graphics.Color;
-import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.text.Layout;
 import android.util.Log;
-import android.util.TypedValue;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.GridLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -22,24 +14,13 @@ import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.google.gson.JsonElement;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.Reader;
-import java.lang.reflect.Array;
-import java.lang.reflect.Field;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -47,6 +28,7 @@ public class Game extends AppCompatActivity {
 
     int rightAnswers = 0;
     int totalAnswers = 0;
+    boolean wasAnswerRight;
     private Gson gson;
     GameImage[] images;
     int level = 1;
@@ -250,21 +232,20 @@ public class Game extends AppCompatActivity {
 //                    gameLoop();
                     Intent gameIntent = new Intent(getApplication(), AnswerResultActivity.class);
                     clicks++;
-                    if(rightAnswerString.contains(myButton.getText().toString())) {
+                    wasAnswerRight = rightAnswerString.contains(myButton.getText().toString());
+                    if(wasAnswerRight) {
                         rightAnswersInt++;
                         Toast toast =ProgressController.registerAClick(true, getApplicationContext());
                         if (toast != null) toast.show();
                         Util.playSound(getApplication(), R.raw.right);
-                        levelProgress.updateLevelInfo(true, rightAnswersInt, clicks);
-                        gameIntent.putExtra("wasAnswerRight",true);
                     } else {
                         Toast toast = ProgressController.registerAClick(false, getApplicationContext());
                         if (toast != null) toast.show();
                         Util.playSound(getApplication(), R.raw.wrong);
-                        levelProgress.updateLevelInfo(false, rightAnswersInt, clicks);
-                        gameIntent.putExtra("wasAnswerRight",false);
-
                     }
+
+                    levelProgress.updateLevelInfo( wasAnswerRight, rightAnswersInt, clicks);
+                    gameIntent.putExtra("wasAnswerRight",wasAnswerRight);
                     gameIntent.putExtra("questionImgName", questionImgName);
                     gameIntent.putExtra("rightAnswerNumber", rightAnswersInt);
                     gameIntent.putExtra("clicksNumber", clicks);
