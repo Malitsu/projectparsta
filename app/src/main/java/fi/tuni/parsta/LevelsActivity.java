@@ -43,7 +43,6 @@ public class LevelsActivity extends AppCompatActivity {
                 final RelativeLayout rl_listViewItem = (RelativeLayout)view.findViewById(R.id.rl_listViewItem);
 
                 View child = getLayoutInflater().inflate(R.layout.listview_item_levels2, null);
-                rl_listViewItem.addView(child);
 
                 starList = new ArrayList<Dots>();
                 starList.add(new Dots(R.drawable.unlocked));
@@ -57,15 +56,15 @@ public class LevelsActivity extends AppCompatActivity {
                 starList.add(new Dots(R.drawable.star_grey));
                 starList.add(new Dots(R.drawable.star_grey));
 
-                RecyclerView myrv = (RecyclerView) findViewById(R.id.recyclerview_level);
+                RecyclerView myrv = (RecyclerView) child.findViewById(R.id.recyclerview_level);
                 DotRecyclerView_Adapter myAdapter = new DotRecyclerView_Adapter(getApplicationContext(), starList);
                 myrv.setLayoutManager(new GridLayoutManager(getApplicationContext(),10));
                 myrv.setAdapter(myAdapter);
 
-                TextView levelInfo = (TextView) findViewById(R.id.levelText2);
-                levelInfo.setText("Level " + levelsList.get(position).getCurrentLevel());
+                TextView levelInfo = (TextView) child.findViewById(R.id.levelText2);
+//                levelInfo.setText("Level " + levelsList.get(position).getCurrentLevel());
 
-                TextView scoreText = (TextView) findViewById(R.id.scoreText);
+                TextView scoreText = (TextView) child.findViewById(R.id.scoreText);
                 scoreText.setText(levelsList.get(position).getMaxScore() + "/10");
 
                 Button closeItemBtn = (Button) child.findViewById(R.id.closeItemBtn);
@@ -87,6 +86,8 @@ public class LevelsActivity extends AppCompatActivity {
                         Log.d("INFLATERI", "JOOJEE");
                     }
                 });
+
+                rl_listViewItem.addView(child);
             }
         });
 
@@ -123,7 +124,7 @@ public class LevelsActivity extends AppCompatActivity {
             view = getLayoutInflater().inflate(R.layout.listview_item_levels, null);
 
             TextView levelText = (TextView) view.findViewById(R.id.levelText);
-            levelText.setText("Level " + levelsList.get(i).getCurrentLevel());
+//            levelText.setText("Level " + levelsList.get(i).getCurrentLevel());
 
             return view;
         }
