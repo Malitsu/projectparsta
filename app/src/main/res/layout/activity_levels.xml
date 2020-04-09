@@ -13,13 +13,14 @@
         android:layout_height="wrap_content"
 >
         <TextView
+            android:id="@+id/levelsScore"
             android:paddingTop="10dp"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20sp"
-            android:text="Pisteet"
+            android:text="@string/layoutLevels_text_points"
             android:layout_alignParentLeft="true"
             />
         <Button
@@ -31,7 +32,7 @@
             android:background="@drawable/quit_button"
             android:layout_alignParentRight="true"
             android:onClick="quitLevels"
-            android:text="Takaisin"
+            android:text="@string/backBtn_text"
             android:textSize="12sp"/>
     </RelativeLayout>
 

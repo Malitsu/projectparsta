@@ -23,11 +23,13 @@ public class LevelsActivity extends AppCompatActivity {
 
     List<LevelProgress> levelsList;
     ArrayList<Dots> starList;
+    TextView levelsScore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_levels);
+
         levelsList = new ArrayList<LevelProgress>();
 
         levelsList.add(new LevelProgress(this, 1));
@@ -44,17 +46,18 @@ public class LevelsActivity extends AppCompatActivity {
 
                 View child = getLayoutInflater().inflate(R.layout.listview_item_levels2, null);
 
+                //Check and add the amount of gold stars according to max score of the level
                 starList = new ArrayList<Dots>();
-                starList.add(new Dots(R.drawable.unlocked));
-                starList.add(new Dots(R.drawable.unlocked));
-                starList.add(new Dots(R.drawable.unlocked));
-                starList.add(new Dots(R.drawable.unlocked));
-                starList.add(new Dots(R.drawable.unlocked));
-                starList.add(new Dots(R.drawable.star_grey));
-                starList.add(new Dots(R.drawable.star_grey));
-                starList.add(new Dots(R.drawable.star_grey));
-                starList.add(new Dots(R.drawable.star_grey));
-                starList.add(new Dots(R.drawable.star_grey));
+                int amountOfGoldStars = levelsList.get(position).getMaxScore();
+                int maxGoldStars = 10;
+                for(int i = 0; i < amountOfGoldStars; i++){
+                    starList.add(new Dots(R.drawable.unlocked));
+                }
+                if(amountOfGoldStars < maxGoldStars){
+                    for(int i = 0; i < (maxGoldStars - amountOfGoldStars); i++){
+                        starList.add(new Dots(R.drawable.star_grey));
+                    }
+                }
 
                 RecyclerView myrv = (RecyclerView) child.findViewById(R.id.recyclerview_level);
                 DotRecyclerView_Adapter myAdapter = new DotRecyclerView_Adapter(getApplicationContext(), starList);

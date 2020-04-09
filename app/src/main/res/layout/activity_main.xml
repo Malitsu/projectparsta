@@ -25,7 +25,7 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/main_btn_start"
+            android:text="@string/layoutMain_btn_start"
             android:background="@color/colorPrimary"
             android:layout_marginBottom="15dp"
             android:onClick="startClick"
@@ -36,7 +36,7 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/main_btn_achievements"
+            android:text="@string/layoutMain_btn_achievements"
             android:background="@color/colorPrimary"
             android:layout_marginBottom="15dp"
             android:onClick="achivClick"
@@ -46,7 +46,7 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/main_btn_levels"
+            android:text="@string/layoutMain_btn_levels"
             android:background="@color/colorPrimary"
             android:layout_marginBottom="15dp"
             android:onClick="levels"
@@ -57,7 +57,7 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/main_btn_info"
+            android:text="@string/layoutMain_btn_info"
             android:background="@color/colorPrimary"
             android:layout_marginBottom="15dp"
             android:onClick="about"
@@ -68,7 +68,7 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/main_btn_settings"
+            android:text="@string/layoutMain_btn_settings"
             android:background="@color/colorPrimary"
             android:onClick="settings"
             android:id="@+id/settings"

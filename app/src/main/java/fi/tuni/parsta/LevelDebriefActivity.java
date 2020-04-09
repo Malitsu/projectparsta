@@ -27,7 +27,17 @@ public class LevelDebriefActivity extends AppCompatActivity {
         if (extras != null) {
             currentLevel = extras.getInt("currentLevel",0);
             levelScore = extras.getInt("levelScore",0);
-            congratulations.setText(getResources().getString(R.string.levelDebrief_text_levelPassed1) + currentLevel + getResources().getString(R.string.levelDebrief_text_levelPassed2) + levelScore);
+            String feedback = "";
+            if(levelScore <= 4){
+                feedback = getResources().getString(R.string.levelDebrief_text_levelPassed_lowerScore);
+            }else if(levelScore <= 8){
+                feedback = getResources().getString(R.string.levelDebrief_text_levelPassed_middleScore);
+            }else{
+                feedback = getResources().getString(R.string.levelDebrief_text_levelPassed_higherScore);
+            }
+
+            congratulations.setText(getResources().getString(R.string.layoutLevels_text_points) + levelScore + "\n\n" +
+                    feedback);
         }
         currentLevel++;
         ProgressController.setCurrentLevelInProgress(getApplicationContext(), currentLevel);

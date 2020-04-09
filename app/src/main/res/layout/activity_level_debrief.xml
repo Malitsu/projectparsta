@@ -16,7 +16,7 @@
             android:background="@drawable/quit_button"
             android:onClick="quitGame"
             android:layout_alignParentRight="true"
-            android:text="Lopeta peli"/>
+            android:text="@string/backBtn_text"/>
     </RelativeLayout>
 
     <RelativeLayout
@@ -35,7 +35,7 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Seuraava"
+        android:text="@string/nextBtn_text"
         android:background="@color/colorPrimary"
         android:onClick="nextClick"
         android:id="@+id/start"

@@ -18,7 +18,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20sp"
-            android:text="Saavutukset"
+            android:text="@string/layoutAchievement_text_achievement"
             android:layout_centerHorizontal="true"
             />
         <Button
@@ -30,7 +30,7 @@
             android:background="@drawable/quit_button"
             android:layout_alignParentRight="true"
             android:onClick="quitAchievements"
-            android:text="Takaisin"
+            android:text="@string/backBtn_text"
             android:textSize="12sp"/>
     </RelativeLayout>
 
