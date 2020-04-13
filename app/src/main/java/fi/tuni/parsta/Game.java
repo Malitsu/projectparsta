@@ -61,6 +61,8 @@ public class Game extends AppCompatActivity {
 
         Bundle extras = getIntent().getExtras();
 
+        //TODO: reset the progress of a level if gotten through the level menu and the level is bigger than the one that we got through the menu?
+
         // check the wanted, current level based on intent info from other activities
         if (extras != null) {
             // gets carried through the game(answer results and level debrief), first set at play button or levels activity
