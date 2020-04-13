@@ -55,6 +55,7 @@ public class LevelDebriefActivity extends AppCompatActivity {
         Intent mainIntent = new Intent(this, MainActivity.class);
         gameIntent.putExtra("currentLevel", currentLevel);
         gameIntent.putExtra("playbuttonpressed", playButtonPressed);
+        gameIntent.putExtra("shouldresetcurrentprogress", true);
         if(currentLevel > 10) {
             startActivity(mainIntent);
         } else {

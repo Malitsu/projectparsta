@@ -51,6 +51,7 @@ public class Game extends AppCompatActivity {
     int amountOfPicturesInALevel;
     boolean finishedGame = false;
     boolean playButtonClicked;
+    boolean pleaseResetProgress;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,6 +75,15 @@ public class Game extends AppCompatActivity {
                 // get's the current level wanted, updated via intent from everywhere
                 level = extras.getInt("currentLevel", 1);
             }
+            Log.d("LEVELPROGRESS", level + " and " + ProgressController.getCurrentLevel(this ) + " resetttttt should hapen");
+            // reset the progress of a level if the level is clicked and it's new and it's different one from before
+            // don't reset if the level is max progress level or if the level is the one last played
+            if(level != ProgressController.getCurrentLevel(this)
+                    && level != ProgressController.getMaxProgressLevel(this)
+                    || extras.getBoolean("shouldresetcurrentprogress")) {
+                pleaseResetProgress = true;
+                Log.d("LEVELPROGRESS", pleaseResetProgress + " resetttttt should hapen");
+            }
             ProgressController.setCurrentLevelInProgress(this, level);
         }
 
@@ -93,7 +103,8 @@ public class Game extends AppCompatActivity {
 
         // if the game has been finished or a level is being replayed with it finished before
         // reset the clicks and progress array for the round
-        if(finishedGame || (levelProgress.getCurrentLevelClicks() >= 10)){
+        if(finishedGame || (levelProgress.getCurrentLevelClicks() >= 10) || pleaseResetProgress){
+            Log.d("LEVELPROGRESS", pleaseResetProgress + " resetttttt should hapen");
             levelProgress.resetCurrentClicksAndScore();
             levelProgress.resetCurrentLevelProgressArray(level);
         }

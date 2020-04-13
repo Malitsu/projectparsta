@@ -19,9 +19,7 @@ public class LevelProgress {
 
     public LevelProgress(Context context, int currentLevel, int amountOfPictures) {
         this.context = context;
-        Log.d("LEVELPROGRESS", currentLevel + " AT CREATION  CURRENT LEVEL IS THIS");
         if(currentLevel != getCurrentLevel()) {
-            Log.d("LEVELPROGRESS", currentLevel + " AND GET CURRENT LEVEL WERE NOT THE SAME");
             resetCurrentClicksAndScore();
         }
 
