@@ -22,7 +22,8 @@
         <activity android:name=".AnswerResultActivity"/>
         <activity android:name=".CardItemContentsActivity"
             android:theme="@style/DialogTheme" />
-        <activity android:name=".LevelDebriefActivity"/>
+        <activity android:name=".LevelDebriefActivity"
+            android:theme="@style/DialogTheme" />/>
     </application>
 
 </manifest>
