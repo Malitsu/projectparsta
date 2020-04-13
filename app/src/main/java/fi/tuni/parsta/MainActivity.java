@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void startClick(View v) {
         Intent gameIntent = new Intent(this, Game.class);
+        gameIntent.putExtra("playbuttonpressed", true);
         startActivity(gameIntent);
 
     }

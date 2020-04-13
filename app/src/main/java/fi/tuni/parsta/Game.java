@@ -50,6 +50,7 @@ public class Game extends AppCompatActivity {
     LevelProgress levelProgress;
     int amountOfPicturesInALevel;
     boolean finishedGame = false;
+    boolean playButtonClicked;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,33 +59,46 @@ public class Game extends AppCompatActivity {
 
         setAmountOfPicturesInALevel(10);
 
-        //TODO: change depending on if the player clicks "play" or from the levels menu
-        level = ProgressController.getCurrentLevel(this);
-        Log.d("LEVELPROGRESS", level  + " LEVELEEELELELELELE");
+        Bundle extras = getIntent().getExtras();
+
+        // check the wanted, current level based on intent info from other activities
+        if (extras != null) {
+            // gets carried through the game(answer results and level debrief), first set at play button or levels activity
+            playButtonClicked = extras.getBoolean("playbuttonpressed");
+            if(playButtonClicked) {
+                // resets the current level to the max progress level if it has been something else at some point.
+                level = ProgressController.getMaxProgressLevel(this);
+            } else {
+                // get's the current level wanted, updated via intent from everywhere
+                level = extras.getInt("currentLevel", 1);
+            }
+            ProgressController.setCurrentLevelInProgress(this, level);
+        }
+
+        //if level is 0 for some reason, reset it to 1 to prevent problems.
         if(level == 0) {
             level = 1;
         }
 
-        //JUST UNTIL WE KNOW WHAT HAPPENS WHEN YOU FINISH THE GAME AND PRESS THE PLAY BUTTON AGAIN
+        //if the game has been finished (max level is above 10), reset the game to play level 10 again
         if(level > maxLevelsInGame) {
             level = 10;
             finishedGame = true;
-            Log.d("LEVELPROGRESS", level  + " RESET SHOULD HAPPEN" + clicks + " CLICKS " + rightAnswersInt + " SCORE");
         }
         //Creates a new level progress object based on the currentLevel saved in the progress controller
         //and the amountOfPictures that the level should have (at the moment always 10)
         levelProgress = new LevelProgress(this, level, getAmountOfPicturesInALevel());
 
-        Log.d("LEVELPROGRESS", level  + " ELFELOELSF" + clicks + " CLICKS " + rightAnswersInt + " SCORE");
-        //Not permanent solution, just for testing and resetting the last level after the game has been completed.
-        if(finishedGame){
+        // if the game has been finished or a level is being replayed with it finished before
+        // reset the clicks and progress array for the round
+        if(finishedGame || (levelProgress.getCurrentLevelClicks() >= 10)){
             levelProgress.resetCurrentClicksAndScore();
             levelProgress.resetCurrentLevelProgressArray(level);
         }
         clicks = levelProgress.getCurrentLevelClicks();
         rightAnswersInt = levelProgress.getCurrentScore();
-        Log.d("LEVELPROGRESS", level  + " ELFELOELSF" + clicks + " CLICKS " + rightAnswersInt + " SCORE");
 
+        // used to create the dots that are in the progress bar
         listDots = new ArrayList<>();
 
         //Update the dots in the progress bar at the start of the game
@@ -100,12 +114,6 @@ public class Game extends AppCompatActivity {
         levelDisplayGame = (TextView) findViewById(R.id.levelDisplayGame);
         sharedPreferences = getSharedPreferences("progress", MODE_PRIVATE);
 
-
-        Bundle extras = getIntent().getExtras();
-
-        if (extras != null) {
-            level = extras.getInt("currentLevel",1);
-        }
         levelDisplayGame.setText(getResources().getString(R.string.game_text_level) + level);
         gameLoop();
 
@@ -179,7 +187,6 @@ public class Game extends AppCompatActivity {
     public  void  convertJsonToGameImageObjects() {
         try {
             String jsonFileContent = Util.readFile("faces.json",this);
-            Log.d("GAMEHELLO", jsonFileContent);
             images = gson.fromJson(jsonFileContent, GameImage[].class);
 
         } catch (IOException e) {
@@ -258,6 +265,7 @@ public class Game extends AppCompatActivity {
                     gameIntent.putExtra("rightAnswerNumber", rightAnswersInt);
                     gameIntent.putExtra("clicksNumber", clicks);
                     gameIntent.putExtra("currentLevel", level);
+                    gameIntent.putExtra("playbuttonpressed", playButtonClicked);
                     startActivity(gameIntent);
                 }
             });

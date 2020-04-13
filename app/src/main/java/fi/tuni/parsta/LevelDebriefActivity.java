@@ -12,6 +12,8 @@ public class LevelDebriefActivity extends AppCompatActivity {
     int currentLevel;
     int levelScore;
     TextView congratulations;
+    boolean playButtonPressed;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +26,7 @@ public class LevelDebriefActivity extends AppCompatActivity {
         if (extras != null) {
             currentLevel = extras.getInt("currentLevel",0);
             levelScore = extras.getInt("levelScore",0);
+            playButtonPressed = extras.getBoolean("playbuttonpressed");
             String feedback = "";
             if(levelScore <= 4){
                 // TODO: Create new button to take the player back to the start of the level is score low enough
@@ -51,7 +54,7 @@ public class LevelDebriefActivity extends AppCompatActivity {
         Intent gameIntent = new Intent(this, Game.class);
         Intent mainIntent = new Intent(this, MainActivity.class);
         gameIntent.putExtra("currentLevel", currentLevel);
-
+        gameIntent.putExtra("playbuttonpressed", playButtonPressed);
         if(currentLevel > 10) {
             startActivity(mainIntent);
         } else {

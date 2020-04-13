@@ -36,6 +36,12 @@ public class LevelsActivity extends AppCompatActivity {
         levelsList.add(new LevelProgress(this, 2));
         levelsList.add(new LevelProgress(this, 3));
         levelsList.add(new LevelProgress(this, 4));
+        levelsList.add(new LevelProgress(this, 5));
+        levelsList.add(new LevelProgress(this, 6));
+        levelsList.add(new LevelProgress(this, 7));
+        levelsList.add(new LevelProgress(this, 8));
+        levelsList.add(new LevelProgress(this, 9));
+        levelsList.add(new LevelProgress(this, 10));
 
         ListView levelList = (ListView) findViewById(R.id.levelList);
 
@@ -82,11 +88,20 @@ public class LevelsActivity extends AppCompatActivity {
                 });
 
                 Button startLevelBtn = (Button) child.findViewById(R.id.startLevelBtn);
+                final int level = position + 1;
+                if(ProgressController.getMaxProgressLevel(getApplicationContext()) < level ) {
+                    startLevelBtn.setEnabled(false);
+                    startLevelBtn.setBackgroundColor(getResources().getColor(R.color.disabledBtn));
+                }
                 startLevelBtn.setOnClickListener(new View.OnClickListener() {
 
                     @Override
                     public void onClick(View v) {
                         Log.d("INFLATERI", "JOOJEE");
+                        Intent gameIntent = new Intent(getApplication(), Game.class);
+                        gameIntent.putExtra("playbuttonpressed", false);
+                        gameIntent.putExtra("currentLevel", level );
+                        startActivity(gameIntent);
                     }
                 });
 

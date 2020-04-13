@@ -20,6 +20,7 @@ public class AnswerResultActivity extends AppCompatActivity {
     int rightAnswers;
     int clicksNumber;
     int currentLevel;
+    boolean playButtonPressed;
 
     ImageView infoImg;
 
@@ -39,6 +40,7 @@ public class AnswerResultActivity extends AppCompatActivity {
              clicksNumber = extras.getInt("clicksNumber");
              currentLevel = extras.getInt("currentLevel");
              infoQuestionImgName = questionImgName + "_info";
+             playButtonPressed = extras.getBoolean("playbuttonpressed");
              int resourceName = Util.getStringResourceByName(infoQuestionImgName, this);
              infoImg.setImageResource(resourceName);
              currentWins.setText(getResources().getString(R.string.answerResult_text_correct) + rightAnswers);
@@ -56,10 +58,12 @@ public class AnswerResultActivity extends AppCompatActivity {
             Intent gameIntent = new Intent(this, LevelDebriefActivity.class);
             gameIntent.putExtra("currentLevel", currentLevel);
             gameIntent.putExtra("levelScore", rightAnswers);
+            gameIntent.putExtra("playbuttonpressed", playButtonPressed);
             startActivity(gameIntent);
         } else {
             Intent gameIntent = new Intent(this, Game.class);
             gameIntent.putExtra("currentLevel", currentLevel);
+            gameIntent.putExtra("playbuttonpressed", playButtonPressed);
             startActivity(gameIntent);
         }
 
