@@ -7,6 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import androidx.fragment.app.DialogFragment;
@@ -18,6 +20,12 @@ public class SettingsDialog extends DialogFragment {
     private TextView mActionOk, mActionCancel;
     private boolean soundEffectsOn;
     SharedPreferences sharedPreferences;
+    RadioButton finnish;
+    RadioButton english;
+    private boolean finnishPicked;
+    RadioGroup radioGroup;
+    private CheckBox vibrationSettings;
+    private boolean vibrationOn;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -27,11 +35,41 @@ public class SettingsDialog extends DialogFragment {
         mActionCancel = view.findViewById(R.id.action_cancel);
         mActionOk = view.findViewById(R.id.action_ok);
         soundSettings = view.findViewById(R.id.sound_effect_on);
+        vibrationSettings = view.findViewById(R.id.vibration);
+        finnish = view.findViewById(R.id.finnish);
+        english = view.findViewById(R.id.english);
+        radioGroup = view.findViewById(R.id.radio);
+
         //get this from saved memory when that is created.
         soundEffectsOn = getSettingsPrefs("sound");
+        finnishPicked = getSettingsPrefs("language");
+        vibrationOn = getSettingsPrefs("vibration");
         //set the checkbox to the past settings (true or false).
         soundSettings.setChecked(soundEffectsOn);
+        vibrationSettings.setChecked(vibrationOn);
+        Log.d("SettingsDialog", getSettingsPrefs("language") + " languageee");
 
+        if(finnishPicked) {
+            finnish.setChecked(true);
+        } else {
+            english.setChecked(true);
+        }
+
+
+        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+
+                if (checkedId == R.id.finnish) {
+                    finnishPicked = true;
+                } else if (checkedId == R.id.english) {
+                    finnishPicked = false;
+                }
+
+            }
+
+        });
         mActionCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -43,11 +81,14 @@ public class SettingsDialog extends DialogFragment {
             @Override
             public void onClick(View view) {
                 //save this to memory when ever that option been created
-                updateSettingsPrefs("sound",soundSettings.isChecked());
+                updateSettingsPrefs("sound", soundSettings.isChecked());
+                updateSettingsPrefs("language", finnishPicked);
+                updateSettingsPrefs("vibration", vibrationSettings.isChecked());
                 Log.d("SettingsDialog","Clicked on sound effect settings and it is currently: " + soundEffectsOn);
                 getDialog().dismiss();
             }
         });
+
         return view;
     }
 
