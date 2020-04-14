@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -7,26 +7,38 @@
     android:orientation="vertical"
     >
 
-    <ImageView
-        android:scaleX="0.5"
-        android:scaleY="0.5"
+    <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/face"
-        android:contentDescription="Naama"
-        android:layout_alignParentTop="true"
-        />
+        android:layout_height="0dp"
+        android:background="#a29ccb"
+        android:layout_marginBottom="30dp"
+        android:layout_weight="1">
+        <ImageView
+            android:scaleX="0.5"
+            android:scaleY="0.5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/face"
+            android:contentDescription="Naama"
+            android:layout_alignParentTop="true"
+            />
+    </RelativeLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:orientation="vertical"
+        android:layout_marginRight="40dp"
+        android:layout_marginLeft="40dp"
         android:layout_alignParentBottom="true"
         >
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/layoutMain_btn_start"
-            android:background="@color/colorPrimary"
+            android:textColor="@android:color/white"
+            android:background="@drawable/main_btn_start"
             android:layout_marginBottom="15dp"
             android:onClick="startClick"
             android:id="@+id/start"
@@ -37,7 +49,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/layoutMain_btn_achievements"
-            android:background="@color/colorPrimary"
+            android:textColor="@android:color/white"
+            android:background="@drawable/main_btn_achiv"
             android:layout_marginBottom="15dp"
             android:onClick="achivClick"
             android:id="@+id/achievements"
@@ -47,7 +60,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/layoutMain_btn_levels"
-            android:background="@color/colorPrimary"
+            android:textColor="@android:color/white"
+            android:background="@drawable/main_btn_levels"
             android:layout_marginBottom="15dp"
             android:onClick="levels"
             android:id="@+id/levels"
@@ -58,7 +72,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/layoutMain_btn_info"
-            android:background="@color/colorPrimary"
+            android:textColor="@android:color/white"
+            android:background="@drawable/main_btn_info"
             android:layout_marginBottom="15dp"
             android:onClick="about"
             android:id="@+id/about"
@@ -69,10 +84,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/layoutMain_btn_settings"
-            android:background="@color/colorPrimary"
+            android:textColor="@android:color/white"
+            android:background="@drawable/main_btn_settings"
             android:onClick="settings"
             android:id="@+id/settings"
             android:drawableLeft="@drawable/ic_asetukset_1"
             />
     </LinearLayout>
-</RelativeLayout>
+</LinearLayout>
