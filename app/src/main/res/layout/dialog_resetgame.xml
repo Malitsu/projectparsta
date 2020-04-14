@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:background="#fff"
+        android:id="@+id/start_rel"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/heading_rel"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_above="@+id/language_rel"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="0dp"
+            android:layout_marginRight="0dp"
+            android:layout_marginLeft="0dp"
+            android:background="#585188"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/heading"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/layoutSettingsDialog_checkbox_warning"
+                android:textAlignment="center"
+                android:textColor="#fff"
+                android:textSize="20sp"
+                android:paddingTop="10dp"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/language_rel"
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:layout_above="@+id/reset_app"
+            android:background="#a29ccb"
+            android:padding="10dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/layoutSettingsDialog_checkbox_warning_message1"
+                android:textColor="#000"
+                android:textSize="15dp"
+                android:layout_marginBottom="10dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/layoutSettingsDialog_checkbox_warning_message2"
+                android:textColor="#000"
+                android:textSize="15dp"
+                android:layout_marginTop="40dp"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/bottom_rel"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginBottom="10dp"
+            android:background="#585188"
+            android:padding="15dp"
+            >
+
+            <TextView
+                android:id="@+id/action_ok"
+                android:layout_width="100sp"
+                android:minWidth="100sp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginRight="20dp"
+                android:text="@string/okBtn_text"
+                android:textColor="#000"
+                android:textSize="20sp"
+                android:gravity="center"
+                android:background="@drawable/quit_button"/>
+
+            <TextView
+                android:id="@+id/action_cancel"
+                android:layout_width="100sp"
+                android:minWidth="100sp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="20dp"
+                android:text="@string/layoutSettingsDialog_text_cancel"
+                android:textColor="#000"
+                android:textSize="20sp"
+                android:gravity="center"
+                android:background="@drawable/quit_button"/>
+        </RelativeLayout>
+
+
+    </LinearLayout>
+</RelativeLayout>

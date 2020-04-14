@@ -38,6 +38,9 @@
     <string name="layoutSettingsDialog_checkbox_language_fin">"Suomi"</string>
     <string name="layoutSettingsDialog_checkbox_language_eng">"Englanti"</string>
     <string name="layoutSettingsDialog_checkbox_reset">"Nollaa asetukset"</string>
+    <string name="layoutSettingsDialog_checkbox_warning">"Varoitus"</string>
+    <string name="layoutSettingsDialog_checkbox_warning_message1">"Oletko varma, että haluat alustaa asetukset ja pelin?"</string>
+    <string name="layoutSettingsDialog_checkbox_warning_message2">"Menetät kaiken!"</string>
     <string name="layoutSettingsDialog_text_cancel">PERUUTA</string>
 
 </resources>

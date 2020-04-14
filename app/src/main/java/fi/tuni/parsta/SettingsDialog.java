@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -26,6 +27,8 @@ public class SettingsDialog extends DialogFragment {
     RadioGroup radioGroup;
     private CheckBox vibrationSettings;
     private boolean vibrationOn;
+    private Button resetApp;
+    ResetDialog dialog;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -39,6 +42,7 @@ public class SettingsDialog extends DialogFragment {
         finnish = view.findViewById(R.id.finnish);
         english = view.findViewById(R.id.english);
         radioGroup = view.findViewById(R.id.radio);
+        resetApp = view.findViewById(R.id.reset_app);
 
         //get this from saved memory when that is created.
         soundEffectsOn = getSettingsPrefs("sound");
@@ -89,6 +93,14 @@ public class SettingsDialog extends DialogFragment {
             }
         });
 
+        resetApp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog = new ResetDialog();
+                dialog.show(getFragmentManager(), "ResetDialog");
+                getDialog().dismiss();
+            }
+        });
         return view;
     }
 
