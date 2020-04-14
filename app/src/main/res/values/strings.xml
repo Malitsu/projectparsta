@@ -35,6 +35,8 @@
     <string name="layoutSettingsDialog_checkbox_soundOn">"Äänitehosteet päällä"</string>
     <string name="layoutSettingsDialog_checkbox_vibration">"Värinä päällä"</string>
     <string name="layoutSettingsDialog_checkbox_language">"Kieli"</string>
+    <string name="layoutSettingsDialog_checkbox_language_fin">"Suomi"</string>
+    <string name="layoutSettingsDialog_checkbox_language_eng">"Englanti"</string>
     <string name="layoutSettingsDialog_checkbox_reset">"Nollaa asetukset"</string>
     <string name="layoutSettingsDialog_text_cancel">PERUUTA</string>
 
