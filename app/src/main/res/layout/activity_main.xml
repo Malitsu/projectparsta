@@ -40,6 +40,7 @@
             android:layout_marginBottom="15dp"
             android:onClick="startClick"
             android:id="@+id/start"
+            android:textSize="18sp"
             android:drawableLeft="@drawable/ic_aloita_peli_1"
             />
 
@@ -51,6 +52,7 @@
             android:background="@drawable/main_btn_achiv"
             android:layout_marginBottom="15dp"
             android:onClick="achivClick"
+            android:textSize="18sp"
             android:id="@+id/achievements"
             android:drawableLeft="@drawable/ic_saavutukset"
             />
@@ -61,6 +63,7 @@
             android:textColor="@android:color/white"
             android:background="@drawable/main_btn_levels"
             android:layout_marginBottom="15dp"
+            android:textSize="18sp"
             android:onClick="levels"
             android:id="@+id/levels"
             android:drawableLeft="@drawable/ic_tasot_1"
@@ -73,6 +76,7 @@
             android:textColor="@android:color/white"
             android:background="@drawable/main_btn_info"
             android:layout_marginBottom="15dp"
+            android:textSize="18sp"
             android:onClick="about"
             android:id="@+id/about"
             android:drawableLeft="@drawable/ic_info_2"
@@ -85,6 +89,7 @@
             android:textColor="@android:color/white"
             android:background="@drawable/main_btn_settings"
             android:onClick="settings"
+            android:textSize="18sp"
             android:id="@+id/settings"
             android:drawableLeft="@drawable/ic_asetukset_1"
             />
