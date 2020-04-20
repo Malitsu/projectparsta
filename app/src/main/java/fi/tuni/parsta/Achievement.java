@@ -51,8 +51,7 @@ class Achievement {
         if (isUnlocked()) {
             return getIdKey() + "_unlocked";
         } else {
-            // TODO: Change this to _locked once the locked icons are available
-            return getIdKey() + "_unlocked";
+            return getIdKey() + "_locked";
         }
     }
 
