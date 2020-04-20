@@ -21,6 +21,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -29,8 +30,8 @@ public class Game extends AppCompatActivity {
 
     boolean wasAnswerRight;
     private Gson gson;
-    GameImage[] images;
-    int level = 1;
+    ArrayList<GameImage> images;
+    int currentLevel = 1;
     ImageView questionImg;
     LinearLayout buttonLayout;
 //    TextView currentWins;
@@ -46,6 +47,8 @@ public class Game extends AppCompatActivity {
     List<Dots> listDots;
 
     LevelProgress levelProgress;
+
+    Level level;
 
     private final int NUMBEROFLEVELSINGAME = 10;
     private final int PICTURESPERLEVEL = 10;
@@ -71,43 +74,43 @@ public class Game extends AppCompatActivity {
             playButtonClicked = extras.getBoolean("playbuttonpressed");
             if(playButtonClicked) {
                 // resets the current level to the max progress level if it has been something else at some point.
-                level = ProgressController.getMaxProgressLevel(this);
+                currentLevel = ProgressController.getMaxProgressLevel(this);
             } else {
                 // get's the current level wanted, updated via intent from everywhere
-                level = extras.getInt("currentLevel", 1);
+                currentLevel = extras.getInt("currentLevel", 1);
             }
-            Log.d("LEVELPROGRESS", level + " and " + ProgressController.getCurrentLevel(this ) + " resetttttt should hapen");
+            Log.d("LEVELPROGRESS", currentLevel + " and " + ProgressController.getCurrentLevel(this ) + " resetttttt should hapen");
             // reset the progress of a level if the level is clicked and it's new and it's different one from before
             // don't reset if the level is max progress level or if the level is the one last played
-            if(level != ProgressController.getCurrentLevel(this)
-                    && level != ProgressController.getMaxProgressLevel(this)
+            if(currentLevel != ProgressController.getCurrentLevel(this)
+                    && currentLevel != ProgressController.getMaxProgressLevel(this)
                     || extras.getBoolean("shouldresetcurrentprogress")) {
                 pleaseResetProgress = true;
                 Log.d("LEVELPROGRESS", pleaseResetProgress + " resetttttt should hapen");
             }
-            ProgressController.setCurrentLevelInProgress(this, level);
+            ProgressController.setCurrentLevelInProgress(this, currentLevel);
         }
 
         //if level is 0 for some reason, reset it to 1 to prevent problems.
-        if(level < 1) {
-            level = 1;
+        if(currentLevel < 1) {
+            currentLevel = 1;
         }
 
         //if the game has been finished (max level is above 10), reset the game to play level 10 again
-        if(level > NUMBEROFLEVELSINGAME) {
-            level = NUMBEROFLEVELSINGAME;
+        if(currentLevel > NUMBEROFLEVELSINGAME) {
+            currentLevel = NUMBEROFLEVELSINGAME;
             finishedGame = true;
         }
         //Creates a new level progress object based on the currentLevel saved in the progress controller
         //and the amountOfPictures that the level should have (at the moment always 10)
-        levelProgress = new LevelProgress(this, level, PICTURESPERLEVEL);
+        levelProgress = new LevelProgress(this, currentLevel, PICTURESPERLEVEL);
 
         // if the game has been finished or a level is being replayed with it finished before
         // reset the clicks and progress array for the round
         if(finishedGame || (levelProgress.getCurrentLevelClicks() >= PICTURESPERLEVEL) || pleaseResetProgress){
             Log.d("LEVELPROGRESS", pleaseResetProgress + " resetttttt should hapen");
             levelProgress.resetCurrentClicksAndScore();
-            levelProgress.resetCurrentLevelProgressArray(level);
+            levelProgress.resetCurrentLevelProgressArray(currentLevel);
         }
         clicks = levelProgress.getCurrentLevelClicks();
         rightAnswersInt = levelProgress.getCurrentScore();
@@ -128,7 +131,7 @@ public class Game extends AppCompatActivity {
         levelDisplayGame = (TextView) findViewById(R.id.levelDisplayGame);
         sharedPreferences = getSharedPreferences("progress", MODE_PRIVATE);
 
-        levelDisplayGame.setText(getResources().getString(R.string.game_text_level) + level);
+        levelDisplayGame.setText(getResources().getString(R.string.game_text_level) + currentLevel);
         gameLoop();
 
     }
@@ -163,8 +166,8 @@ public class Game extends AppCompatActivity {
         Boolean rightAnswer = false;
 
         //Get random question image (new question)
-        int rndImage = Util.random(0, (images.length - 1));
-        GameImage newQuestion = images[rndImage];
+        int rndImage = Util.random(0, (images.size() - 1));
+        GameImage newQuestion = images.get(rndImage);
         questionImgName = newQuestion.getName();
 
         //Edit questionImgName string (for answer button)
@@ -181,7 +184,7 @@ public class Game extends AppCompatActivity {
         questionImg.setImageResource(resourceName);
 
         //Get answer options
-        ArrayList<String> answerOptions = getAnswerOptions(getAnswerOptionsAmount(level), rightAnswerString);
+        ArrayList<String> answerOptions = getAnswerOptions(level.getChoices(), rightAnswerString);
         Log.d("JEE", answerOptions.toString());
 
         //Create buttons with answer options
@@ -199,9 +202,27 @@ public class Game extends AppCompatActivity {
     }
 
     public  void  convertJsonToGameImageObjects() {
+        images = new ArrayList<>();
         try {
             String jsonFileContent = Util.readFile("faces.json",this);
-            images = gson.fromJson(jsonFileContent, GameImage[].class);
+            GameImage[] tempImages = gson.fromJson(jsonFileContent, GameImage[].class);
+
+            jsonFileContent = Util.readFile("levels.json", this);
+            Level[] levels = gson.fromJson(jsonFileContent, Level[].class);
+
+            for (Level value : levels) {
+                if (value.getId() == currentLevel) {
+                    level = value;
+                }
+            }
+
+            for (int i = 0; i < level.getFaces().length; i++) {
+                for (GameImage tempImage : tempImages) {
+                    if (tempImage.getId() == level.getFaces()[i]) {
+                        images.add(tempImage);
+                    }
+                }
+            }
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -209,6 +230,8 @@ public class Game extends AppCompatActivity {
     }
 
     public ArrayList<String> getAnswerOptions(int answerOptionsAmount, String rightAnswer){
+        System.out.println(level);
+
         String[] answerOptions = new String[answerOptionsAmount];
         int rightAnswerposition = Util.random(0, (answerOptionsAmount - 1));
 
@@ -244,14 +267,6 @@ public class Game extends AppCompatActivity {
         return returnable;
     }
 
-    public int getAnswerOptionsAmount(int level){
-        int amount = 3;
-        if(level > 5) {
-            return amount +1;
-        }
-        return amount;
-    }
-
     public void createButtonGrid(ArrayList<String> answerOptions){
         for (int i = 0; i<answerOptions.size(); i++) {
             final Button myButton = new Button(this);
@@ -278,7 +293,7 @@ public class Game extends AppCompatActivity {
                     gameIntent.putExtra("questionImgName", questionImgName);
                     gameIntent.putExtra("rightAnswerNumber", rightAnswersInt);
                     gameIntent.putExtra("clicksNumber", clicks);
-                    gameIntent.putExtra("currentLevel", level);
+                    gameIntent.putExtra("currentLevel", currentLevel);
                     gameIntent.putExtra("playbuttonpressed", playButtonClicked);
                     startActivity(gameIntent);
                 }

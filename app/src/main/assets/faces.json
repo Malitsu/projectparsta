@@ -1,9 +1,9 @@
 [
-  {"id": 1, "name": "face_iloinen_1_1", "emotion" : "Iloinen", "level": 1, "infoImg": "face_iloinen_1_1_info"},
-  {"id": 2, "name": "face_inhoava_1_1", "emotion" : "Inhoava", "level": 1, "infoImg": "face_inhoava_1_1_info"},
-  {"id": 3, "name": "face_pelokas_1_1", "emotion" : "Pelokas", "level": 1, "infoImg": "face_pelokas_1_1_info"},
-  {"id": 4, "name": "face_surullinen_1_1", "emotion" : "Surullinen", "level": 1, "infoImg": "face_surullinen_1_1_info"},
-  {"id": 5, "name": "face_tyytyvainen_1_1", "emotion" : "Tyytyväinen", "level": 1, "infoImg": "face_tyytyvainen_1_1_info"},
-  {"id": 6, "name": "face_vihainen_1_1", "emotion" : "Vihainen", "level": 1, "infoImg": "face_vihainen_1_1_info"},
-  {"id": 7, "name": "face_yllattynyt_1_1", "emotion" : "Yllättynyt", "level": 1, "infoImg": "face_yllattynyt_1_1_info"}
+  {"id": 1, "name": "face_iloinen_1_1", "emotion" : "Iloinen", "infoImg": "face_iloinen_1_1_info"},
+  {"id": 2, "name": "face_inhoava_1_1", "emotion" : "Inhoava", "infoImg": "face_inhoava_1_1_info"},
+  {"id": 3, "name": "face_pelokas_1_1", "emotion" : "Pelokas", "infoImg": "face_pelokas_1_1_info"},
+  {"id": 4, "name": "face_surullinen_1_1", "emotion" : "Surullinen", "infoImg": "face_surullinen_1_1_info"},
+  {"id": 5, "name": "face_tyytyvainen_1_1", "emotion" : "Tyytyväinen", "infoImg": "face_tyytyvainen_1_1_info"},
+  {"id": 6, "name": "face_vihainen_1_1", "emotion" : "Vihainen", "infoImg": "face_vihainen_1_1_info"},
+  {"id": 7, "name": "face_yllattynyt_1_1", "emotion" : "Yllättynyt", "infoImg": "face_yllattynyt_1_1_info"}
 ]
