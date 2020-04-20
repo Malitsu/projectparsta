@@ -162,11 +162,22 @@ public class Game extends AppCompatActivity {
     }
 
 
+    private int lastImage = -1;
+
     protected void gameLoop() {
         Boolean rightAnswer = false;
 
         //Get random question image (new question)
-        int rndImage = Util.random(0, (images.size() - 1));
+
+        int rndImage = -1;
+        boolean okRandomImage = false;
+
+        while (!okRandomImage) {
+            rndImage = Util.random(0, (images.size() - 1));
+            if (rndImage != lastImage) okRandomImage = true;
+        }
+        lastImage = rndImage;
+
         GameImage newQuestion = images.get(rndImage);
         questionImgName = newQuestion.getName();
 
