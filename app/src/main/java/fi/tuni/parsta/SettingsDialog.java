@@ -1,7 +1,12 @@
 package fi.tuni.parsta;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
+import android.content.res.Resources;
+import android.os.Build;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +16,8 @@ import android.widget.CheckBox;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+
+import java.util.Locale;
 
 import androidx.fragment.app.DialogFragment;
 
@@ -23,7 +30,6 @@ public class SettingsDialog extends DialogFragment {
     SharedPreferences sharedPreferences;
     RadioButton finnish;
     RadioButton english;
-    private boolean finnishPicked;
     RadioGroup radioGroup;
     private CheckBox vibrationSettings;
     private boolean vibrationOn;
@@ -46,29 +52,26 @@ public class SettingsDialog extends DialogFragment {
 
         //get this from saved memory when that is created.
         soundEffectsOn = getSettingsPrefs("sound");
-        finnishPicked = getSettingsPrefs("language");
         vibrationOn = getSettingsPrefs("vibration");
         //set the checkbox to the past settings (true or false).
         soundSettings.setChecked(soundEffectsOn);
         vibrationSettings.setChecked(vibrationOn);
         Log.d("SettingsDialog", getSettingsPrefs("language") + " languageee");
 
-        if(finnishPicked) {
+        if(getLanguagePrefs("languageCurrently").equals("fi")) {
             finnish.setChecked(true);
         } else {
             english.setChecked(true);
         }
 
-
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
 
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-
                 if (checkedId == R.id.finnish) {
-                    finnishPicked = true;
+                    Util.setAppLocale("fi", getContext());
                 } else if (checkedId == R.id.english) {
-                    finnishPicked = false;
+                    Util.setAppLocale("en", getContext());
                 }
 
             }
@@ -85,12 +88,17 @@ public class SettingsDialog extends DialogFragment {
             @Override
             public void onClick(View view) {
                 Util.vibrate(view, getContext());
+
                 //save this to memory when ever that option been created
                 updateSettingsPrefs("sound", soundSettings.isChecked());
-                updateSettingsPrefs("language", finnishPicked);
                 updateSettingsPrefs("vibration", vibrationSettings.isChecked());
+
                 Log.d("SettingsDialog","Clicked on sound effect settings and it is currently: " + soundEffectsOn);
                 getDialog().dismiss();
+                Intent mainIntent = new Intent(getContext(), MainActivity.class );
+                mainIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(mainIntent);
+
             }
         });
 
@@ -112,8 +120,17 @@ public class SettingsDialog extends DialogFragment {
         editor.apply();
     }
 
+    private void updateCurrentLanguagePrefs(String field, String value) {
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(field, value);
+        editor.apply();
+    }
+
     private Boolean getSettingsPrefs(String field) {
         return sharedPreferences.getBoolean(field, true);
+    }
+    private String getLanguagePrefs(String field) {
+        return sharedPreferences.getString(field, "");
     }
 
 }

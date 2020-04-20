@@ -1,8 +1,6 @@
 <resources>
     <string name="app_name">Facingo</string>
 
-    <string name="layoutMain_btn_start">Aloita</string>
-    <string name="layoutMain_btn_achievements">Saavutukset</string>
     <string name="layoutMain_btn_levels">Tasot</string>
     <string name="layoutMain_btn_info">Tietoa</string>
     <string name="layoutMain_btn_settings">Asetukset</string>
@@ -42,5 +40,7 @@
     <string name="layoutSettingsDialog_checkbox_warning_message1">"Oletko varma, että haluat alustaa asetukset ja pelin?"</string>
     <string name="layoutSettingsDialog_checkbox_warning_message2">"Menetät kaiken!"</string>
     <string name="layoutSettingsDialog_text_cancel">PERUUTA</string>
+    <string name="layoutMain_btn_start">Aloita</string>
+    <string name="layoutMain_btn_achievements">Saavutukset</string>
 
 </resources>
