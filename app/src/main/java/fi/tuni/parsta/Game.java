@@ -244,7 +244,7 @@ public class Game extends AppCompatActivity {
             if(array[i] == null){
                 Boolean ok = false;
                 while(!ok){
-                    String potetialAnswerOption = getRandomAnswerOption().toLowerCase();
+                    String potetialAnswerOption = getRandomAnswerOption();
                     if(!Util.stringArrayContains(array, potetialAnswerOption)){
                         array[i] = potetialAnswerOption;
                         ok = true;
