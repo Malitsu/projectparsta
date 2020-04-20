@@ -1,26 +1,28 @@
 package fi.tuni.parsta;
 
+import java.util.Locale;
+
 class Achievement {
     private int id;
-    private boolean unlocked;
-    private String longDesc;
-    private String shortDesc;
+    private boolean unlocked = false;
+    private String dateOfAchievement;
+    private String longDesc = "This is a placeholder text for long text";
+    private String shortDesc = "This is a placeholder text for short text";
     private int requiredValue;
     private Type type;
     private enum Type {
         CLICKS, WINS, LEVEL
     }
 
-    public Achievement(int requiredValue) {
-        this.requiredValue = requiredValue;
-        this.type = Type.CLICKS;
+    public Achievement() {
     }
 
-    public boolean checkIfCompleted(int clicks, int wins) {
+    public boolean checkIfCompleted(int clicks, int wins, int level) {
         if (unlocked) return false;
         switch(type) {
-            case CLICKS: if (clicks > requiredValue) return true;
-            case WINS: if (wins > requiredValue) return true;
+            case CLICKS: if (clicks >= requiredValue) return true;
+            case WINS: if (wins >= requiredValue) return true;
+            case LEVEL: if (level == requiredValue) return true;
             default: return false;
         }
     }
@@ -45,12 +47,12 @@ class Achievement {
         return longDesc;
     }
 
-    //TODO Implement locked+id and unlocked+id returns and add corresponding images to the project.
     public String getIcon() {
         if (isUnlocked()) {
-            return "unlocked";
+            return getIdKey() + "_unlocked";
         } else {
-            return "locked";
+            // TODO: Change this to _locked once the locked icons are available
+            return getIdKey() + "_unlocked";
         }
     }
 
@@ -86,13 +88,31 @@ class Achievement {
         this.id = id;
     }
 
+    public String getDateOfAchievement() {
+        return dateOfAchievement;
+    }
+
+    public void setDateOfAchievement(String dateOfAchievement) {
+        this.dateOfAchievement = dateOfAchievement;
+    }
+
+    public String getIdKey() {
+        return "ach_" + String.format(Locale.getDefault(), "%03d", getId());
+    }
+
+    public String getADateKey() {
+        return "achDate_" + String.format(Locale.getDefault(), "%03d", getId());
+    }
+
     @Override
     public String toString() {
         return "Achievement{" +
-                "unlocked=" + unlocked +
+                "id=" + id +
+                ", unlocked=" + unlocked +
                 ", longDesc='" + longDesc + '\'' +
                 ", shortDesc='" + shortDesc + '\'' +
-                ", clicksRequired=" + requiredValue +
+                ", requiredValue=" + requiredValue +
+                ", type=" + type +
                 '}';
     }
 }

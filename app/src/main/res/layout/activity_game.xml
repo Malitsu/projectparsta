@@ -4,27 +4,73 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Mitä tunnetta ilme kuvastaa?"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/currentWins"/>
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/colorPrimaryDark">
+
+        <TextView
+            android:id="@+id/levelDisplayGame"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:paddingTop="10dp"
+            android:text="@string/game_text_level"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"/>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:background="@color/colorPrimaryDark"
+            android:layout_marginTop="50dp">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerview_gameLoop"
+                android:layout_gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp">
+
+            </androidx.recyclerview.widget.RecyclerView>
+
+        </RelativeLayout>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:background="@drawable/quit_button"
+            android:onClick="quitGame"
+            android:layout_alignParentRight="true"
+            android:text="@string/backBtn_text"
+            />
+    </RelativeLayout>
+<!--    <TextView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:textSize="20sp"-->
+<!--        android:id="@+id/currentWins"/>-->
 
     <ImageView
         android:id="@+id/questionImg"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:src="@drawable/face_iloinen_1_3" />
-    <GridLayout
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        android:src="@drawable/face_iloinen_1_1" />
+    <LinearLayout
         android:layout_gravity="center"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:columnCount="1"
+        android:layout_height="0dp"
+        android:layout_weight="2"
         android:id="@+id/button_grid"
-        >
-    </GridLayout>
+        android:orientation="vertical">
+    </LinearLayout>
 
 </LinearLayout>

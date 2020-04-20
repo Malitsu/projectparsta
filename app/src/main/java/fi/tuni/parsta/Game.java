@@ -1,38 +1,26 @@
 package fi.tuni.parsta;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.res.AssetManager;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.util.Log;
-import android.util.TypedValue;
 import android.view.View;
 import android.widget.Button;
-import android.widget.GridLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.google.gson.JsonElement;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.Reader;
-import java.lang.reflect.Array;
-import java.lang.reflect.Field;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -40,12 +28,15 @@ public class Game extends AppCompatActivity {
 
     int rightAnswers = 0;
     int totalAnswers = 0;
+    boolean wasAnswerRight;
+    int maxLevelsInGame = 10;
     private Gson gson;
     GameImage[] images;
     int level = 1;
     ImageView questionImg;
-    GridLayout gridLayout;
-    TextView currentWins;
+    LinearLayout buttonLayout;
+//    TextView currentWins;
+    TextView levelDisplayGame;
     //Temporary
     Boolean firstRound = true;
     ArrayList<Button> buttonList = new ArrayList<>();
@@ -53,11 +44,79 @@ public class Game extends AppCompatActivity {
     int clicks = 0;
     String rightAnswerString;
     SharedPreferences sharedPreferences;
+    String questionImgName;
+    List<Dots> listDots;
+
+    LevelProgress levelProgress;
+    int amountOfPicturesInALevel;
+    boolean finishedGame = false;
+    boolean playButtonClicked;
+    boolean pleaseResetProgress;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
+
+        setAmountOfPicturesInALevel(10);
+
+        Bundle extras = getIntent().getExtras();
+
+        //TODO: reset the progress of a level if gotten through the level menu and the level is bigger than the one that we got through the menu?
+
+        // check the wanted, current level based on intent info from other activities
+        if (extras != null) {
+            // gets carried through the game(answer results and level debrief), first set at play button or levels activity
+            playButtonClicked = extras.getBoolean("playbuttonpressed");
+            if(playButtonClicked) {
+                // resets the current level to the max progress level if it has been something else at some point.
+                level = ProgressController.getMaxProgressLevel(this);
+            } else {
+                // get's the current level wanted, updated via intent from everywhere
+                level = extras.getInt("currentLevel", 1);
+            }
+            Log.d("LEVELPROGRESS", level + " and " + ProgressController.getCurrentLevel(this ) + " resetttttt should hapen");
+            // reset the progress of a level if the level is clicked and it's new and it's different one from before
+            // don't reset if the level is max progress level or if the level is the one last played
+            if(level != ProgressController.getCurrentLevel(this)
+                    && level != ProgressController.getMaxProgressLevel(this)
+                    || extras.getBoolean("shouldresetcurrentprogress")) {
+                pleaseResetProgress = true;
+                Log.d("LEVELPROGRESS", pleaseResetProgress + " resetttttt should hapen");
+            }
+            ProgressController.setCurrentLevelInProgress(this, level);
+        }
+
+        //if level is 0 for some reason, reset it to 1 to prevent problems.
+        if(level == 0) {
+            level = 1;
+        }
+
+        //if the game has been finished (max level is above 10), reset the game to play level 10 again
+        if(level > maxLevelsInGame) {
+            level = 10;
+            finishedGame = true;
+        }
+        //Creates a new level progress object based on the currentLevel saved in the progress controller
+        //and the amountOfPictures that the level should have (at the moment always 10)
+        levelProgress = new LevelProgress(this, level, getAmountOfPicturesInALevel());
+
+        // if the game has been finished or a level is being replayed with it finished before
+        // reset the clicks and progress array for the round
+        if(finishedGame || (levelProgress.getCurrentLevelClicks() >= 10) || pleaseResetProgress){
+            Log.d("LEVELPROGRESS", pleaseResetProgress + " resetttttt should hapen");
+            levelProgress.resetCurrentClicksAndScore();
+            levelProgress.resetCurrentLevelProgressArray(level);
+        }
+        clicks = levelProgress.getCurrentLevelClicks();
+        rightAnswersInt = levelProgress.getCurrentScore();
+
+        // used to create the dots that are in the progress bar
+        listDots = new ArrayList<>();
+
+        //Update the dots in the progress bar at the start of the game
+        addDots();
+
         GsonBuilder gsonBuilder = new GsonBuilder();
         gson = gsonBuilder.create();
         convertJsonToGameImageObjects();
@@ -65,15 +124,39 @@ public class Game extends AppCompatActivity {
             Log.d("GAMEIMAGETAG",i.name);
         }
 
-        currentWins = (TextView) findViewById(R.id.currentWins);
+        levelDisplayGame = (TextView) findViewById(R.id.levelDisplayGame);
         sharedPreferences = getSharedPreferences("progress", MODE_PRIVATE);
-        clicks = sharedPreferences.getInt("clicks", 0);
-        rightAnswersInt = sharedPreferences.getInt("wins", 0);
-        currentWins.setText("Oikein: " + rightAnswersInt);
+
+        levelDisplayGame.setText(getResources().getString(R.string.game_text_level) + level);
         gameLoop();
 
-
     }
+
+    public void addDots() {
+            //Update dots in the progress bar based on current level progress
+            boolean[] answers = levelProgress.getAreAnswersCorrect();
+            int currentClicks = levelProgress.getCurrentLevelClicks();
+            for(int i = 0; i < answers.length; i++) {
+                if( i < currentClicks) {
+                    if(answers[i] == true) {
+                         listDots.add(new Dots(R.drawable.ic_dot_green));
+                    } else {
+                        listDots.add(new Dots(R.drawable.ic_dot_red));
+                    }
+                } else if( i == currentClicks) {
+                    listDots.add(new Dots(R.drawable.ic_dot_current));
+                } else {
+                    listDots.add(new Dots(R.drawable.ic_dot_white));
+                }
+            }
+
+
+        RecyclerView myrv = (RecyclerView) findViewById(R.id.recyclerview_gameLoop);
+        DotRecyclerView_Adapter myAdapter = new DotRecyclerView_Adapter(this, listDots);
+        myrv.setLayoutManager(new GridLayoutManager(this,10));
+        myrv.setAdapter(myAdapter);
+    }
+
 
     protected void gameLoop() {
         Boolean rightAnswer = false;
@@ -81,15 +164,13 @@ public class Game extends AppCompatActivity {
         //Get random question image (new question)
         int rndImage = Util.random(0, (images.length - 1));
         GameImage newQuestion = images[rndImage];
-        String questionImgName = newQuestion.getName();
+        questionImgName = newQuestion.getName();
 
         //Edit questionImgName string (for answer button)
         rightAnswerString = questionImgName.substring(5);
         int firstUnderscorePosition = rightAnswerString.indexOf('_');
         rightAnswerString = rightAnswerString.substring(0, firstUnderscorePosition);
-        Log.d("GAMEIMAGE", String.valueOf(firstUnderscorePosition));
-
-
+        rightAnswerString = rightAnswerString.toLowerCase();
         Log.d("GAMEIMAGE", rightAnswerString);
 
         //Set image to image view
@@ -103,7 +184,7 @@ public class Game extends AppCompatActivity {
         Log.d("JEE", answerOptions.toString());
 
         //Create buttons with answer options
-        gridLayout = findViewById(R.id.button_grid);
+        buttonLayout = findViewById(R.id.button_grid);
 
         //Temporary
         if(firstRound){
@@ -114,25 +195,17 @@ public class Game extends AppCompatActivity {
                 buttonList.get(i).setText(answerOptions.get(i));
             }
         }
-
-
-//        if(questionImgName.contains(****pressedButtonText****)){
-//            rightAnswer = true;
-//        }
     }
 
     public  void  convertJsonToGameImageObjects() {
         try {
-            String hellou = Util.readFile("faces.json",this);
-            Log.d("GAMEHELLO",hellou);
-            images = gson.fromJson(hellou, GameImage[].class);
+            String jsonFileContent = Util.readFile("faces.json",this);
+            images = gson.fromJson(jsonFileContent, GameImage[].class);
 
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-
-    protected void endRound() {}
 
     public ArrayList<String> getAnswerOptions(int answerOptionsAmount, String rightAnswer){
         String[] answerOptions = new String[answerOptionsAmount];
@@ -152,7 +225,7 @@ public class Game extends AppCompatActivity {
             if(array[i] == null){
                 Boolean ok = false;
                 while(!ok){
-                    String potetialAnswerOption = getRandomAnswerOption();
+                    String potetialAnswerOption = getRandomAnswerOption().toLowerCase();
                     if(!Util.stringArrayContains(array, potetialAnswerOption)){
                         array[i] = potetialAnswerOption;
                         ok = true;
@@ -171,44 +244,77 @@ public class Game extends AppCompatActivity {
     }
 
     public int getAnswerOptionsAmount(int level){
-        return 3 + level - 1;
+        int amount = 3;
+        if(level > 5) {
+            return amount +1;
+        }
+        return amount;
     }
 
     public void createButtonGrid(ArrayList<String> answerOptions){
         for (int i = 0; i<answerOptions.size(); i++) {
             final Button myButton = new Button(this);
+            myButton.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+
             myButton.setWidth(1000);
 
             myButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
 //                    gameLoop();
-                    SharedPreferences.Editor editor = sharedPreferences.edit();
-                    if(rightAnswerString.contains(myButton.getText().toString())) {
+                    Intent gameIntent = new Intent(getApplication(), AnswerResultActivity.class);
+                    clicks++;
+                    wasAnswerRight = rightAnswerString.contains(myButton.getText().toString());
+                    if(wasAnswerRight) {
                         rightAnswersInt++;
-                        clicks++;
-                        editor.putInt("clicks", clicks);
-                        editor.putInt("wins", rightAnswersInt);
-                        editor.apply();
-                        currentWins.setText("Oikein: " + rightAnswersInt);
-                        Intent gameIntent = new Intent(getApplication(), AnswerResultActivity.class);
-                        gameIntent.putExtra("wasAnswerRight",true);
-                        startActivity(gameIntent);
+                        Util.playSound(getApplication(), R.raw.right);
                     } else {
-                        clicks++;
-                        editor.putInt("clicks", clicks);
-                        editor.apply();
-                        Intent gameIntent = new Intent(getApplication(), AnswerResultActivity.class);
-                        gameIntent.putExtra("wasAnswerRight",false);
-                        startActivity(gameIntent);
+                        Util.playSound(getApplication(), R.raw.wrong);
                     }
+                    ProgressController.registerAClick(wasAnswerRight, getApplicationContext());
+                    levelProgress.updateLevelInfo( wasAnswerRight, rightAnswersInt, clicks);
+                    gameIntent.putExtra("wasAnswerRight",wasAnswerRight);
+                    gameIntent.putExtra("questionImgName", questionImgName);
+                    gameIntent.putExtra("rightAnswerNumber", rightAnswersInt);
+                    gameIntent.putExtra("clicksNumber", clicks);
+                    gameIntent.putExtra("currentLevel", level);
+                    gameIntent.putExtra("playbuttonpressed", playButtonClicked);
+                    startActivity(gameIntent);
                 }
             });
             myButton.setText(answerOptions.get(i));
             buttonList.add(myButton);
-            gridLayout.addView(myButton);
+            buttonLayout.addView(myButton);
+
+            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.WRAP_CONTENT,
+                    LinearLayout.LayoutParams.WRAP_CONTENT
+            );
+            params.setMargins(0, 0, 0, 15);
+            myButton.setLayoutParams(params);
         }
     }
+
+    @Override
+    public void onBackPressed() {
+        Intent i= new Intent(Game.this,MainActivity.class);
+        startActivity(i);
+        finish();
+    }
+
+    public void quitGame(View v){
+        Intent mainIntent = new Intent(getApplication(), MainActivity.class);
+        startActivity(mainIntent);
+    }
+
+    public int getAmountOfPicturesInALevel() {
+        return amountOfPicturesInALevel;
+    }
+
+    public void setAmountOfPicturesInALevel(int amountOfPicturesInALevel) {
+        this.amountOfPicturesInALevel = amountOfPicturesInALevel;
+    }
+
 
 }
 

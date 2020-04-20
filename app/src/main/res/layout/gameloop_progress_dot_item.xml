@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/cardview_dot_id"
+    android:clickable="false"
+    android:foreground="?android:attr/selectableItemBackground"
+    android:layout_width="20dp"
+    android:layout_height="20dp"
+    android:layout_gravity="center"
+    cardview:cardBackgroundColor="@android:color/transparent"
+    xmlns:cardview="http://schemas.android.com/apk/res-auto"
+    cardview:cardElevation="0dp"
+    android:layout_marginTop="10dp"
+    cardview:cardCornerRadius="4dp">
+
+<!--    5:00 videossa https://www.youtube.com/watch?v=SD2t75T5RdY -->
+    <LinearLayout
+        android:id="@+id/gameloopDotItem"
+        android:orientation="vertical"
+        android:background="@android:color/transparent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/gameloopDotIcon"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

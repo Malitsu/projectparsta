@@ -3,15 +3,48 @@
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/colorPrimaryDark">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:background="@drawable/quit_button"
+            android:onClick="quitGame"
+            android:layout_alignParentRight="true"
+            android:text="@string/backBtn_text"/>
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/answerImg"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="4"
+        android:src="@drawable/face_iloinen_1_1" />
+
     <TextView
         android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:id="@+id/answerText"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:id="@+id/currentWins"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/answerText"/>
+        android:textSize="20sp" />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Seuraava"
+        android:text="@string/nextBtn_text"
+        android:background="@color/colorPrimary"
         android:onClick="nextClick"
         android:id="@+id/start"
         />

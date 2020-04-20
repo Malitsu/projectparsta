@@ -17,8 +17,13 @@
             </intent-filter>
         </activity>
         <activity android:name=".AchievementActivity"/>
+        <activity android:name=".LevelsActivity"/>
         <activity android:name=".Game"/>
         <activity android:name=".AnswerResultActivity"/>
+        <activity android:name=".CardItemContentsActivity"
+            android:theme="@style/DialogTheme" />
+        <activity android:name=".LevelDebriefActivity"
+            android:theme="@style/DialogTheme" />
     </application>
 
 </manifest>

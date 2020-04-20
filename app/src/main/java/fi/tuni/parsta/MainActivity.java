@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void startClick(View v) {
         Intent gameIntent = new Intent(this, Game.class);
+        gameIntent.putExtra("playbuttonpressed", true);
         startActivity(gameIntent);
 
     }
@@ -28,18 +29,23 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public void levels(View v) {
+        Intent levelIntent = new Intent(this, LevelsActivity.class);
+        startActivity(levelIntent);
+
+    }
+
     public void about(View v) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
-        builder.setMessage("Tämä on kasvojen tunnistus peli.\nHanke:\nTekijät:")
-                .setTitle("Kasvojen tunnistus peli");
+        builder.setMessage(getResources().getString(R.string.layoutMain_dialog_info1))
+                .setTitle(getResources().getString(R.string.layoutMain_dialog_info2));
 
         AlertDialog dialog = builder.create();
 
         dialog.show();
 
-        Toast toast = ProgressController.registerAClick(true, this);
-        if (toast != null) toast.show();
+        ProgressController.registerAClick(true, this);
     }
 
     public void settings(View v) {

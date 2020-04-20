@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@android:color/white"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <Button
+        android:id="@+id/closeItemBtn"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="0dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:text="X" />
+
+    <TextView
+        android:id="@+id/levelText2"
+        android:layout_marginTop="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/game_text_level"
+        android:textSize="15sp"
+        android:gravity="center"/>
+
+    <RelativeLayout
+        android:id="@+id/recyclerview_level_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:layout_below="@+id/levelText2"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerview_level"
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginBottom="20dp">
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/scoreText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/recyclerview_level_layout"
+        android:text="score"
+        android:textSize="15sp"
+        android:gravity="center"/>
+
+    <Button
+        android:id="@+id/startLevelBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="22dp"
+        android:layout_marginBottom="15dp"
+        android:layout_below="@+id/scoreText"
+        android:background="@color/colorPrimaryDark"
+        android:text="@string/startBtn_text"
+        android:textColor="@android:color/white" />
+
+
+</RelativeLayout>
