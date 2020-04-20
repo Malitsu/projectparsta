@@ -12,7 +12,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -28,10 +27,7 @@ import java.util.List;
 
 public class Game extends AppCompatActivity {
 
-    int rightAnswers = 0;
-    int totalAnswers = 0;
     boolean wasAnswerRight;
-    int maxLevelsInGame = 10;
     private Gson gson;
     GameImage[] images;
     int level = 1;
@@ -50,7 +46,10 @@ public class Game extends AppCompatActivity {
     List<Dots> listDots;
 
     LevelProgress levelProgress;
-    int amountOfPicturesInALevel;
+
+    private final int NUMBEROFLEVELSINGAME = 10;
+    private final int PICTURESPERLEVEL = 10;
+
     boolean finishedGame = false;
     boolean playButtonClicked;
     boolean pleaseResetProgress;
@@ -61,8 +60,6 @@ public class Game extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
-
-        setAmountOfPicturesInALevel(10);
 
         Bundle extras = getIntent().getExtras();
 
@@ -92,22 +89,22 @@ public class Game extends AppCompatActivity {
         }
 
         //if level is 0 for some reason, reset it to 1 to prevent problems.
-        if(level == 0) {
+        if(level < 1) {
             level = 1;
         }
 
         //if the game has been finished (max level is above 10), reset the game to play level 10 again
-        if(level > maxLevelsInGame) {
-            level = 10;
+        if(level > NUMBEROFLEVELSINGAME) {
+            level = NUMBEROFLEVELSINGAME;
             finishedGame = true;
         }
         //Creates a new level progress object based on the currentLevel saved in the progress controller
         //and the amountOfPictures that the level should have (at the moment always 10)
-        levelProgress = new LevelProgress(this, level, getAmountOfPicturesInALevel());
+        levelProgress = new LevelProgress(this, level, PICTURESPERLEVEL);
 
         // if the game has been finished or a level is being replayed with it finished before
         // reset the clicks and progress array for the round
-        if(finishedGame || (levelProgress.getCurrentLevelClicks() >= 10) || pleaseResetProgress){
+        if(finishedGame || (levelProgress.getCurrentLevelClicks() >= PICTURESPERLEVEL) || pleaseResetProgress){
             Log.d("LEVELPROGRESS", pleaseResetProgress + " resetttttt should hapen");
             levelProgress.resetCurrentClicksAndScore();
             levelProgress.resetCurrentLevelProgressArray(level);
@@ -311,15 +308,6 @@ public class Game extends AppCompatActivity {
         Intent mainIntent = new Intent(getApplication(), MainActivity.class);
         startActivity(mainIntent);
     }
-
-    public int getAmountOfPicturesInALevel() {
-        return amountOfPicturesInALevel;
-    }
-
-    public void setAmountOfPicturesInALevel(int amountOfPicturesInALevel) {
-        this.amountOfPicturesInALevel = amountOfPicturesInALevel;
-    }
-
 
 }
 
