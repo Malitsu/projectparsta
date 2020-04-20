@@ -170,12 +170,7 @@ public class Game extends AppCompatActivity {
         GameImage newQuestion = images.get(rndImage);
         questionImgName = newQuestion.getName();
 
-        //Edit questionImgName string (for answer button)
-        rightAnswerString = questionImgName.substring(5);
-        int firstUnderscorePosition = rightAnswerString.indexOf('_');
-        rightAnswerString = rightAnswerString.substring(0, firstUnderscorePosition);
-        rightAnswerString = rightAnswerString.toLowerCase();
-        Log.d("GAMEIMAGE", rightAnswerString);
+        rightAnswerString = newQuestion.getEmotion();
 
         //Set image to image view
         int resourceName = Util.getStringResourceByName(questionImgName, this);
