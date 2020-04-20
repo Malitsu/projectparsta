@@ -29,6 +29,7 @@ public class AchievementActivity extends AppCompatActivity {
     }
 
     public void quitAchievements(View v){
+        Util.vibrate(v, getApplicationContext());
         Intent i= new Intent(this, MainActivity.class);
         startActivity(i);
     }

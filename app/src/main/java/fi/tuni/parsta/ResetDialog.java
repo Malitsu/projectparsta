@@ -25,6 +25,7 @@ public class ResetDialog extends DialogFragment {
         mActionCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Util.vibrate(view, getContext());
                 SettingsDialog dialog = new SettingsDialog();
                 dialog.show(getFragmentManager(), "SettingsDialog");
                 getDialog().dismiss();
@@ -34,6 +35,7 @@ public class ResetDialog extends DialogFragment {
         mActionOk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Util.vibrate(view, getContext());
                 getContext().getSharedPreferences("settings",0).edit().clear().apply();
                 getContext().getSharedPreferences("progress",0).edit().clear().apply();
                 Log.d("SettingsDialog","Settings reset: ");

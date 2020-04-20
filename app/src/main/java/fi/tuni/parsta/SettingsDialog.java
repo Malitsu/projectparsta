@@ -77,13 +77,14 @@ public class SettingsDialog extends DialogFragment {
         mActionCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                getDialog().dismiss();
+                Util.vibrate(view, getContext()); getDialog().dismiss();
             }
         });
 
         mActionOk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Util.vibrate(view, getContext());
                 //save this to memory when ever that option been created
                 updateSettingsPrefs("sound", soundSettings.isChecked());
                 updateSettingsPrefs("language", finnishPicked);
@@ -96,6 +97,7 @@ public class SettingsDialog extends DialogFragment {
         resetApp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Util.vibrate(view, getContext());
                 dialog = new ResetDialog();
                 dialog.show(getFragmentManager(), "ResetDialog");
                 getDialog().dismiss();

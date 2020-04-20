@@ -48,6 +48,7 @@ public class LevelsActivity extends AppCompatActivity {
         levelList.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+                Util.vibrate(view, getApplicationContext());
                 final RelativeLayout rl_listViewItem = (RelativeLayout)view.findViewById(R.id.rl_listViewItem);
 
                 View child = getLayoutInflater().inflate(R.layout.listview_item_levels2, null);
@@ -81,6 +82,7 @@ public class LevelsActivity extends AppCompatActivity {
 
                     @Override
                     public void onClick(View v) {
+                        Util.vibrate(v, getApplicationContext());
                         if(rl_listViewItem.getChildAt(0)!= null){
                             rl_listViewItem.removeAllViews();
                         }
@@ -116,6 +118,7 @@ public class LevelsActivity extends AppCompatActivity {
     }
 
     public void quitLevels(View v){
+        Util.vibrate(v, getApplicationContext());
         Intent i= new Intent(this, MainActivity.class);
         startActivity(i);
     }
@@ -139,6 +142,7 @@ public class LevelsActivity extends AppCompatActivity {
 
         @Override
         public View getView(int i, View view, ViewGroup viewGroup) {
+            Util.vibrate(view, getApplicationContext());
             view = getLayoutInflater().inflate(R.layout.listview_item_levels, null);
 
             TextView levelText = (TextView) view.findViewById(R.id.levelText);

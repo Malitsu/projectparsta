@@ -44,6 +44,7 @@ public class RecyclerView_Adapter extends RecyclerView.Adapter<RecyclerView_Adap
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Util.vibrate(view, mContext);
                 Intent newIntent = new Intent(mContext, CardItemContentsActivity.class);
                 newIntent.putExtra("fi.tuni.parsta.achievementIcon", mData.get(position).getIcon());
                 newIntent.putExtra("fi.tuni.parsta.achievementDate", mData.get(position).getDateOfAchievement());

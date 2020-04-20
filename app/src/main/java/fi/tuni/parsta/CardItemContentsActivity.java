@@ -56,6 +56,7 @@ public class CardItemContentsActivity extends AppCompatActivity {
     }
 
     public void quitGameCard(View v){
+        Util.vibrate(v, getApplicationContext());
         Intent i= new Intent(this, AchievementActivity.class);
         startActivity(i);
     }

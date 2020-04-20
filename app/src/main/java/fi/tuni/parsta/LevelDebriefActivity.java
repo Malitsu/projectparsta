@@ -48,11 +48,13 @@ public class LevelDebriefActivity extends AppCompatActivity {
     }
 
     public void quitGame(View v){
+        Util.vibrate(v, getApplicationContext());
         Intent mainIntent = new Intent(this, MainActivity.class);
         startActivity(mainIntent);
     }
 
     public void nextClick(View view) {
+        Util.vibrate(view, getApplicationContext());
         Intent gameIntent = new Intent(this, Game.class);
         Intent mainIntent = new Intent(this, MainActivity.class);
         gameIntent.putExtra("currentLevel", currentLevel);

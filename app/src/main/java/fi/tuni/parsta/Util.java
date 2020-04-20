@@ -3,12 +3,17 @@ package fi.tuni.parsta;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.media.MediaPlayer;
+import android.os.Vibrator;
+import android.util.Log;
+import android.view.HapticFeedbackConstants;
+import android.view.View;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
 import static android.content.Context.MODE_PRIVATE;
+import static android.content.Context.VIBRATOR_SERVICE;
 
 public class Util {
 
@@ -60,6 +65,21 @@ public class Util {
             });
             mp.start();
         }
+    }
+
+    public static void vibrate(View view, Context context) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences("settings", MODE_PRIVATE);
+        boolean vibrate = sharedPreferences.getBoolean("vibration", true);
+        Vibrator myVib;
+
+        if(vibrate) {
+            Log.d("VIBRATE", "SHOULD BE VIBRATING");
+            myVib = (Vibrator) context.getSystemService(VIBRATOR_SERVICE);
+            myVib.vibrate(50);
+//            view.setHapticFeedbackEnabled(true);
+//            view.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY);
+        }
+
     }
 
 }

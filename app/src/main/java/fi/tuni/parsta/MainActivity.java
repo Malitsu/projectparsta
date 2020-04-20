@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void startClick(View v) {
+        Util.vibrate(v, getApplicationContext());
         Intent gameIntent = new Intent(this, Game.class);
         gameIntent.putExtra("playbuttonpressed", true);
         startActivity(gameIntent);
@@ -24,18 +25,21 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void achivClick(View v) {
+        Util.vibrate(v, getApplicationContext());
         Intent achievementIntent = new Intent(this, AchievementActivity.class);
         startActivity(achievementIntent);
 
     }
 
     public void levels(View v) {
+        Util.vibrate(v, getApplicationContext());
         Intent levelIntent = new Intent(this, LevelsActivity.class);
         startActivity(levelIntent);
 
     }
 
     public void about(View v) {
+        Util.vibrate(v, getApplicationContext());
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
         builder.setMessage(getResources().getString(R.string.layoutMain_dialog_info1))
@@ -49,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void settings(View v) {
+        Util.vibrate(v, getApplicationContext());
         SettingsDialog dialog = new SettingsDialog();
         dialog.show(getSupportFragmentManager(), "SettingsDialog");
     }

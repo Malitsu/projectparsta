@@ -4,7 +4,9 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.util.Log;
+import android.view.HapticFeedbackConstants;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -52,6 +54,8 @@ public class Game extends AppCompatActivity {
     boolean finishedGame = false;
     boolean playButtonClicked;
     boolean pleaseResetProgress;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -261,7 +265,7 @@ public class Game extends AppCompatActivity {
             myButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-//                    gameLoop();
+                    Util.vibrate(view, getApplicationContext());
                     Intent gameIntent = new Intent(getApplication(), AnswerResultActivity.class);
                     clicks++;
                     wasAnswerRight = rightAnswerString.contains(myButton.getText().toString());
@@ -303,6 +307,7 @@ public class Game extends AppCompatActivity {
     }
 
     public void quitGame(View v){
+        Util.vibrate(v, getApplicationContext());
         Intent mainIntent = new Intent(getApplication(), MainActivity.class);
         startActivity(mainIntent);
     }

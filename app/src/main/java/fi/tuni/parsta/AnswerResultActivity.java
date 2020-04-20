@@ -54,6 +54,7 @@ public class AnswerResultActivity extends AppCompatActivity {
     }
 
     public void nextClick(View view) {
+        Util.vibrate(view, getApplicationContext());
         if(clicksNumber % 10 == 0) {
             Intent gameIntent = new Intent(this, LevelDebriefActivity.class);
             gameIntent.putExtra("currentLevel", currentLevel);
@@ -70,6 +71,7 @@ public class AnswerResultActivity extends AppCompatActivity {
     }
 
     public void quitGame(View v){
+        Util.vibrate(v, getApplicationContext());
         Intent mainIntent = new Intent(this, MainActivity.class);
         startActivity(mainIntent);
     }
