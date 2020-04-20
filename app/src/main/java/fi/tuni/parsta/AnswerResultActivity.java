@@ -40,6 +40,10 @@ public class AnswerResultActivity extends AppCompatActivity {
              clicksNumber = extras.getInt("clicksNumber");
              currentLevel = extras.getInt("currentLevel");
              infoQuestionImgName = questionImgName + "_info";
+
+             // TODO: REMOVE THIS ONCE THERE ACTUAL _info IMAGES HAVE BEEN ADDED!
+             infoQuestionImgName = "face";
+
              playButtonPressed = extras.getBoolean("playbuttonpressed");
              int resourceName = Util.getStringResourceByName(infoQuestionImgName, this);
              infoImg.setImageResource(resourceName);

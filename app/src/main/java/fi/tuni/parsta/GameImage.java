@@ -3,7 +3,6 @@ package fi.tuni.parsta;
 public class GameImage {
     int id;
     String name;
-    String infoImg;
     String emotion;
 
     public GameImage() {
@@ -12,7 +11,6 @@ public class GameImage {
     public GameImage(int id, String name, int level, String infoImg, String emotion) {
         this.id = id;
         this.name = name;
-        this.infoImg = infoImg;
         this.emotion = emotion;
     }
 
@@ -40,11 +38,4 @@ public class GameImage {
         this.name = name;
     }
 
-    public String getInfoImg() {
-        return infoImg;
-    }
-
-    public void setInfoImg(String infoImg) {
-        this.infoImg = infoImg;
-    }
 }
