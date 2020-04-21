@@ -7,17 +7,25 @@
     <string name="inhoava">Inhoava</string>
     <string name="halveksuva">Halveksuva</string>
     <string name="yllättynyt">Yllättynyt</string>
-    <string name="neutraali">Neutraali</string>
 
-    <string-array name="facial_expressions_array">
+    <string-array name="facial_expressions_arrayFi">
         <item>Iloinen</item>
         <item>Surullinen</item>
         <item>Pelokas</item>
         <item>Vihainen</item>
         <item>Inhoava</item>
-        <item>Halveksuva</item>
+        <item>Halveksiva</item>
         <item>Yllättynyt</item>
-        <item>Neutraali</item>
 
+    </string-array>
+
+    <string-array name="facial_expressions_arrayEn">
+        <item>Happy</item>
+        <item>Sad</item>
+        <item>Afraid</item>
+        <item>Angry</item>
+        <item>Disgusted</item>
+        <item>Contemptuous</item>
+        <item>Surprised</item>
     </string-array>
 </resources>

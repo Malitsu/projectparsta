@@ -43,6 +43,7 @@ public class Game extends AppCompatActivity {
     int clicks = 0;
     String rightAnswerString;
     SharedPreferences sharedPreferences;
+    SharedPreferences settingsPreferences;
     String questionImgName;
     List<Dots> listDots;
 
@@ -57,6 +58,7 @@ public class Game extends AppCompatActivity {
     boolean playButtonClicked;
     boolean pleaseResetProgress;
 
+    String languageCurrently;
 
 
     @Override
@@ -65,7 +67,8 @@ public class Game extends AppCompatActivity {
         setContentView(R.layout.activity_game);
 
         Bundle extras = getIntent().getExtras();
-
+        settingsPreferences = getSharedPreferences("settings", MODE_PRIVATE);
+        languageCurrently = settingsPreferences.getString("languageCurrently", "");
         //TODO: reset the progress of a level if gotten through the level menu and the level is bigger than the one that we got through the menu?
 
         // check the wanted, current level based on intent info from other activities
@@ -181,7 +184,12 @@ public class Game extends AppCompatActivity {
         GameImage newQuestion = images.get(rndImage);
         questionImgName = newQuestion.getName();
 
-        rightAnswerString = newQuestion.getEmotion();
+        if(languageCurrently.equals("fi")) {
+            rightAnswerString = newQuestion.getEmotionFi();
+        } else {
+            rightAnswerString = newQuestion.getEmotionEn();
+        }
+
 
         //Set image to image view
         int resourceName = Util.getStringResourceByName(questionImgName, this);
@@ -268,7 +276,14 @@ public class Game extends AppCompatActivity {
 
     public String getRandomAnswerOption(){
         Resources res = getResources();
-        String[] expressions = res.getStringArray(R.array.facial_expressions_array);
+        String[] expressions;
+
+        if(languageCurrently.equals("fi")) {
+            expressions = res.getStringArray(R.array.facial_expressions_arrayFi);
+        } else {
+            expressions = res.getStringArray(R.array.facial_expressions_arrayEn);
+        }
+
         String returnable = expressions[Util.random(0, (expressions.length - 1))];
         return returnable;
     }

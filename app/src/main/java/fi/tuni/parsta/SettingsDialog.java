@@ -120,11 +120,6 @@ public class SettingsDialog extends DialogFragment {
         editor.apply();
     }
 
-    private void updateCurrentLanguagePrefs(String field, String value) {
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString(field, value);
-        editor.apply();
-    }
 
     private Boolean getSettingsPrefs(String field) {
         return sharedPreferences.getBoolean(field, true);
