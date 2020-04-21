@@ -59,7 +59,7 @@ public class Game extends AppCompatActivity {
     boolean pleaseResetProgress;
 
     String languageCurrently;
-
+    GameImage newQuestion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -128,7 +128,7 @@ public class Game extends AppCompatActivity {
         gson = gsonBuilder.create();
         convertJsonToGameImageObjects();
         for(GameImage i : images) {
-            Log.d("GAMEIMAGETAG",i.name);
+            Log.d("GAMEIMAGETAG",i.getName());
         }
 
         levelDisplayGame = (TextView) findViewById(R.id.levelDisplayGame);
@@ -181,7 +181,7 @@ public class Game extends AppCompatActivity {
         }
         lastImage = rndImage;
 
-        GameImage newQuestion = images.get(rndImage);
+        newQuestion = images.get(rndImage);
         questionImgName = newQuestion.getName();
 
         if(languageCurrently.equals("fi")) {
@@ -316,6 +316,7 @@ public class Game extends AppCompatActivity {
                     gameIntent.putExtra("clicksNumber", clicks);
                     gameIntent.putExtra("currentLevel", currentLevel);
                     gameIntent.putExtra("playbuttonpressed", playButtonClicked);
+                    gameIntent.putExtra("emotion",newQuestion.getEmotionFi().toLowerCase());
                     startActivity(gameIntent);
                 }
             });

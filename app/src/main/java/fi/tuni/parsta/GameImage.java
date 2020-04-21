@@ -1,10 +1,10 @@
 package fi.tuni.parsta;
 
 public class GameImage {
-    int id;
-    String name;
-    String emotionFi;
-    String emotionEn;
+    private int id;
+    private String name;
+    private String emotionFi;
+    private String emotionEn;
 
     public GameImage() {
     }

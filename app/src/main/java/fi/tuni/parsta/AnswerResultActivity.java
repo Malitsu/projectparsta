@@ -22,6 +22,9 @@ public class AnswerResultActivity extends AppCompatActivity {
     int currentLevel;
     boolean playButtonPressed;
 
+    String emotionInfo;
+    String emotion;
+
     ImageView infoImg;
 
     @Override
@@ -40,7 +43,8 @@ public class AnswerResultActivity extends AppCompatActivity {
              clicksNumber = extras.getInt("clicksNumber");
              currentLevel = extras.getInt("currentLevel");
              infoQuestionImgName = questionImgName + "_info";
-
+             emotion = extras.getString("emotion");
+             emotionInfo = emotionInfoText(emotion);
              // TODO: REMOVE THIS ONCE THERE ACTUAL _info IMAGES HAVE BEEN ADDED!
              infoQuestionImgName = "face";
 
@@ -48,13 +52,34 @@ public class AnswerResultActivity extends AppCompatActivity {
              int resourceName = Util.getStringResourceByName(infoQuestionImgName, this);
              infoImg.setImageResource(resourceName);
              currentWins.setText(getResources().getString(R.string.answerResult_text_correct) + rightAnswers);
-
             if(wasAnswerRight) {
-                pepTalk.setText(getResources().getString(R.string.answerResult_text_pepTalk_correct));
+                pepTalk.setText(getResources().getString(R.string.answerResult_text_pepTalk_correct) + "\n" + emotionInfo);
             } else {
-                pepTalk.setText(getResources().getString(R.string.answerResult_text_pepTalk_false));
+                pepTalk.setText(getResources().getString(R.string.answerResult_text_pepTalk_false) + "\n" + emotionInfo);
             }
         }
+    }
+
+    public String emotionInfoText(String emotion) {
+        switch(emotion) {
+            case "iloinen":
+                return getResources().getString(R.string.iloinen);
+            case "surullinen":
+                return getResources().getString(R.string.surullinen);
+            case "pelokas":
+                return getResources().getString(R.string.pelokas);
+            case "vihainen":
+                return getResources().getString(R.string.vihainen);
+            case "inhoava":
+                return getResources().getString(R.string.inhoava);
+            case "halveksuva":
+                return getResources().getString(R.string.halveksuva);
+            case "yllättynyt":
+                return getResources().getString(R.string.yllättynyt);
+            default:
+                return "Good job";
+        }
+
     }
 
     public void nextClick(View view) {
