@@ -59,6 +59,7 @@ public class Game extends AppCompatActivity {
     boolean pleaseResetProgress;
 
     String languageCurrently;
+    String emotionInfoText;
     GameImage newQuestion;
 
     @Override
@@ -186,8 +187,10 @@ public class Game extends AppCompatActivity {
 
         if(languageCurrently.equals("fi")) {
             rightAnswerString = newQuestion.getEmotionFi();
+            emotionInfoText = newQuestion.getEmotionInfoFi();
         } else {
             rightAnswerString = newQuestion.getEmotionEn();
+            emotionInfoText = newQuestion.getEmotionInfoEn();
         }
 
 
@@ -316,7 +319,9 @@ public class Game extends AppCompatActivity {
                     gameIntent.putExtra("clicksNumber", clicks);
                     gameIntent.putExtra("currentLevel", currentLevel);
                     gameIntent.putExtra("playbuttonpressed", playButtonClicked);
-                    gameIntent.putExtra("emotion",newQuestion.getEmotionFi().toLowerCase());
+                    gameIntent.putExtra("emotionInfoText", emotionInfoText);
+
+
                     startActivity(gameIntent);
                 }
             });

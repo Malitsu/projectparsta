@@ -43,11 +43,11 @@
     <string name="layoutMain_btn_start">Aloita</string>
     <string name="layoutMain_btn_achievements">Saavutukset</string>
 
-    <string name="iloinen">Silmät siristyneinä, silmäkulmissa ryppyjä, suu hymyssä.</string>
-    <string name="surullinen">Kulmat alhaalla yhdistyneinä, suupielet osoittavat alas.</string>
-    <string name="pelokas">Kireät kulmat, silmät suurina, suu hieman auki.</string>
-    <string name="vihainen">Kulmat kurtussa, huulet kiristyneinä ja suu hieman auki.</string>
-    <string name="inhoava">Nenä rypyssä, ylähuuli koholla.</string>
-    <string name="halveksuva">Toinen suupieli on ylhäällä.</string>
-    <string name="yllättynyt">Kulmat ylhäällä, silmät suurina, suu avoin.</string>
+<!--    <string name="iloinen">Silmät siristyneinä, silmäkulmissa ryppyjä, suu hymyssä.</string>-->
+<!--    <string name="surullinen">Kulmat alhaalla yhdistyneinä, suupielet osoittavat alas.</string>-->
+<!--    <string name="pelokas">Kireät kulmat, silmät suurina, suu hieman auki.</string>-->
+<!--    <string name="vihainen">Kulmat kurtussa, huulet kiristyneinä ja suu hieman auki.</string>-->
+<!--    <string name="inhoava">Nenä rypyssä, ylähuuli koholla.</string>-->
+<!--    <string name="halveksuva">Toinen suupieli on ylhäällä.</string>-->
+<!--    <string name="yllättynyt">Kulmat ylhäällä, silmät suurina, suu avoin.</string>-->
 </resources>
