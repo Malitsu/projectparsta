@@ -202,7 +202,8 @@ public class ProgressController {
             View layout = inflater.inflate(R.layout.achievement_toast, (ViewGroup) view);
 
             TextView text = layout.findViewById(R.id.ach_toast_text);
-            text.setText(achievement.getShortDescKey());
+            int descKey = Util.getStringResourceByName(achievement.getLongDescKey(), context);
+            text.setText(context.getString(descKey));
 
             ImageView imageView = layout.findViewById(R.id.ach_toast_image);
             imageView.setImageResource(Util.getDrawableResourceByName(achievement.getIcon(), context));

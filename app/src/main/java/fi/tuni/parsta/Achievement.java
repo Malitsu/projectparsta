@@ -6,8 +6,6 @@ class Achievement {
     private int id;
     private boolean unlocked = false;
     private String dateOfAchievement;
-    private String longDesc = "This is a placeholder text for long text";
-    private String shortDesc = "This is a placeholder text for short text";
     private int requiredValue;
     private Type type;
     private enum Type {
@@ -59,14 +57,6 @@ class Achievement {
         this.unlocked = unlocked;
     }
 
-    public void setLongDesc(String longDesc) {
-        this.longDesc = longDesc;
-    }
-
-    public void setShortDesc(String shortDesc) {
-        this.shortDesc = shortDesc;
-    }
-
     public void setRequiredValue(int requiredValue) {
         this.requiredValue = requiredValue;
     }
@@ -108,8 +98,6 @@ class Achievement {
         return "Achievement{" +
                 "id=" + id +
                 ", unlocked=" + unlocked +
-                ", longDesc='" + longDesc + '\'' +
-                ", shortDesc='" + shortDesc + '\'' +
                 ", requiredValue=" + requiredValue +
                 ", type=" + type +
                 '}';

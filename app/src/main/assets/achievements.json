@@ -2,141 +2,101 @@
   {
     "id": 101,
     "requiredValue": 10,
-    "shortDesc": "10 painallusta",
-    "longDesc": "10 painallusta pelissä",
     "type": "CLICKS"
   },
   {
     "id": 102,
     "requiredValue": 100,
-    "shortDesc": "100 painallusta",
-    "longDesc": "100 painallusta pelissä",
     "type": "CLICKS"
   },
   {
     "id": 103,
     "requiredValue": 1000,
-    "shortDesc": "1000 painallusta",
-    "longDesc": "1000 painallusta pelissä",
     "type": "CLICKS"
   },
   {
     "id": 104,
     "requiredValue": 5000,
-    "shortDesc": "5000 painallusta",
-    "longDesc": "5000 painallusta pelissä",
     "type": "CLICKS"
   },
   {
     "id": 105,
     "requiredValue": 10000,
-    "shortDesc": "10000 painallusta",
-    "longDesc": "10000 painallusta pelissä",
     "type": "CLICKS"
   },
   {
     "id": 201,
     "requiredValue": 10,
-    "shortDesc": "10 oikein tunnistusta",
-    "longDesc": "10 oikeata ilmeen tunnistusta pelissä",
     "type": "WINS"
   },
   {
     "id": 202,
     "requiredValue": 100,
-    "shortDesc": "100 oikein tunnistusta",
-    "longDesc": "100 oikeata ilmeen tunnistusta pelissä",
     "type": "WINS"
   },
   {
     "id": 203,
     "requiredValue": 1000,
-    "shortDesc": "1000 oikein tunnistusta",
-    "longDesc": "1000 oikeata ilmeen tunnistusta pelissä",
     "type": "WINS"
   },
   {
     "id": 204,
     "requiredValue": 5000,
-    "shortDesc": "5000 oikein tunnistusta",
-    "longDesc": "5000 oikeata ilmeen tunnistusta pelissä",
     "type": "WINS"
   },
   {
     "id": 205,
     "requiredValue": 10000,
-    "shortDesc": "10000 oikein tunnistusta",
-    "longDesc": "10000 oikeata ilmeen tunnistusta pelissä",
     "type": "WINS"
   },
   {
     "id": 301,
     "requiredValue": 1,
-    "shortDesc": "Taso 1 suoritettu",
-    "longDesc": "Taso 1 läpäisty",
     "type": "LEVEL"
   },
   {
     "id": 302,
     "requiredValue": 2,
-    "shortDesc": "Taso 2 suoritettu",
-    "longDesc": "Taso 2 läpäisty",
     "type": "LEVEL"
   },
   {
     "id": 303,
     "requiredValue": 3,
-    "shortDesc": "Taso 3 suoritettu",
-    "longDesc": "Taso 3 läpäisty",
     "type": "LEVEL"
   },
   {
     "id": 304,
     "requiredValue": 4,
-    "shortDesc": "Taso 4 suoritettu",
-    "longDesc": "Taso 4 läpäisty",
     "type": "LEVEL"
   },
   {
     "id": 305,
     "requiredValue": 5,
-    "shortDesc": "Taso 5 suoritettu",
-    "longDesc": "Taso 5 läpäisty",
     "type": "LEVEL"
   },
   {
     "id": 306,
     "requiredValue": 6,
-    "shortDesc": "Taso 6 suoritettu",
-    "longDesc": "Taso 6 läpäisty",
     "type": "LEVEL"
   },
   {
     "id": 307,
     "requiredValue": 7,
-    "shortDesc": "Taso 7 suoritettu",
-    "longDesc": "Taso 7 läpäisty",
     "type": "LEVEL"
   },
   {
     "id": 308,
     "requiredValue": 8,
-    "shortDesc": "Taso 8 suoritettu",
-    "longDesc": "Taso 8 läpäisty",
     "type": "LEVEL"
   },
   {
     "id": 309,
     "requiredValue": 9,
-    "shortDesc": "Taso 9 suoritettu",
-    "longDesc": "Taso 9 läpäisty",
     "type": "LEVEL"
   },
   {
     "id": 310,
     "requiredValue": 10,
-    "shortDesc": "Taso 10 suoritettu",
-    "longDesc": "Taso 10 läpäisty",
     "type": "LEVEL"
   }
 ]
