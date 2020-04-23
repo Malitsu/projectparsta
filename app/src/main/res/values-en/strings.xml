@@ -29,13 +29,14 @@
     <string name="levelDebrief_text_levelPassed_higherScore">Excellent! You have evolved to recognise faces well.</string>
     <string name="levelDebrief_text_levelPassed_middleScore">Good try! Keep training and the results will get better.</string>
     <string name="levelDebrief_text_levelPassed_lowerScore">Ouch! You should play the level again. Read the expression descriptions well.</string>
-    <string name="answerResult_text_pepTalk_false">Better luck next time.</string>
-    <string name="answerResult_text_pepTalk_correct">You answerred the question correctly!</string>
+    <string name="answerResult_text_pepTalk_false">Better luck next time. Focus on:</string>
+    <string name="answerResult_text_pepTalk_correct">You answerred the question correctly! Focus on:</string>
     <string name="layoutMain_dialog_info2">Expression game</string>
     <string name="layoutMain_dialog_info1">This is a expression game. Project: Creators:</string>
-    <string name="okBtn_text" translatable="false">OK</string>
+    <string name="aboutheader">About</string>
+    <string name="creators">Creators</string>
 
-<!--    <string name="yllättynyt">"The brows up, the eyes wide open, the mouth open. "</string>-->
+    <!--    <string name="yllättynyt">"The brows up, the eyes wide open, the mouth open. "</string>-->
 <!--    <string name="halveksuva">One corner of the mouth is up.</string>-->
 <!--    <string name="inhoava">"The nose wrinkled, the upper lip raised. "</string>-->
 <!--    <string name="vihainen">The brows lowered, the lips tight but the mouth slightly open.</string>-->

@@ -3,8 +3,10 @@ package fi.tuni.parsta;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -46,14 +48,8 @@ public class MainActivity extends AppCompatActivity {
 
     public void about(View v) {
         Util.vibrate(v, getApplicationContext());
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-
-        builder.setMessage(getResources().getString(R.string.layoutMain_dialog_info1))
-                .setTitle(getResources().getString(R.string.layoutMain_dialog_info2));
-
-        AlertDialog dialog = builder.create();
-
-        dialog.show();
+        AboutDialog dialog = new AboutDialog();
+        dialog.show(getSupportFragmentManager(), "aboutDialog");
 
         ProgressController.registerAClick(true, this);
     }
@@ -63,5 +59,4 @@ public class MainActivity extends AppCompatActivity {
         SettingsDialog dialog = new SettingsDialog();
         dialog.show(getSupportFragmentManager(), "SettingsDialog");
     }
-
 }

@@ -60,6 +60,7 @@ public class Game extends AppCompatActivity {
 
     String languageCurrently;
     String emotionInfoText;
+
     GameImage newQuestion;
 
     @Override

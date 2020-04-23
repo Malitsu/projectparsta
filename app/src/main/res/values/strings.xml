@@ -10,8 +10,8 @@
     <string name="game_text_level">"Taso: "</string>
 
     <string name="answerResult_text_correct">"Oikein: "</string>
-    <string name="answerResult_text_pepTalk_correct">"Vastasit oikein kysymykseen!"</string>
-    <string name="answerResult_text_pepTalk_false">Parempi onni ensi kerralla.</string>
+    <string name="answerResult_text_pepTalk_correct">"Vastasit oikein kysymykseen! Keskity kuvassa:"</string>
+    <string name="answerResult_text_pepTalk_false">"Parempi onni ensi kerralla. Keskity kuvassa:"</string>
 
     <string name="levelDebrief_text_levelPassed_lowerScore">"Auts!\nKannattaa ehkä pelata taso uudelleen.\nLue ilmeiden kuvaukset huolella."</string>
     <string name="levelDebrief_text_levelPassed_middleScore">"Hyvä yritys!\nJatka harjoittelua niin tulokset paranevat vielä."</string>
@@ -21,7 +21,7 @@
 
     <string name="backBtn_text">"Takaisin"</string>
     <string name="nextBtn_text">"Seuraava"</string>
-    <string name="okBtn_text">OK</string>
+    <string name="okBtn_text" translatable="false">OK</string>
     <string name="startBtn_text">Aloita</string>
 
     <string name="layoutAchievement_text_achievement">Saavutukset</string>
@@ -42,8 +42,10 @@
     <string name="layoutSettingsDialog_text_cancel">PERUUTA</string>
     <string name="layoutMain_btn_start">Aloita</string>
     <string name="layoutMain_btn_achievements">Saavutukset</string>
+    <string name="aboutheader">Tietoa</string>
+    <string name="creators">Tekijät</string>
 
-<!--    <string name="iloinen">Silmät siristyneinä, silmäkulmissa ryppyjä, suu hymyssä.</string>-->
+    <!--    <string name="iloinen">Silmät siristyneinä, silmäkulmissa ryppyjä, suu hymyssä.</string>-->
 <!--    <string name="surullinen">Kulmat alhaalla yhdistyneinä, suupielet osoittavat alas.</string>-->
 <!--    <string name="pelokas">Kireät kulmat, silmät suurina, suu hieman auki.</string>-->
 <!--    <string name="vihainen">Kulmat kurtussa, huulet kiristyneinä ja suu hieman auki.</string>-->
