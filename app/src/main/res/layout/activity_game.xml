@@ -7,7 +7,7 @@
     <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_weight="0.9"
         android:background="@color/colorPrimaryDark">
 
         <TextView
@@ -58,11 +58,11 @@
 
     <ImageView
         android:id="@+id/questionImg"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="3"
+        android:layout_weight="2.8"
         android:src="@drawable/face_iloinen_1_1" />
     <LinearLayout
         android:layout_gravity="center"
