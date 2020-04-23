@@ -12,17 +12,29 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import java.util.Locale;
+
 public class MainActivity extends AppCompatActivity {
     SharedPreferences sharedPreferences;
     boolean language;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
 
         sharedPreferences = getSharedPreferences("settings",MODE_PRIVATE);
-        Log.d("LANGUAGE", sharedPreferences.getString("languageCurrently", ""));
-        Util.setAppLocale(sharedPreferences.getString("languageCurrently", ""), getApplicationContext());
+
+        Locale locale = new Locale(sharedPreferences.getString("languageCurrently", ""));
+
+        Configuration config = new Configuration();
+        config.locale = locale;
+
+        getResources().updateConfiguration(
+                config,
+                getResources().getDisplayMetrics()
+        );
+
+        setContentView(R.layout.activity_main);
     }
 
     public void startClick(View v) {
