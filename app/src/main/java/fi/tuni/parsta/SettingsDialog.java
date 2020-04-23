@@ -124,6 +124,7 @@ public class SettingsDialog extends DialogFragment {
     private Boolean getSettingsPrefs(String field) {
         return sharedPreferences.getBoolean(field, true);
     }
+
     private String getLanguagePrefs(String field) {
         return sharedPreferences.getString(field, "");
     }
