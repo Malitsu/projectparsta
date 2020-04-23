@@ -1,0 +1,55 @@
+<resources>
+    <string name="app_name">Facingo</string>
+
+    <string name="layoutMain_btn_levels">Tasot</string>
+    <string name="layoutMain_btn_info">Tietoa</string>
+    <string name="layoutMain_btn_settings">Asetukset</string>
+    <string name="layoutMain_dialog_info1">"Tämä on kasvojen tunnistus peli. Hanke:  Tekijät: "</string>
+    <string name="layoutMain_dialog_info2">Kasvojen tunnistus peli</string>
+
+    <string name="game_text_level">"Taso: "</string>
+
+    <string name="answerResult_text_correct">"Oikein: "</string>
+    <string name="answerResult_text_pepTalk_correct">"Vastasit oikein kysymykseen! Keskity kuvassa:"</string>
+
+    <string name="levelDebrief_text_levelPassed_lowerScore">Auts! Kannattaa ehkä pelata taso uudelleen. Lue ilmeiden kuvaukset huolella.</string>
+    <string name="levelDebrief_text_levelPassed_middleScore">Hyvä yritys! Jatka harjoittelua niin tulokset paranevat vielä.</string>
+    <string name="levelDebrief_text_levelPassed_higherScore">Loistavaa! Olet kehittynyt hyvin taitavaksi tunnistamaan ilmeitä.</string>
+
+    <string name="levelsActivity_text_level">"Taso "</string>
+
+    <string name="backBtn_text">"Takaisin"</string>
+    <string name="nextBtn_text">"Seuraava"</string>
+    <string name="startBtn_text">Aloita</string>
+
+    <string name="layoutAchievement_text_achievement">Saavutukset</string>
+    <string name="layoutCradItemContent_text_date">Päiväys</string>
+
+    <string name="layoutLevels_text_points">"Pisteet: "</string>
+
+    <string name="layoutSettingsDialog_text_settings">"Asetukset"</string>
+    <string name="layoutSettingsDialog_checkbox_soundOn">"Äänitehosteet päällä"</string>
+    <string name="layoutSettingsDialog_checkbox_vibration">"Värinä päällä"</string>
+    <string name="layoutSettingsDialog_checkbox_language">"Kieli"</string>
+    <string name="layoutSettingsDialog_checkbox_language_fin">"Suomi"</string>
+    <string name="layoutSettingsDialog_checkbox_language_eng">"Englanti"</string>
+    <string name="layoutSettingsDialog_checkbox_reset">"Nollaa asetukset"</string>
+    <string name="layoutSettingsDialog_checkbox_warning">"Varoitus"</string>
+    <string name="layoutSettingsDialog_checkbox_warning_message1">"Oletko varma, että haluat alustaa asetukset ja pelin?"</string>
+    <string name="layoutSettingsDialog_checkbox_warning_message2">"Menetät kaiken!"</string>
+    <string name="layoutSettingsDialog_text_cancel">PERUUTA</string>
+    <string name="layoutMain_btn_start">Aloita</string>
+    <string name="layoutMain_btn_achievements">Saavutukset</string>
+    <string name="aboutheader">Tietoa</string>
+    <string name="creators">Tekijät</string>
+    <string name="answerResult_text_pepTalk_false">Parempi onni ensi kerralla. Keskity kuvassa:</string>
+    <string name="okBtn_text">OK</string>
+
+    <!--    <string name="iloinen">Silmät siristyneinä, silmäkulmissa ryppyjä, suu hymyssä.</string>-->
+<!--    <string name="surullinen">Kulmat alhaalla yhdistyneinä, suupielet osoittavat alas.</string>-->
+<!--    <string name="pelokas">Kireät kulmat, silmät suurina, suu hieman auki.</string>-->
+<!--    <string name="vihainen">Kulmat kurtussa, huulet kiristyneinä ja suu hieman auki.</string>-->
+<!--    <string name="inhoava">Nenä rypyssä, ylähuuli koholla.</string>-->
+<!--    <string name="halveksuva">Toinen suupieli on ylhäällä.</string>-->
+<!--    <string name="yllättynyt">Kulmat ylhäällä, silmät suurina, suu avoin.</string>-->
+</resources>

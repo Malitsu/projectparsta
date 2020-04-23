@@ -1,55 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Facingo</string>
+    <string name="layoutMain_btn_achievements">Achievements</string>
+    <string name="layoutMain_btn_levels">Levels</string>
+    <string name="layoutMain_btn_info">Info</string>
+    <string name="layoutMain_btn_settings">Settings</string>
+    <string name="game_text_level">"Level: "</string>
+    <string name="answerResult_text_correct">Right:</string>
+    <string name="layoutMain_btn_start">Start</string>
+    <string name="layoutSettingsDialog_text_cancel">CANCEL</string>
+    <string name="layoutSettingsDialog_checkbox_warning_message2">You will lose everything!</string>
+    <string name="layoutSettingsDialog_checkbox_warning_message1">Are you sure that you want to format the settings and the game?</string>
+    <string name="layoutSettingsDialog_checkbox_warning">Warning</string>
+    <string name="layoutSettingsDialog_checkbox_reset">Reset settings</string>
+    <string name="layoutSettingsDialog_checkbox_language_eng">English</string>
+    <string name="layoutSettingsDialog_checkbox_language_fin">Finnish</string>
+    <string name="layoutSettingsDialog_checkbox_language">Language</string>
+    <string name="layoutSettingsDialog_checkbox_vibration">Vibration on</string>
+    <string name="layoutSettingsDialog_checkbox_soundOn">Soundeffects on</string>
+    <string name="layoutSettingsDialog_text_settings">Settings</string>
+    <string name="layoutLevels_text_points">Points:</string>
+    <string name="layoutCradItemContent_text_date">Date</string>
+    <string name="layoutAchievement_text_achievement">Achievements</string>
+    <string name="startBtn_text">Start</string>
+    <string name="nextBtn_text">Next</string>
+    <string name="backBtn_text">Back</string>
+    <string name="levelsActivity_text_level">"Level "</string>
+    <string name="levelDebrief_text_levelPassed_higherScore">Excellent! You have evolved to recognise faces well.</string>
+    <string name="levelDebrief_text_levelPassed_middleScore">Good try! Keep training and the results will get better.</string>
+    <string name="levelDebrief_text_levelPassed_lowerScore">Ouch! You should play the level again. Read the expression descriptions well.</string>
+    <string name="answerResult_text_pepTalk_false">Better luck next time. Focus on:</string>
+    <string name="answerResult_text_pepTalk_correct">You answerred the question correctly! Focus on:</string>
+    <string name="layoutMain_dialog_info2">Expression game</string>
+    <string name="layoutMain_dialog_info1">This is a expression game. Project: Creators:</string>
+    <string name="aboutheader">About</string>
+    <string name="creators">Creators</string>
+    <string name="okBtn_text">OK</string>
 
-    <string name="layoutMain_btn_levels">Tasot</string>
-    <string name="layoutMain_btn_info">Tietoa</string>
-    <string name="layoutMain_btn_settings">Asetukset</string>
-    <string name="layoutMain_dialog_info1">"Tämä on kasvojen tunnistus peli.\nHanke: \nTekijät: "</string>
-    <string name="layoutMain_dialog_info2">Kasvojen tunnistus peli</string>
-
-    <string name="game_text_level">"Taso: "</string>
-
-    <string name="answerResult_text_correct">"Oikein: "</string>
-    <string name="answerResult_text_pepTalk_correct">"Vastasit oikein kysymykseen! Keskity kuvassa:"</string>
-    <string name="answerResult_text_pepTalk_false">"Parempi onni ensi kerralla. Keskity kuvassa:"</string>
-
-    <string name="levelDebrief_text_levelPassed_lowerScore">"Auts!\nKannattaa ehkä pelata taso uudelleen.\nLue ilmeiden kuvaukset huolella."</string>
-    <string name="levelDebrief_text_levelPassed_middleScore">"Hyvä yritys!\nJatka harjoittelua niin tulokset paranevat vielä."</string>
-    <string name="levelDebrief_text_levelPassed_higherScore">"Loistavaa!\nOlet kehittynyt hyvin taitavaksi tunnistamaan ilmeitä."</string>
-
-    <string name="levelsActivity_text_level">"Taso "</string>
-
-    <string name="backBtn_text">"Takaisin"</string>
-    <string name="nextBtn_text">"Seuraava"</string>
-    <string name="okBtn_text" translatable="false">OK</string>
-    <string name="startBtn_text">Aloita</string>
-
-    <string name="layoutAchievement_text_achievement">Saavutukset</string>
-    <string name="layoutCradItemContent_text_date">Päiväys</string>
-
-    <string name="layoutLevels_text_points">"Pisteet: "</string>
-
-    <string name="layoutSettingsDialog_text_settings">"Asetukset"</string>
-    <string name="layoutSettingsDialog_checkbox_soundOn">"Äänitehosteet päällä"</string>
-    <string name="layoutSettingsDialog_checkbox_vibration">"Värinä päällä"</string>
-    <string name="layoutSettingsDialog_checkbox_language">"Kieli"</string>
-    <string name="layoutSettingsDialog_checkbox_language_fin">"Suomi"</string>
-    <string name="layoutSettingsDialog_checkbox_language_eng">"Englanti"</string>
-    <string name="layoutSettingsDialog_checkbox_reset">"Nollaa asetukset"</string>
-    <string name="layoutSettingsDialog_checkbox_warning">"Varoitus"</string>
-    <string name="layoutSettingsDialog_checkbox_warning_message1">"Oletko varma, että haluat alustaa asetukset ja pelin?"</string>
-    <string name="layoutSettingsDialog_checkbox_warning_message2">"Menetät kaiken!"</string>
-    <string name="layoutSettingsDialog_text_cancel">PERUUTA</string>
-    <string name="layoutMain_btn_start">Aloita</string>
-    <string name="layoutMain_btn_achievements">Saavutukset</string>
-    <string name="aboutheader">Tietoa</string>
-    <string name="creators">Tekijät</string>
-
-    <!--    <string name="iloinen">Silmät siristyneinä, silmäkulmissa ryppyjä, suu hymyssä.</string>-->
-<!--    <string name="surullinen">Kulmat alhaalla yhdistyneinä, suupielet osoittavat alas.</string>-->
-<!--    <string name="pelokas">Kireät kulmat, silmät suurina, suu hieman auki.</string>-->
-<!--    <string name="vihainen">Kulmat kurtussa, huulet kiristyneinä ja suu hieman auki.</string>-->
-<!--    <string name="inhoava">Nenä rypyssä, ylähuuli koholla.</string>-->
-<!--    <string name="halveksuva">Toinen suupieli on ylhäällä.</string>-->
-<!--    <string name="yllättynyt">Kulmat ylhäällä, silmät suurina, suu avoin.</string>-->
+    <!--    <string name="yllättynyt">"The brows up, the eyes wide open, the mouth open. "</string>-->
+<!--    <string name="halveksuva">One corner of the mouth is up.</string>-->
+<!--    <string name="inhoava">"The nose wrinkled, the upper lip raised. "</string>-->
+<!--    <string name="vihainen">The brows lowered, the lips tight but the mouth slightly open.</string>-->
+<!--    <string name="pelokas">"The brows tight, the eyes wide open, the mouth slightly open. "</string>-->
+<!--    <string name="iloinen">The eyes narrow, wrinkles around the eyes, a wide smile.</string>-->
+<!--    <string name="surullinen">"The brows down and drawn together, the corners of the mouth lowered. "</string>-->
 </resources>
