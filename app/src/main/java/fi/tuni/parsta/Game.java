@@ -4,9 +4,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.os.Bundle;
-import android.os.Vibrator;
 import android.util.Log;
-import android.view.HapticFeedbackConstants;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -21,7 +19,6 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -196,7 +193,7 @@ public class Game extends AppCompatActivity {
 
 
         //Set image to image view
-        int resourceName = Util.getStringResourceByName(questionImgName, this);
+        int resourceName = Util.getDrawableResourceByName(questionImgName, this);
 
         questionImg = (ImageView) findViewById(R.id.questionImg);
         questionImg.setImageResource(resourceName);

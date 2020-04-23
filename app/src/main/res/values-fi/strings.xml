@@ -44,6 +44,26 @@
     <string name="creators">Tekijät</string>
     <string name="answerResult_text_pepTalk_false">Parempi onni ensi kerralla. Keskity kuvassa:</string>
     <string name="okBtn_text">OK</string>
+    <string name="ach_101_long_desc">10 painallusta pelissä</string>
+    <string name="ach_102_long_desc">100 painallusta pelissä</string>
+    <string name="ach_103_long_desc">1000 painallusta pelissä</string>
+    <string name="ach_104_long_desc">5000 painallusta pelissä</string>
+    <string name="ach_105_long_desc">10000 painallusta pelissä</string>
+    <string name="ach_201_long_desc">10 oikeata ilmeen tunnistusta pelissä</string>
+    <string name="ach_202_long_desc">100 oikeata ilmeen tunnistusta pelissä</string>
+    <string name="ach_203_long_desc">1000 oikeata ilmeen tunnistusta pelissä</string>
+    <string name="ach_204_long_desc">5000 oikeata ilmeen tunnistusta pelissä</string>
+    <string name="ach_205_long_desc">10000 oikeata ilmeen tunnistusta pelissä</string>
+    <string name="ach_301_long_desc">Taso 1 läpäisty.</string>
+    <string name="ach_302_long_desc">Taso 2 läpäisty.</string>
+    <string name="ach_303_long_desc">Taso 3 läpäisty.</string>
+    <string name="ach_304_long_desc">Taso 4 läpäisty.</string>
+    <string name="ach_305_long_desc">Taso 5 läpäisty.</string>
+    <string name="ach_306_long_desc">Taso 6 läpäisty.</string>
+    <string name="ach_307_long_desc">Taso 7 läpäisty.</string>
+    <string name="ach_308_long_desc">Taso 8 läpäisty.</string>
+    <string name="ach_309_long_desc">Taso 9 läpäisty.</string>
+    <string name="ach_310_long_desc">Taso 10 läpäisty.</string>
 
     <!--    <string name="iloinen">Silmät siristyneinä, silmäkulmissa ryppyjä, suu hymyssä.</string>-->
 <!--    <string name="surullinen">Kulmat alhaalla yhdistyneinä, suupielet osoittavat alas.</string>-->

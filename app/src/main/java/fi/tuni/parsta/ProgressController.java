@@ -21,7 +21,6 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
-import java.util.logging.Handler;
 
 import static android.content.Context.MODE_PRIVATE;
 
@@ -203,10 +202,10 @@ public class ProgressController {
             View layout = inflater.inflate(R.layout.achievement_toast, (ViewGroup) view);
 
             TextView text = layout.findViewById(R.id.ach_toast_text);
-            text.setText(achievement.getShortDesc());
+            text.setText(achievement.getShortDescKey());
 
             ImageView imageView = layout.findViewById(R.id.ach_toast_image);
-            imageView.setImageResource(Util.getStringResourceByName(achievement.getIcon(), context));
+            imageView.setImageResource(Util.getDrawableResourceByName(achievement.getIcon(), context));
 
             final Toast toast = new Toast(context);
             toast.setGravity(Gravity.TOP, 0, 40);

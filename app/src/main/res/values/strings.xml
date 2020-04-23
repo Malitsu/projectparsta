@@ -36,6 +36,26 @@
     <string name="aboutheader">About</string>
     <string name="creators">Creators</string>
     <string name="okBtn_text">OK</string>
+    <string name="ach_101_long_desc">10 clicks in game.</string>
+    <string name="ach_102_long_desc">100 clicks in game.</string>
+    <string name="ach_103_long_desc">1000 clicks in game.</string>
+    <string name="ach_104_long_desc">5000 clicks in game.</string>
+    <string name="ach_105_long_desc">10000 clicks in game.</string>
+    <string name="ach_201_long_desc">10 correct clicks in game.</string>
+    <string name="ach_202_long_desc">100 correct clicks in game.</string>
+    <string name="ach_203_long_desc">1000 correct clicks in game.</string>
+    <string name="ach_204_long_desc">5000 correct clicks in game.</string>
+    <string name="ach_205_long_desc">10000 correct clicks in game.</string>
+    <string name="ach_301_long_desc">Level 1 completed.</string>
+    <string name="ach_302_long_desc">Level 2 completed.</string>
+    <string name="ach_303_long_desc">Level 3 completed.</string>
+    <string name="ach_304_long_desc">Level 4 completed.</string>
+    <string name="ach_305_long_desc">Level 5 completed.</string>
+    <string name="ach_306_long_desc">Level 6 completed.</string>
+    <string name="ach_307_long_desc">Level 7 completed.</string>
+    <string name="ach_308_long_desc">Level 8 completed.</string>
+    <string name="ach_309_long_desc">Level 9 completed.</string>
+    <string name="ach_310_long_desc">Level 10 completed.</string>
 
     <!--    <string name="yllättynyt">"The brows up, the eyes wide open, the mouth open. "</string>-->
 <!--    <string name="halveksuva">One corner of the mouth is up.</string>-->

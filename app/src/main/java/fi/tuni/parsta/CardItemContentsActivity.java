@@ -37,7 +37,10 @@ public class CardItemContentsActivity extends AppCompatActivity {
         tvDate = (TextView) findViewById(R.id.txtdate);
 
         intent = getIntent();
-        description = intent.getExtras().getString("fi.tuni.parsta.achievementDesc");
+
+        int descKey = Util.getStringResourceByName(intent.getExtras().getString("fi.tuni.parsta.achievementDesc"), this);
+
+        description = getString(descKey);
         date = intent.getExtras().getString("fi.tuni.parsta.achievementDate");
 
         tvDate.setText(date);

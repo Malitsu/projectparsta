@@ -41,6 +41,12 @@ public class Util {
 
     public static int getStringResourceByName(String aString, Context context) {
         String packageName = context.getPackageName();
+        int resId = context.getResources().getIdentifier(aString, "string", packageName);
+        return resId;
+    }
+
+    public static int getDrawableResourceByName(String aString, Context context) {
+        String packageName = context.getPackageName();
         int resId = context.getResources().getIdentifier(aString, "drawable", packageName);
         return resId;
     }

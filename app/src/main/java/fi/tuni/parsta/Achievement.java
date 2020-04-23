@@ -27,8 +27,8 @@ class Achievement {
         }
     }
 
-    public String getShortDesc() {
-        return shortDesc;
+    public String getShortDescKey() {
+        return getIdKey() + "_short_desc";
     }
 
     public boolean isUnlocked() {
@@ -43,8 +43,8 @@ class Achievement {
         return requiredValue;
     }
 
-    public String getLongDesc() {
-        return longDesc;
+    public String getLongDescKey() {
+        return getIdKey() + "_long_desc";
     }
 
     public String getIcon() {

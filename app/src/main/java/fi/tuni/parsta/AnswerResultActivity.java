@@ -3,12 +3,9 @@ package fi.tuni.parsta;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.GridLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-
-import org.w3c.dom.Text;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -47,7 +44,7 @@ public class AnswerResultActivity extends AppCompatActivity {
              infoQuestionImgName = "face";
 
              playButtonPressed = extras.getBoolean("playbuttonpressed");
-             int resourceName = Util.getStringResourceByName(infoQuestionImgName, this);
+             int resourceName = Util.getDrawableResourceByName(infoQuestionImgName, this);
              infoImg.setImageResource(resourceName);
              currentWins.setText(getResources().getString(R.string.answerResult_text_correct) + rightAnswers);
             if(wasAnswerRight) {

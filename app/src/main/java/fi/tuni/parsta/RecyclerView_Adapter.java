@@ -48,7 +48,7 @@ public class RecyclerView_Adapter extends RecyclerView.Adapter<RecyclerView_Adap
                 Intent newIntent = new Intent(mContext, CardItemContentsActivity.class);
                 newIntent.putExtra("fi.tuni.parsta.achievementIcon", mData.get(position).getIcon());
                 newIntent.putExtra("fi.tuni.parsta.achievementDate", mData.get(position).getDateOfAchievement());
-                newIntent.putExtra("fi.tuni.parsta.achievementDesc", mData.get(position).getLongDesc());
+                newIntent.putExtra("fi.tuni.parsta.achievementDesc", mData.get(position).getLongDescKey());
                 mContext.startActivity(newIntent);
             }
         });
