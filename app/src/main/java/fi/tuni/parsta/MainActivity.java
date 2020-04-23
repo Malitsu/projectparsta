@@ -62,8 +62,6 @@ public class MainActivity extends AppCompatActivity {
         Util.vibrate(v, getApplicationContext());
         AboutDialog dialog = new AboutDialog();
         dialog.show(getSupportFragmentManager(), "aboutDialog");
-
-        ProgressController.registerAClick(true, this);
     }
 
     public void settings(View v) {
