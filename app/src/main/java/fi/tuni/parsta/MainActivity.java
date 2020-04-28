@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import java.io.Console;
 import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
@@ -23,6 +24,17 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         sharedPreferences = getSharedPreferences("settings",MODE_PRIVATE);
+
+        //Set language of the app to phone default on first load of the application and save the info to preferences
+        if(sharedPreferences.getString("languageCurrently","").equals("")) {
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            if(Locale.getDefault().toString().equals("fi_FI") || Locale.getDefault().toString().contains("fi")) {
+                editor.putString("languageCurrently", "fi");
+            } else {
+                editor.putString("languageCurrently", "en");
+            }
+            editor.apply();
+        }
 
         Locale locale = new Locale(sharedPreferences.getString("languageCurrently", ""));
 
