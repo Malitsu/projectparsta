@@ -8,6 +8,20 @@
         <item>Inhoava</item>
         <item>Halveksuva</item>
         <item>Yllättynyt</item>
+        <item>Ärtynyt</item>
+        <item>Epäileväinen</item>
+        <item>Epäuskoinen</item>
+        <item>Flirttaileva</item>
+        <item>Hämmentynyt</item>
+        <item>Häpeävä</item>
+        <item>Rakastava</item>
+        <item>Ilahtunut</item>
+        <item>Kivuissaan</item>
+        <item>Kohtelias</item>
+        <item>Kyllästynyt</item>
+        <item>Ylpeä</item>
+        <item>Innostunut</item>
+
     </string-array>
 
     <string-array name="facial_expressions_arrayEn">
@@ -18,5 +32,18 @@
         <item>Disgusted</item>
         <item>Contemptuous</item>
         <item>Surprised</item>
+        <item>Irritated</item>
+        <item>Suspicious</item>
+        <item>Unbelieving</item>
+        <item>Flirting</item>
+        <item>Puzzled</item>
+        <item>Ashamed</item>
+        <item>Loving</item>
+        <item>Delighted</item>
+        <item>Pained</item>
+        <item>Polite</item>
+        <item>Bored</item>
+        <item>Proud</item>
+        <item>Excited</item>
     </string-array>
 </resources>
