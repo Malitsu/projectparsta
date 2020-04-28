@@ -12,14 +12,14 @@
         android:layout_height="0dp"
         android:background="#a29ccb"
         android:layout_marginBottom="30dp"
-        android:layout_weight="1">
-        <TextView
+        android:layout_weight="5">
+        <ImageView
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
             android:layout_centerInParent="true"
-            android:text='Facingo'
-            android:textColor="@android:color/white"
-            android:textSize="60dp"/>
+            android:src="@drawable/ic_facingo_logo_1"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"/>
     </RelativeLayout>
 
     <LinearLayout
