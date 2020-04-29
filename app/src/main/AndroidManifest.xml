@@ -9,21 +9,35 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".AchievementActivity"/>
-        <activity android:name=".LevelsActivity"/>
-        <activity android:name=".Game"/>
-        <activity android:name=".AnswerResultActivity"/>
+        <activity android:name=".AchievementActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".LevelsActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Game"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".AnswerResultActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
         <activity android:name=".CardItemContentsActivity"
-            android:theme="@style/DialogTheme" />
+            android:theme="@style/DialogTheme"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
         <activity android:name=".LevelDebriefActivity"
-            android:theme="@style/DialogTheme" />
+            android:theme="@style/DialogTheme"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>
