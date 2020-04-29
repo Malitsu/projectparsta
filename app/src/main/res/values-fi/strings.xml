@@ -64,6 +64,7 @@
     <string name="ach_308_long_desc">Taso 8 läpäisty.</string>
     <string name="ach_309_long_desc">Taso 9 läpäisty.</string>
     <string name="ach_310_long_desc">Taso 10 läpäisty.</string>
+    <string name="achievement_toast">Saavutus!</string>
 
     <!--    <string name="iloinen">Silmät siristyneinä, silmäkulmissa ryppyjä, suu hymyssä.</string>-->
 <!--    <string name="surullinen">Kulmat alhaalla yhdistyneinä, suupielet osoittavat alas.</string>-->

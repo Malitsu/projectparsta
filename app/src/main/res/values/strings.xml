@@ -56,6 +56,7 @@
     <string name="ach_308_long_desc">Level 8 completed.</string>
     <string name="ach_309_long_desc">Level 9 completed.</string>
     <string name="ach_310_long_desc">Level 10 completed.</string>
+    <string name="achievement_toast">Achievement!</string>
 
     <!--    <string name="yllättynyt">"The brows up, the eyes wide open, the mouth open. "</string>-->
 <!--    <string name="halveksuva">One corner of the mouth is up.</string>-->
