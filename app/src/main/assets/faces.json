@@ -36,5 +36,22 @@
   {"id": 33, "name": "face_ylpea_2_1", "emotionFi" : "Ylpeä", "emotionEn" : "Proud", "emotionInfoFi" : "Pää takakenossa, pieni hymy, ryhdikäs asento.", "emotionInfoEn" : "The chin up, a slight smile, a good posture."},
   {"id": 34, "name": "face_innostunut_2_1", "emotionFi" : "Innostunut", "emotionEn" : "Excited", "emotionInfoFi" : "Kulmakarvat ylhäällä, suu erittäin leveässä virneessä. olkapäät nousevat kohti korvia.", "emotionInfoEn" : "Eyebrows raised, mouth in very wide grin, shoulders raised towards ears."},
 
-  {"id": 35, "name": "face_naamapalmu_2_1", "emotionFi" : "Naamapalmu", "emotionEn" : "Facepalm", "emotionInfoFi" : "Käsi. Naama. Voi ilmaista myötähäpeää, turhautumista tai kyllästymistä.", "emotionInfoEn" : "Palm. Face. Expresses usually frustration, second-hand embarrassment or tiredness."}
+  {"id": 35, "name": "face_artynyt_2_2", "emotionFi" : "Ärtynyt", "emotionEn" : "Irritated", "emotionInfoFi" : "Kulmat hieman kurtussa, suu hieman kireä.", "emotionInfoEn" : "The brows slightly tightened, the mouth tight."},
+  {"id": 36, "name": "face_epailevainen_2_2", "emotionFi" : "Epäileväinen", "emotionEn" : "Suspicious", "emotionInfoFi" : "Toinen kulma koholla, suu kireä.", "emotionInfoEn" : "One side of the brows up, the mouth tight."},
+  {"id": 37, "name": "face_epauskoinen_2_2", "emotionFi" : "Epäuskoinen", "emotionEn" : "Unbelieving", "emotionInfoFi" : "Kulmat alhaalla, silmät kapeat, suu kireä.", "emotionInfoEn" : "The brows lowered, the eyes narrowed, the mouth tight."},
+  {"id": 38, "name": "face_hammentynyt_2_2", "emotionFi" : "Hämmentynyt", "emotionEn" : "Puzzled", "emotionInfoFi" : "Kulmat hieman kurtussa, suu hieman auki.", "emotionInfoEn" : "The brows slightly tightened, the mouth slightly open."},
+  {"id": 39, "name": "face_hellyys_2_2", "emotionFi" : "Rakastava", "emotionEn" : "Loving", "emotionInfoFi" : "Pää kallellaan, silmien alapuoli kiristynyt, huulet kaareutuneet ylöspäin.", "emotionInfoEn" : "The head tilted, tightness under the eyes, the lips bowed."},
+  {"id": 40, "name": "face_ilahtunut_2_2", "emotionFi" : "Ilahtunut", "emotionEn" : "Delighted", "emotionInfoFi" : "Kulmat koholla, silmät suurina, hymy suu hieman auki.", "emotionInfoEn" : "The brows elevated, the eyes wide open, a smile with open mouth."},
+  {"id": 41, "name": "face_kohteliaisuus_2_2", "emotionFi" : "Kohtelias", "emotionEn" : "Polite", "emotionInfoFi" : "Kevyt hymy, joka ei saa ryppyjä silmien sivuille.", "emotionInfoEn" : "A slight smile that does not create wrinkles around the eyes."},
+  {"id": 42, "name": "face_ylpea_2_2", "emotionFi" : "Ylpeä", "emotionEn" : "Proud", "emotionInfoFi" : "Pää takakenossa, pieni hymy, ryhdikäs asento.", "emotionInfoEn" : "The chin up, a slight smile, a good posture."},
+  {"id": 43, "name": "face_kiinnostunut", "emotionFi" : "Kiinnostunut", "emotionEn" : "Curious", "emotionInfoFi" : "Kulmat ylhäällä, suupielet ylhäällä, pää kallistunut.", "emotionInfoEn" : "The brows up, the corners of the mouth up, the head tilted."},
+  {"id": 44, "name": "face_myotatunto_2_2", "emotionFi" : "Myötätuntoinen", "emotionEn" : "Compassionate", "emotionInfoFi" : "Kulmat sisäreunastaan ylhäällä, otsassa vaakajuonne, huulet kireät, pää työntyneenä eteenpäin.", "emotionInfoEn" : "The inner corners of the brows up, lines on the forehead, the mouth tight, the face forwards."},
+  {"id": 45, "name": "face_nolostunut_2_1", "emotionFi" : "Nolostunut", "emotionEn" : "Embarrassed", "emotionInfoFi" : "Kulmien sisäosa koholla, suu kireä, kasvot suunnattu alaviistoon.", "emotionInfoEn" : "The inner corners of the brows up, mouth tight, the face down."},
+  {"id": 46, "name": "face_odottava_2_1", "emotionFi" : "Odottava", "emotionEn" : "Expectant", "emotionInfoFi" : "Kulmat hieman koholla, silmät tavallista suurempina.", "emotionInfoEn" : "The brows slightly heightened, the eyes wide open."},
+  {"id": 47, "name": "face_huvittunut_2_1", "emotionFi" : "Huvittunut", "emotionEn" : "Amused", "emotionInfoFi" : "Pää takakenossa, suu auki ja hymyssä, rypyt silmien sivussa.", "emotionInfoEn" : "The chin up, the mouth in an open smile, wrinkles around the eyes."},
+
+
+
+  {"id": 48, "name": "face_naamapalmu_2_1", "emotionFi" : "Naamapalmu", "emotionEn" : "Facepalm", "emotionInfoFi" : "Käsi. Naama. Voi ilmaista myötähäpeää, turhautumista tai kyllästymistä.", "emotionInfoEn" : "Palm. Face. Expresses usually frustration, second-hand embarrassment or tiredness."},
+  {"id": 49, "name": "face_kotiaiti_2_1", "emotionFi" : "Kotiäiti", "emotionEn" : "", "emotionInfoFi" : "", "emotionInfoEn" : ""}
 ]
