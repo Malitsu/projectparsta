@@ -19,6 +19,7 @@ public class AnswerResultActivity extends AppCompatActivity {
     int clicksNumber;
     int currentLevel;
     boolean playButtonPressed;
+    String clickedEmotionName;
 
     String emotionInfoText;
 
@@ -44,6 +45,7 @@ public class AnswerResultActivity extends AppCompatActivity {
              currentLevel = extras.getInt("currentLevel");
              infoQuestionImgName = questionImgName + "_info";
              emotionInfoText = extras.getString("emotionInfoText");
+             clickedEmotionName = extras.getString("clickedEmotionName");
              // TODO: REMOVE THIS ONCE THERE ACTUAL _info IMAGES HAVE BEEN ADDED!
              infoQuestionImgName = "face";
 
@@ -53,13 +55,12 @@ public class AnswerResultActivity extends AppCompatActivity {
 //             currentWins.setText(getResources().getString(R.string.answerResult_text_correct) + rightAnswers);
             if(wasAnswerRight) {
                 pepTalkIntro.setText(getResources().getString(R.string.answerResult_text_pepTalk_correct));
-                pepTalk.setText(emotionInfoText);
                 answerIndicator.setImageResource(R.drawable.ic_correct_1);
             } else {
                 pepTalkIntro.setText(getResources().getString(R.string.answerResult_text_pepTalk_false));
-                pepTalk.setText(emotionInfoText);
                 answerIndicator.setImageResource(R.drawable.ic_wrong_1);
             }
+            pepTalk.setText(clickedEmotionName + ": " + emotionInfoText);
         }
     }
 
