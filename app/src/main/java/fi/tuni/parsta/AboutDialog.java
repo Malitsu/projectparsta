@@ -23,7 +23,7 @@ import static android.content.Context.MODE_PRIVATE;
 public class AboutDialog extends DialogFragment {
 
     SharedPreferences sharedPreferences;
-
+    private TextView mActionOk;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -35,6 +35,14 @@ public class AboutDialog extends DialogFragment {
         ImageView tikoLogo = view.findViewById(R.id.tikologo);
         ImageView tampereLogo = view.findViewById(R.id.tamperelogo);
 
+        mActionOk = view.findViewById(R.id.action_ok);
+        mActionOk.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Util.vibrate(view, getContext());
+                getDialog().dismiss();
+            }
+        });
         layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
