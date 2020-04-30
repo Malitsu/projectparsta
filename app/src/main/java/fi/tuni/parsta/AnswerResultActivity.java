@@ -10,6 +10,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class AnswerResultActivity extends AppCompatActivity {
+    TextView pepTalkIntro;
     TextView pepTalk;
     TextView currentWins;
     String questionImgName;
@@ -29,6 +30,7 @@ public class AnswerResultActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_answer);
         pepTalk = (TextView) findViewById(R.id.answerText);
+        pepTalkIntro = (TextView) findViewById(R.id.answerTextIntro);
         infoImg = (ImageView) findViewById(R.id.answerImg);
         answerIndicator = (ImageView) findViewById(R.id.answerIndicator);
 //        currentWins = (TextView) findViewById(R.id.currentWins);
@@ -50,10 +52,12 @@ public class AnswerResultActivity extends AppCompatActivity {
              infoImg.setImageResource(resourceName);
 //             currentWins.setText(getResources().getString(R.string.answerResult_text_correct) + rightAnswers);
             if(wasAnswerRight) {
-                pepTalk.setText(getResources().getString(R.string.answerResult_text_pepTalk_correct) + "\n" + emotionInfoText);
+                pepTalkIntro.setText(getResources().getString(R.string.answerResult_text_pepTalk_correct));
+                pepTalk.setText(emotionInfoText);
                 answerIndicator.setImageResource(R.drawable.ic_correct_1);
             } else {
-                pepTalk.setText(getResources().getString(R.string.answerResult_text_pepTalk_false) + "\n" + emotionInfoText);
+                pepTalkIntro.setText(getResources().getString(R.string.answerResult_text_pepTalk_false));
+                pepTalk.setText(emotionInfoText);
                 answerIndicator.setImageResource(R.drawable.ic_wrong_1);
             }
         }
