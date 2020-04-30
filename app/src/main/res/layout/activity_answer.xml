@@ -20,13 +20,28 @@
             android:text="@string/backBtn_text"/>
     </RelativeLayout>
 
-    <ImageView
-        android:id="@+id/answerImg"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
+
+    <FrameLayout
+        android:layout_width="wrap_content"
         android:layout_weight="2.8"
-        android:src="@drawable/face_iloinen_1_1"
-        />
+        android:layout_height="0dp">
+
+        <ImageView
+            android:id="@+id/answerImg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/face_iloinen_1_1"/>
+
+        <ImageView
+            android:id="@+id/answerIndicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_correct_1"
+            android:layout_gravity="top|left"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"/>
+
+    </FrameLayout>
 
     <TextView
         android:layout_width="match_parent"
