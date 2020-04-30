@@ -10,7 +10,7 @@
     <string name="game_text_level">"Taso: "</string>
 
     <string name="answerResult_text_correct">"Oikein: "</string>
-    <string name="answerResult_text_pepTalk_correct">"Vastasit oikein kysymykseen! Keskity kuvassa:"</string>
+    <string name="answerResult_text_pepTalk_correct">Oikein! Yritä keskityä ilmeessä näihin asioihin:</string>
 
     <string name="levelDebrief_text_levelPassed_lowerScore">Auts! Kannattaa ehkä pelata taso uudelleen. Lue ilmeiden kuvaukset huolella.</string>
     <string name="levelDebrief_text_levelPassed_middleScore">Hyvä yritys! Jatka harjoittelua niin tulokset paranevat vielä.</string>
@@ -42,7 +42,7 @@
     <string name="layoutMain_btn_achievements">Saavutukset</string>
     <string name="aboutheader">Tietoa</string>
     <string name="creators">Tekijät</string>
-    <string name="answerResult_text_pepTalk_false">Parempi onni ensi kerralla. Keskity kuvassa:</string>
+    <string name="answerResult_text_pepTalk_false">Parempi onni ensi kerralla.  Yritä keskityä ilmeessä näihin asioihin:</string>
     <string name="okBtn_text">OK</string>
     <string name="ach_101_long_desc">10 painallusta pelissä</string>
     <string name="ach_102_long_desc">100 painallusta pelissä</string>

@@ -31,7 +31,7 @@ public class AnswerResultActivity extends AppCompatActivity {
         pepTalk = (TextView) findViewById(R.id.answerText);
         infoImg = (ImageView) findViewById(R.id.answerImg);
         answerIndicator = (ImageView) findViewById(R.id.answerIndicator);
-        currentWins = (TextView) findViewById(R.id.currentWins);
+//        currentWins = (TextView) findViewById(R.id.currentWins);
         Bundle extras = getIntent().getExtras();
         boolean wasAnswerRight;
         if (extras != null) {
@@ -48,7 +48,7 @@ public class AnswerResultActivity extends AppCompatActivity {
              playButtonPressed = extras.getBoolean("playbuttonpressed");
              int resourceName = Util.getDrawableResourceByName(infoQuestionImgName, this);
              infoImg.setImageResource(resourceName);
-             currentWins.setText(getResources().getString(R.string.answerResult_text_correct) + rightAnswers);
+//             currentWins.setText(getResources().getString(R.string.answerResult_text_correct) + rightAnswers);
             if(wasAnswerRight) {
                 pepTalk.setText(getResources().getString(R.string.answerResult_text_pepTalk_correct) + "\n" + emotionInfoText);
                 answerIndicator.setImageResource(R.drawable.ic_correct_1);
