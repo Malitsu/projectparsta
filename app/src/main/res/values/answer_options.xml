@@ -21,6 +21,7 @@
         <item>Kyllästynyt</item>
         <item>Ylpeä</item>
         <item>Innostunut</item>
+        <item>Yllättynyt</item>
 
     </string-array>
 
@@ -45,5 +46,6 @@
         <item>Bored</item>
         <item>Proud</item>
         <item>Excited</item>
+        <item>Surprised</item>
     </string-array>
 </resources>
