@@ -182,7 +182,7 @@ public class Game extends AppCompatActivity {
 
         newQuestion = images.get(rndImage);
         questionImgName = newQuestion.getName();
-
+        Log.d("IMAGEEEE", questionImgName);
         if(languageCurrently.equals("fi")) {
             rightAnswerString = newQuestion.getEmotionFi();
             emotionInfoText = newQuestion.getEmotionInfoFi();
