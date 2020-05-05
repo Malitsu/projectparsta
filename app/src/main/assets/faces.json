@@ -82,10 +82,9 @@
   {"id": 75, "name": "face_ylpea_2_4", "emotionFi" : "Ylpeä", "emotionEn" : "Proud", "emotionInfoFi" : "Pää takakenossa, pieni hymy, ryhdikäs asento.", "emotionInfoEn" : "The chin up, a slight smile, a good posture."},
 
 
-  {"id": 76, "name": "face_turhautunut_2_1", "emotionFi" : "Turhautunut", "emotionEn" : "", "emotionInfoFi" : "", "emotionInfoEn" : ""},
-  {"id": 77, "name": "face_halu_2_1", "emotionFi" : "Halu", "emotionEn" : "Desire", "emotionInfoFi" : "Huulia nuollaan kielellä tai purraan kevyesti hampailla.", "emotionInfoEn" : "Lips are licked with tongue or bitten lightly with teeth."},
+  {"id": 76, "name": "face_halu_2_1", "emotionFi" : "Halu", "emotionEn" : "Desire", "emotionInfoFi" : "Huulia nuollaan kielellä tai purraan kevyesti hampailla.", "emotionInfoEn" : "Lips are licked with tongue or bitten lightly with teeth."},
 
-
+  {"id": 77, "name": "face_turhautunut_2_1", "emotionFi" : "Turhautunut", "emotionEn" : "", "emotionInfoFi" : "", "emotionInfoEn" : ""},
   {"id": 78, "name": "face_naamapalmu_2_1", "emotionFi" : "Naamapalmu", "emotionEn" : "Facepalm", "emotionInfoFi" : "Käsi. Naama. Voi ilmaista myötähäpeää, turhautumista tai kyllästymistä.", "emotionInfoEn" : "Palm. Face. Expresses usually frustration, second-hand embarrassment or tiredness."},
   {"id": 79, "name": "face_kotiaiti_2_1", "emotionFi" : "Kotiäiti", "emotionEn" : "", "emotionInfoFi" : "", "emotionInfoEn" : ""},
   {"id": 80, "name": "face_ihmissusi_2_1", "emotionFi" : "", "emotionEn" : "", "emotionInfoFi" : "", "emotionInfoEn" : ""},
