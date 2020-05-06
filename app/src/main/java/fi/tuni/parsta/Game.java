@@ -318,7 +318,7 @@ public class Game extends AppCompatActivity {
                     gameIntent.putExtra("currentLevel", currentLevel);
                     gameIntent.putExtra("playbuttonpressed", playButtonClicked);
                     gameIntent.putExtra("emotionInfoText", emotionInfoText);
-                    gameIntent.putExtra("clickedEmotionName", myButton.getText().toString());
+                    gameIntent.putExtra("clickedEmotionName", rightAnswerString);
 
 
                     startActivity(gameIntent);
