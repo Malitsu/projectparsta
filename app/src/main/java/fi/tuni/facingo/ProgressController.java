@@ -237,7 +237,7 @@ public class ProgressController {
                 SharedPreferences.Editor editor = getSharedPreferences(context).edit();
                 editor.putBoolean(a.getIdKey(), true);
                 Date c = Calendar.getInstance().getTime();
-                SimpleDateFormat df = new SimpleDateFormat("dd.M.yyyy");
+                SimpleDateFormat df = new SimpleDateFormat("d.M.yyyy");
                 editor.putString(a.getADateKey(), df.format(c));
                 editor.apply();
                 achievementsReached.add(a);
