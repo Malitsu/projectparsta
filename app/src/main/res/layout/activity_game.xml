@@ -42,13 +42,14 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="5dp"
             android:background="@drawable/quit_button"
             android:onClick="quitGame"
-            android:layout_alignParentRight="true"
-            android:text="@string/backBtn_text"
-            />
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="@string/backBtn_text" />
     </RelativeLayout>
 <!--    <TextView-->
 <!--        android:layout_width="match_parent"-->
