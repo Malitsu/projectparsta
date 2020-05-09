@@ -1,20 +1,11 @@
-package fi.tuni.parsta;
+package fi.tuni.facingo;
 
 import android.content.Intent;
-import android.media.MediaPlayer;
-import android.media.MediaRecorder;
-import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.Window;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import java.io.File;
-import java.io.IOException;
 
 import androidx.appcompat.app.AppCompatActivity;
 

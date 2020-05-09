@@ -1,4 +1,4 @@
-package fi.tuni.parsta;
+package fi.tuni.facingo;
 
 import android.content.Intent;
 import android.os.Bundle;

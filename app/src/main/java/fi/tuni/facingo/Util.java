@@ -1,9 +1,6 @@
-package fi.tuni.parsta;
+package fi.tuni.facingo;
 
-import android.app.Activity;
-import android.app.Application;
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.content.res.Resources;
@@ -12,7 +9,6 @@ import android.os.Build;
 import android.os.Vibrator;
 import android.util.DisplayMetrics;
 import android.util.Log;
-import android.view.HapticFeedbackConstants;
 import android.view.View;
 
 import java.io.BufferedReader;

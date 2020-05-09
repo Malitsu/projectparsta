@@ -1,4 +1,4 @@
-package fi.tuni.parsta;
+package fi.tuni.facingo;
 
 public class Dots {
     private int Thumbnail;

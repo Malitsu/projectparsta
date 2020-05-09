@@ -6,7 +6,7 @@ android {
 
 
     defaultConfig {
-        applicationId "fi.tuni.parsta"
+        applicationId "fi.tuni.facingo"
         minSdkVersion 16
         targetSdkVersion 29
         versionCode 1

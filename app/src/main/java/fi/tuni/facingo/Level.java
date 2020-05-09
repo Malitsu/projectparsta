@@ -1,4 +1,4 @@
-package fi.tuni.parsta;
+package fi.tuni.facingo;
 
 import java.util.Arrays;
 
