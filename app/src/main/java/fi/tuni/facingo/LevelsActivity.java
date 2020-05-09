@@ -24,12 +24,12 @@ public class LevelsActivity extends AppCompatActivity {
     List<LevelProgress> levelsList;
     ArrayList<Dots> starList;
     TextView levelsScore;
-
+    int currentScore = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_levels);
-
+        levelsScore = (TextView) findViewById(R.id.levelsScore);
         levelsList = new ArrayList<LevelProgress>();
 
         levelsList.add(new LevelProgress(this, 1));
@@ -114,7 +114,10 @@ public class LevelsActivity extends AppCompatActivity {
         ListViewAdapter adapter = new ListViewAdapter();
 
         levelList.setAdapter(adapter);
-
+        for(int i = 0; i < levelsList.size(); i++) {
+            currentScore += levelsList.get(i).getMaxScore();
+        }
+        levelsScore.setText(getResources().getString(R.string.layoutLevels_text_points) + " " + currentScore + "/100");
     }
 
     public void quitLevels(View v){
