@@ -43,8 +43,10 @@ public class LevelDebriefActivity extends AppCompatActivity {
                     feedback);
         }
         currentLevel++;
-        ProgressController.setCurrentLevelInProgress(getApplicationContext(), currentLevel);
-        ProgressController.setMaxProgressLevel(getApplicationContext(), currentLevel);
+        if(currentLevel <= 10) {
+            ProgressController.setMaxProgressLevel(getApplicationContext(), currentLevel);
+            ProgressController.setCurrentLevelInProgress(getApplicationContext(), currentLevel);
+        }
     }
 
     public void quitGame(View v){

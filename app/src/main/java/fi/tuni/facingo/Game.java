@@ -97,11 +97,12 @@ public class Game extends AppCompatActivity {
         if(currentLevel < 1) {
             currentLevel = 1;
         }
-
+        Log.d("LEVEL10",currentLevel + " CURRENT LEVEL");
         //if the game has been finished (max level is above 10), reset the game to play level 10 again
         if(currentLevel > NUMBEROFLEVELSINGAME) {
             currentLevel = NUMBEROFLEVELSINGAME;
             finishedGame = true;
+            Log.d("LEVEL10","LEVEL 10 AGAIN");
         }
         //Creates a new level progress object based on the currentLevel saved in the progress controller
         //and the amountOfPictures that the level should have (at the moment always 10)
@@ -113,6 +114,9 @@ public class Game extends AppCompatActivity {
             Log.d("LEVELPROGRESS", pleaseResetProgress + " resetttttt should hapen");
             levelProgress.resetCurrentClicksAndScore();
             levelProgress.resetCurrentLevelProgressArray(currentLevel);
+            Log.d("LEVEL10",levelProgress.getAreAnswersCorrect().toString());
+            Log.d("LEVEL10",levelProgress.getCurrentLevel() + "");
+            Log.d("LEVEL10",levelProgress.getCurrentLevelClicks() + " sf");
         }
         clicks = levelProgress.getCurrentLevelClicks();
         rightAnswersInt = levelProgress.getCurrentScore();
