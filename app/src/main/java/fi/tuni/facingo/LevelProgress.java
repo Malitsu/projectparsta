@@ -1,7 +1,6 @@
-package fi.tuni.parsta;
+package fi.tuni.facingo;
 
 import android.content.Context;
-import android.util.Log;
 
 public class LevelProgress {
     int currentLevel = 1;
