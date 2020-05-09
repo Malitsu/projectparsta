@@ -296,7 +296,8 @@ public class Game extends AppCompatActivity {
     public void createButtonGrid(ArrayList<String> answerOptions){
         for (int i = 0; i<answerOptions.size(); i++) {
             final Button myButton = new Button(this);
-            myButton.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+//            myButton.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+            myButton.setBackground(getResources().getDrawable(R.drawable.game_btn_));
 
             myButton.setWidth(1000);
 
