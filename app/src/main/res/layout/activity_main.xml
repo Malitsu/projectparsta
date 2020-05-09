@@ -72,26 +72,27 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="@string/layoutMain_btn_settings"
+            android:textColor="@android:color/white"
+            android:background="@drawable/main_btn_settings"
+            android:layout_marginBottom="15dp"
+            android:onClick="settings"
+            android:textSize="18sp"
+            android:id="@+id/settings"
+            android:drawableLeft="@drawable/ic_asetukset_1"
+            />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:text="@string/layoutMain_btn_info"
             android:textColor="@android:color/white"
             android:background="@drawable/main_btn_info"
-            android:layout_marginBottom="15dp"
             android:textSize="18sp"
             android:onClick="about"
             android:id="@+id/about"
             android:drawableLeft="@drawable/ic_info_2"
             />
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/layoutMain_btn_settings"
-            android:textColor="@android:color/white"
-            android:background="@drawable/main_btn_settings"
-            android:onClick="settings"
-            android:textSize="18sp"
-            android:id="@+id/settings"
-            android:drawableLeft="@drawable/ic_asetukset_1"
-            />
     </LinearLayout>
 </LinearLayout>
