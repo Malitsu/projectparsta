@@ -25,7 +25,7 @@
     <string name="layoutAchievement_text_achievement">Saavutukset</string>
     <string name="layoutCradItemContent_text_date">Päiväys</string>
 
-    <string name="layoutLevels_text_points">"Pisteet: "</string>
+    <string name="layoutLevels_text_points">Pisteet</string>
 
     <string name="layoutSettingsDialog_text_settings">"Asetukset"</string>
     <string name="layoutSettingsDialog_checkbox_soundOn">"Äänitehosteet päällä"</string>

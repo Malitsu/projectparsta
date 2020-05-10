@@ -12,17 +12,35 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
 >
-        <TextView
-            android:id="@+id/levelsScore"
-            android:paddingTop="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="10dp"
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:text="@string/layoutLevels_text_points"
-            android:layout_alignParentLeft="true"
-            />
+            android:orientation="vertical"
+            android:background="@drawable/level_points_background"
+            android:gravity="center">
+            <ImageView
+                android:src="@drawable/ic_star_no_background"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:text="@string/layoutLevels_text_points"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:layout_marginHorizontal="20dp"
+                />
+            <TextView
+                android:id="@+id/levelsScore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                />
+        </LinearLayout>
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -37,6 +55,7 @@
     </RelativeLayout>
 
     <ListView
+        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/levelList"

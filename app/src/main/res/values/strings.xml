@@ -19,7 +19,7 @@
     <string name="layoutSettingsDialog_checkbox_vibration">Vibration on</string>
     <string name="layoutSettingsDialog_checkbox_soundOn">Soundeffects on</string>
     <string name="layoutSettingsDialog_text_settings">Settings</string>
-    <string name="layoutLevels_text_points">Points:</string>
+    <string name="layoutLevels_text_points">Points</string>
     <string name="layoutCradItemContent_text_date">Date</string>
     <string name="layoutAchievement_text_achievement">Achievements</string>
     <string name="startBtn_text">Start</string>
