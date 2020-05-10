@@ -46,8 +46,6 @@ public class AnswerResultActivity extends AppCompatActivity {
              infoQuestionImgName = questionImgName + "_info";
              emotionInfoText = extras.getString("emotionInfoText");
              clickedEmotionName = extras.getString("clickedEmotionName");
-             // TODO: REMOVE THIS ONCE THERE ACTUAL _info IMAGES HAVE BEEN ADDED!
-             infoQuestionImgName = "face";
 
              playButtonPressed = extras.getBoolean("playbuttonpressed");
              int resourceName = Util.getDrawableResourceByName(infoQuestionImgName, this);
