@@ -80,10 +80,10 @@
 
   {"id": 72, "name": "face_halu_2_1", "emotionFi" : "Halu", "emotionEn" : "Desire", "emotionInfoFi" : "Huulia nuollaan kielellä tai purraan kevyesti hampailla.", "emotionInfoEn" : "Lips are licked with tongue or bitten lightly with teeth."},
 
-  {"id": 73, "name": "face_turhautunut_2_1", "emotionFi" : "Turhautunut", "emotionEn" : "", "emotionInfoFi" : "", "emotionInfoEn" : ""},
+  {"id": 73, "name": "face_turhautunut_2_1", "emotionFi" : "Turhautunut", "emotionEn" : "Frustrated", "emotionInfoFi" : "Kun mikään ei tunnu toimivan, voi naama vääntyä vaikka miten.", "emotionInfoEn" : "When everything seems to go wrong expressions may vary a lot."},
   {"id": 74, "name": "face_naamapalmu_2_1", "emotionFi" : "Naamapalmu", "emotionEn" : "Facepalm", "emotionInfoFi" : "Käsi. Naama. Voi ilmaista myötähäpeää, turhautumista tai kyllästymistä.", "emotionInfoEn" : "Palm. Face. Expresses usually frustration, second-hand embarrassment or tiredness."},
-  {"id": 75, "name": "face_kotiaiti_2_1", "emotionFi" : "Kotiäiti", "emotionEn" : "", "emotionInfoFi" : "", "emotionInfoEn" : ""},
-  {"id": 76, "name": "face_ihmissusi_2_1", "emotionFi" : "", "emotionEn" : "", "emotionInfoFi" : "", "emotionInfoEn" : ""},
-  {"id": 77, "name": "face_suojautunut_2_1", "emotionFi" : "Suojautunut", "emotionEn" : "", "emotionInfoFi" : "", "emotionInfoEn" : ""},
+  {"id": 75, "name": "face_kotiaiti_2_1", "emotionFi" : "Kotiäiti", "emotionEn" : "Housewife", "emotionInfoFi" : "Kun koti on taas sekaisin ja kaikki huutavat, kotiäiti turhautuu ja menettää hermonsa.", "emotionInfoEn" : "When the house is a mess and everybody is shouting again, the housewife loses her nerves."},
+  {"id": 76, "name": "face_ihmissusi_2_1", "emotionFi" : "Ihmissusi", "emotionEn" : "Werewolf", "emotionInfoFi" : "Jos on täysikuu ja näet tämän ilmeen, kannattaa juosta karkuun. Toivottavasti et näe tätä ilmettä koskaan.", "emotionInfoEn" : "If it’s full moon and you see this expression, run. We hope you never get to see this."},
+  {"id": 77, "name": "face_suojautunut_2_1", "emotionFi" : "Suojautunut", "emotionEn" : "Protected", "emotionInfoFi" : "Toivottavasti tilanne ei ole liian vakava.", "emotionInfoEn" : "Let’s hope the situation is not too serious."},
   {"id": 78, "name": "face_yllattynyt_2_1", "emotionFi" : "Yllättynyt", "emotionEn" : "Surprised", "emotionInfoFi" : "Kulmat ylhäällä, silmät suurina, suu avoin.", "emotionInfoEn" : "The brows up, the eyes wide open, the mouth open."}
 ]
