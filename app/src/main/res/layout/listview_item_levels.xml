@@ -2,9 +2,10 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/colorPrimary"
+    android:background="@drawable/level_btn"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    >
 
     <ImageView
         android:id="@+id/achievementIcon"
@@ -12,20 +13,20 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginLeft="25dp"
+        android:layout_marginLeft="15dp"
         android:layout_marginTop="1dp"
-        android:src="@drawable/unlocked" />
+        android:src="@drawable/ic_level_flag" />
 
     <TextView
         android:id="@+id/levelText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="15dp"
-        android:layout_marginRight="35dp"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="10dp"
         android:text="Level"
-        android:textSize="25sp" />
+        android:textAllCaps="true"
+        android:textSize="18sp" />
 
     <RelativeLayout
         android:id="@+id/rl_listViewItem"
