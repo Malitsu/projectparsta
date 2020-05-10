@@ -117,7 +117,7 @@ public class LevelsActivity extends AppCompatActivity {
         for(int i = 0; i < levelsList.size(); i++) {
             currentScore += levelsList.get(i).getMaxScore();
         }
-        levelsScore.setText(getResources().getString(R.string.layoutLevels_text_points) + " " + currentScore + "/100");
+        levelsScore.setText(String.valueOf(currentScore));
     }
 
     public void quitLevels(View v){
