@@ -11,7 +11,7 @@
     <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimary">
+        android:background="@color/colorPrimaryDark">
         <TextView
             android:paddingTop="10dp"
             android:layout_marginTop="10dp"
@@ -20,6 +20,7 @@
             android:textSize="20sp"
             android:text="@string/layoutAchievement_text_achievement"
             android:layout_centerHorizontal="true"
+            android:textColor="@color/white"
             />
         <Button
             android:layout_width="wrap_content"
