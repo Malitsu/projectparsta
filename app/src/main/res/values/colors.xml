@@ -5,6 +5,7 @@
     <color name="colorAccent">#03DAC5</color>
     <color name="quitBtn">#ffff9d</color>
     <color name="disabledBtn">#808080</color>
+    <color name="white">#FFFFFF</color>
 
 <!--     #585188 tumma lila, #ffff9d keltanen, #a29ccb vaalean lila -->
 <!--    #847bbb, #585188, #494087, #1e2163, #1d183a-->
