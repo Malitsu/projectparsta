@@ -337,7 +337,7 @@ public class Game extends AppCompatActivity {
                     LinearLayout.LayoutParams.WRAP_CONTENT,
                     LinearLayout.LayoutParams.WRAP_CONTENT
             );
-            params.setMargins(0, 2, 0, 10);
+            params.setMargins(15, 2, 15, 10);
             myButton.setLayoutParams(params);
         }
     }
