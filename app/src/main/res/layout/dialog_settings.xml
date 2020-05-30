@@ -151,7 +151,7 @@
             <TextView
                 android:id="@+id/action_ok"
                 android:layout_width="100sp"
-                android:minWidth="100sp"
+                android:minWidth="50sp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentBottom="true"
@@ -165,7 +165,7 @@
             <TextView
                 android:id="@+id/action_cancel"
                 android:layout_width="100sp"
-                android:minWidth="100sp"
+                android:minWidth="50sp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentBottom="true"

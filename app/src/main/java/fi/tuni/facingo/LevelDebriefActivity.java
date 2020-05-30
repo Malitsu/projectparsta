@@ -39,7 +39,7 @@ public class LevelDebriefActivity extends AppCompatActivity {
                 feedback = getResources().getString(R.string.levelDebrief_text_levelPassed_higherScore);
             }
 
-            congratulations.setText(getResources().getString(R.string.layoutLevels_text_points) + levelScore + "\n\n" +
+            congratulations.setText(getResources().getString(R.string.layoutLevels_text_points) + ": " + levelScore + "\n\n" +
                     feedback);
         }
         currentLevel++;

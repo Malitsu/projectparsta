@@ -65,6 +65,14 @@
     <string name="ach_309_long_desc">Taso 9 läpäisty.</string>
     <string name="ach_310_long_desc">Taso 10 läpäisty.</string>
     <string name="achievement_toast">Saavutus!</string>
+    <string name="nepsylink"><a href="http://www.tampere.fi/nepsy">Lue lisää</a></string>
+    <string name="creators_list">Tekijät: Anna Metsäpelto, Tanja Varvio, Tiina Malinen, Viljami Pietarila, Maija Visala, Hanna Tuominen</string>
+    <string name="ach_401_long_desc">Löysit turhautumisen!</string>
+    <string name="ach_402_long_desc">Löysit naamapalmun.</string>
+    <string name="ach_403_long_desc">Tapasit kotiäidin.</string>
+    <string name="ach_404_long_desc">Törmäsit ihmisuteen!</string>
+    <string name="ach_405_long_desc">Tapasit suojautuneen henkilön.</string>
+    <string name="ach_406_long_desc">Yllätit hänet!</string>
 
     <!--    <string name="iloinen">Silmät siristyneinä, silmäkulmissa ryppyjä, suu hymyssä.</string>-->
 <!--    <string name="surullinen">Kulmat alhaalla yhdistyneinä, suupielet osoittavat alas.</string>-->

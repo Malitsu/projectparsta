@@ -49,7 +49,7 @@ public class ProgressController {
         editor.putInt(CLICKS, clicks);
         editor.putInt(WINS, wins);
         editor.apply();
-        checkAchievements(context, clicks, wins, -1);
+        checkAchievements(context, clicks, wins, -1, -1);
     }
 
     public static void updateLevelProgress(Context context, int level, int newScore, int newCurrentLevelClicks, boolean wasAnswerCorrect) {
@@ -66,8 +66,12 @@ public class ProgressController {
             Log.d("TAG", "updateLevelProgress: " + newScore);
             Log.d("TAG", "updateLevelProgress: " + newCurrentLevelClicks);
             Log.d("TAG", "updateLevelProgress: " + wasAnswerCorrect);
-            checkAchievements(context, -1, -1, level);
+            checkAchievements(context, -1, -1, level,-1);
         }
+    }
+
+    public static void checkForSpecials(int id, Context context) {
+        checkAchievements(context, -1, -1, -1, id);
     }
 
     public static void setMaxProgressLevel(Context context, int maxProgressLevelCurrently) {
@@ -228,11 +232,11 @@ public class ProgressController {
         delay = 3500;
     }
 
-    private static void checkAchievements(Context context, int clicks, int wins, int level) {
+    private static void checkAchievements(Context context, int clicks, int wins, int level, int id) {
         List<Achievement> achievements = getAchievements(context);
         List<Achievement> achievementsReached = new ArrayList<>();
         for (Achievement a : achievements) {
-            if (a.checkIfCompleted(clicks, wins, level)) {
+            if (a.checkIfCompleted(clicks, wins, level, id)) {
                 a.unlock();
                 SharedPreferences.Editor editor = getSharedPreferences(context).edit();
                 editor.putBoolean(a.getIdKey(), true);
