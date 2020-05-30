@@ -4,8 +4,8 @@
     <string name="layoutMain_btn_levels">Tasot</string>
     <string name="layoutMain_btn_info">Tietoa</string>
     <string name="layoutMain_btn_settings">Asetukset</string>
-    <string name="layoutMain_dialog_info1">"Tämä on kasvojen tunnistus peli. Hanke:  Tekijät: "</string>
-    <string name="layoutMain_dialog_info2">Kasvojen tunnistus peli</string>
+    <string name="layoutMain_dialog_info1">Työryhmään on kuulunut monialaisesti Tampereen kaupungin henkilöstöä, kokemusasiantuntijoita sekä Tampereen seudun autismiyhdistys ry:n jäseniä. Toimeksiantaja on Tampereen kaupunki.</string>
+    <string name="layoutMain_dialog_info2">Facingo on ilmeentunnistuspeli (prototyyppi) ja se on toteutettu Tampereen ammattikorkeakoulun tietojenkäsittelyn opiskelijoiden toimesta yhteistyössä Tampereen kaupungin Nepsy-tukitiimin koordinoiman ”Nepsy-nuorten palvelut nousuun” -työryhmän kanssa.</string>
 
     <string name="game_text_level">"Taso: "</string>
 
@@ -65,6 +65,8 @@
     <string name="ach_309_long_desc">Taso 9 läpäisty.</string>
     <string name="ach_310_long_desc">Taso 10 läpäisty.</string>
     <string name="achievement_toast">Saavutus!</string>
+    <string name="nepsylink"><a href="http://www.tampere.fi/nepsy">Lue lisää</a></string>
+    <string name="creators_list">Tekijät: Anna Metsäpelto, Tanja Varvio, Tiina Malinen, Viljami Pietarila, Maija Visala, Hanna Tuominen</string>
 
     <!--    <string name="iloinen">Silmät siristyneinä, silmäkulmissa ryppyjä, suu hymyssä.</string>-->
 <!--    <string name="surullinen">Kulmat alhaalla yhdistyneinä, suupielet osoittavat alas.</string>-->

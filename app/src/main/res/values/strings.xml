@@ -31,8 +31,8 @@
     <string name="levelDebrief_text_levelPassed_lowerScore">Ouch! You should play the level again. Read the expression descriptions well.</string>
     <string name="answerResult_text_pepTalk_false">Better luck next time. Try to focus on these things in the emotion:</string>
     <string name="answerResult_text_pepTalk_correct">Correct! Try to focus on these things in the emotion:</string>
-    <string name="layoutMain_dialog_info2">Expression game</string>
-    <string name="layoutMain_dialog_info1">This is a expression game. Project: Creators:</string>
+    <string name="layoutMain_dialog_info2">Facingo is an expression game (prototype) and it has been implemented by Tampere University of Applied Sciences students in Business Informations Systems program in conjunction with Tampere\'s Nepsy</string>
+    <string name="layoutMain_dialog_info1">Työryhmään on kuulunut monialaisesti Tampereen kaupungin henkilöstöä, kokemusasiantuntijoita sekä Tampereen seudun autismiyhdistys ry:n jäseniä. Toimeksiantaja on Tampereen kaupunki.</string>
     <string name="aboutheader">About</string>
     <string name="creators">Creators</string>
     <string name="okBtn_text">OK</string>
@@ -57,6 +57,8 @@
     <string name="ach_309_long_desc">Level 9 completed.</string>
     <string name="ach_310_long_desc">Level 10 completed.</string>
     <string name="achievement_toast">Achievement!</string>
+    <string name="nepsylink"><a href="http://www.tampere.fi/nepsy">Read more</a></string>
+    <string name="creators_list">Creators: Anna Metsäpelto, Tanja Varvio, Tiina Malinen, Viljami Pietarila, Maija Visala, Hanna Tuominen</string>
 
     <!--    <string name="yllättynyt">"The brows up, the eyes wide open, the mouth open. "</string>-->
 <!--    <string name="halveksuva">One corner of the mouth is up.</string>-->

@@ -2,6 +2,7 @@ package fi.tuni.facingo;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.method.LinkMovementMethod;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -29,6 +30,9 @@ public class AboutDialog extends DialogFragment {
         ImageView tikoLogo = view.findViewById(R.id.tikologo);
         ImageView tampereLogo = view.findViewById(R.id.tamperelogo);
 
+        TextView link = (TextView) view.findViewById(R.id.infotext4);
+        link.setMovementMethod(LinkMovementMethod.getInstance());
+
         mActionOk = view.findViewById(R.id.action_ok);
         mActionOk.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -37,12 +41,12 @@ public class AboutDialog extends DialogFragment {
                 getDialog().dismiss();
             }
         });
-        layout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                getDialog().dismiss();
-            }
-        });
+//        layout.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                getDialog().dismiss();
+//            }
+//        });
 
         Log.d("AboutDialog", getLanguagePrefs("languageCurrently") + " languageee");
 
