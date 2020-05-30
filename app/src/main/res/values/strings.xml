@@ -63,8 +63,8 @@
     <string name="ach_404_long_desc">You encounted the werewolf!</string>
     <string name="ach_405_long_desc">You met someone protected.</string>
     <string name="ach_406_long_desc">You surprised someone!</string>
-    <string name="nepsylink">asdasdasd</string>
-    <string name="creators_list">asdasdasd</string>
+    <string name="nepsylink"><a href="http://www.tampere.fi/nepsy">Read more</a></string>
+    <string name="creators_list">Creators: Anna Metsäpelto, Tanja Varvio, Tiina Malinen, Viljami Pietarila, Maija Visala, Hanna Tuominen</string>
 
     <!--    <string name="yllättynyt">"The brows up, the eyes wide open, the mouth open. "</string>-->
 <!--    <string name="halveksuva">One corner of the mouth is up.</string>-->
