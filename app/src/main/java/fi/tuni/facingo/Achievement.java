@@ -15,14 +15,15 @@ class Achievement {
     public Achievement() {
     }
 
-    public boolean checkIfCompleted(int clicks, int wins, int level) {
+    public boolean checkIfCompleted(int clicks, int wins, int level, int id) {
         if (unlocked) return false;
         switch(type) {
-            case CLICKS: if (clicks >= requiredValue) return true;
-            case WINS: if (wins >= requiredValue) return true;
-            case LEVEL: if (level == requiredValue) return true;
-            default: return false;
+            case CLICKS: if (clicks >= requiredValue) return true; break;
+            case WINS: if (wins >= requiredValue) return true; break;
+            case LEVEL: if (level == requiredValue) return true; break;
+            case SPECIAL: if (id == requiredValue) return true; break;
         }
+        return false;
     }
 
     public String getShortDescKey() {
