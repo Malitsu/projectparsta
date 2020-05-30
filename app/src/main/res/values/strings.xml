@@ -57,8 +57,14 @@
     <string name="ach_309_long_desc">Level 9 completed.</string>
     <string name="ach_310_long_desc">Level 10 completed.</string>
     <string name="achievement_toast">Achievement!</string>
-    <string name="nepsylink"><a href="http://www.tampere.fi/nepsy">Read more</a></string>
-    <string name="creators_list">Creators: Anna Metsäpelto, Tanja Varvio, Tiina Malinen, Viljami Pietarila, Maija Visala, Hanna Tuominen</string>
+    <string name="ach_401_long_desc">You found the frustration!</string>
+    <string name="ach_402_long_desc">You found the elusive facepalm.</string>
+    <string name="ach_403_long_desc">You encountered the homemaker.</string>
+    <string name="ach_404_long_desc">You encounted the werewolf!</string>
+    <string name="ach_405_long_desc">You met someone protected.</string>
+    <string name="ach_406_long_desc">You surprised someone!</string>
+    <string name="nepsylink">asdasdasd</string>
+    <string name="creators_list">asdasdasd</string>
 
     <!--    <string name="yllättynyt">"The brows up, the eyes wide open, the mouth open. "</string>-->
 <!--    <string name="halveksuva">One corner of the mouth is up.</string>-->

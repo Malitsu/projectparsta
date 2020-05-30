@@ -9,7 +9,7 @@ class Achievement {
     private int requiredValue;
     private Type type;
     private enum Type {
-        CLICKS, WINS, LEVEL
+        CLICKS, WINS, LEVEL, SPECIAL
     }
 
     public Achievement() {

@@ -98,5 +98,35 @@
     "id": 310,
     "requiredValue": 10,
     "type": "LEVEL"
+  },
+  {
+    "id": 401,
+    "requiredValue": 73,
+    "type": "SPECIAL"
+  },
+  {
+    "id": 402,
+    "requiredValue": 74,
+    "type": "SPECIAL"
+  },
+  {
+    "id": 403,
+    "requiredValue": 75,
+    "type": "SPECIAL"
+  },
+  {
+    "id": 404,
+    "requiredValue": 76,
+    "type": "SPECIAL"
+  },
+  {
+    "id": 405,
+    "requiredValue": 77,
+    "type": "SPECIAL"
+  },
+  {
+    "id": 406,
+    "requiredValue": 78,
+    "type": "SPECIAL"
   }
 ]

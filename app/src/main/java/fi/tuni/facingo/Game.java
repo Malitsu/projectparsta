@@ -195,6 +195,7 @@ public class Game extends AppCompatActivity {
             emotionInfoText = newQuestion.getEmotionInfoEn();
         }
 
+        ProgressController.checkForSpecials(newQuestion.getId(), getApplicationContext());
 
         //Set image to image view
         int resourceName = Util.getDrawableResourceByName(questionImgName, this);

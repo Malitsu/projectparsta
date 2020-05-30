@@ -70,6 +70,9 @@ public class ProgressController {
         }
     }
 
+    public static void checkForSpecials(int id, Context context) {
+    }
+
     public static void setMaxProgressLevel(Context context, int maxProgressLevelCurrently) {
         SharedPreferences sharedPreferences = getSharedPreferences(context);
         SharedPreferences.Editor editor = sharedPreferences.edit();
