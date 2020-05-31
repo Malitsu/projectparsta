@@ -123,10 +123,5 @@
     "id": 405,
     "requiredValue": 77,
     "type": "SPECIAL"
-  },
-  {
-    "id": 406,
-    "requiredValue": 78,
-    "type": "SPECIAL"
   }
 ]
